@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動式日文學習系統 - L19至L21教材平台</title>
+    <meta name="description" content="本平台以進學日文讀本 L19、L20、L21 課程為核心，提供文法教室、動詞自動變形模擬器、台灣學生易錯對決、以及多維度的拼句與閱讀互動測驗，助您快速攻克日文假設、授受與被動難關！">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background glowing decorative orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="container">
+        
+        <header>
+            <h1><i class="fas fa-torii-gate" style="margin-right: 0.5rem"></i> 互動式日文學習系統</h1>
+            <p>專門為 L19 (假設形)、L20 (授受表現)、L21 (被動形) 打造的深度學習空間</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs" id="main-nav">
+            <button class="tab-btn active" data-tab="grammar" id="tab-btn-grammar">
+                <i class="fas fa-book-open"></i> 文法教室
+            </button>
+            <button class="tab-btn" data-tab="conjugator" id="tab-btn-conjugator">
+                <i class="fas fa-sliders"></i> 動詞變形模擬器
+            </button>
+            <button class="tab-btn" data-tab="pitfalls" id="tab-btn-pitfalls">
+                <i class="fas fa-bolt"></i> 台生常犯錯誤對決
+            </button>
+            <button class="tab-btn" data-tab="quiz" id="tab-btn-quiz">
+                <i class="fas fa-gamepad"></i> 互動式挑戰
+            </button>
+        </nav>
+
+        <!-- Pitch Accent & Voice Assistant Card -->
+        <section class="card assistant-card" id="accent-assistant-card" style="margin-bottom: 2rem;">
+            <div class="assistant-header" id="assistant-toggle" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="font-size: 1.15rem; font-weight: 600; color: var(--color-cyan); display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                    <i class="fas fa-volume-up"></i> 日語發音與聲調學習助手 <span style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted); padding-left: 0.5rem;">| 聲調優化引擎與替代工具推薦</span>
+                </h3>
+                <span id="assistant-toggle-icon" style="color: var(--text-muted); transition: var(--transition);"><i class="fas fa-chevron-up"></i></span>
+            </div>
+            
+            <div class="assistant-content" id="assistant-content-box" style="margin-top: 1.25rem; transition: var(--transition);">
+                <div class="assistant-grid">
+                    <!-- Column 1: Settings & Lookup -->
+                    <div class="assistant-col-left">
+                        <div class="setting-item" style="margin-bottom: 1.25rem;">
+                            <h4 style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem; margin-top: 0;">
+                                <i class="fas fa-sliders-h" style="color: var(--color-violet)"></i> 發音引擎設定
+                            </h4>
+                            <div class="engine-buttons">
+                                <button class="engine-btn active" id="engine-btn-google" data-engine="google">
+                                    <i class="fab fa-google"></i> Google 聲調優化
+                                </button>
+                                <button class="engine-btn" id="engine-btn-browser" data-engine="browser">
+                                    <i class="fas fa-desktop"></i> 瀏覽器原生
+                                </button>
+                            </div>
+                            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem; margin-bottom: 0;">
+                                * 「Google 聲調優化」能完美唸出日文的高低起伏聲調 (Pitch Accent)，需連網。
+                            </p>
+                        </div>
+                        
+                        <div class="lookup-item">
+                            <h4 style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem; margin-top: 0;">
+                                <i class="fas fa-search" style="color: var(--color-emerald)"></i> 單字聲調快速查詢
+                            </h4>
+                            <div class="ojad-search-box">
+                                <input type="text" id="ojad-search-input" placeholder="輸入單字，例如：帰る">
+                                <button id="ojad-search-btn" class="action-btn" style="padding: 0.5rem 1rem; font-size: 0.85rem; box-shadow: none;">
+                                    <i class="fas fa-external-link-alt"></i> OJAD 查詢
+                                </button>
+                            </div>
+                            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem; margin-bottom: 0;">
+                                * 將在新分頁開啟東京大學研發的「OJAD 日語聲調辭典」並自動查詢該字。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Column 2: External Tools Recommendations -->
+                    <div class="assistant-col-right">
+                        <h4 style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.35rem; margin-top: 0;">
+                            <i class="fas fa-graduation-cap" style="color: var(--color-pink)"></i> 權威日語聲調與替代發音網站推薦
+                        </h4>
+                        <div class="recommend-tools">
+                            <a href="http://www.gavo.t.u-tokyo.ac.jp/ojad/" target="_blank" class="tool-link-card">
+                                <div class="tool-icon" style="background: rgba(0, 242, 254, 0.1); color: var(--color-cyan);"><i class="fas fa-book"></i></div>
+                                <div class="tool-info">
+                                    <div class="tool-name">OJAD 日語聲調辭典</div>
+                                    <div class="tool-desc">支援輸入動詞，呈現各種活用變形的聲調高低折線圖與示範發音。</div>
+                                </div>
+                            </a>
+                            <a href="http://www.gavo.t.u-tokyo.ac.jp/ojad/phrasing/index" target="_blank" class="tool-link-card">
+                                <div class="tool-icon" style="background: rgba(155, 81, 224, 0.1); color: var(--color-violet);"><i class="fas fa-chart-line"></i></div>
+                                <div class="tool-info">
+                                    <div class="tool-name">Suzuki 君 (韻律標記器)</div>
+                                    <div class="tool-desc">可貼入整句日文，自動分析並畫出整句的高低音折線圖，並可合成語音播放。</div>
+                                </div>
+                            </a>
+                            <a href="https://forvo.com/languages/ja/" target="_blank" class="tool-link-card">
+                                <div class="tool-icon" style="background: rgba(255, 0, 127, 0.1); color: var(--color-pink);"><i class="fas fa-users"></i></div>
+                                <div class="tool-info">
+                                    <div class="tool-name">Forvo 日語真人發音</div>
+                                    <div class="tool-desc">收錄全世界日語母語者的真實發音，方便比對個別單字不同地區的腔調。</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 1: GRAMMAR CLASSROOM -->
+        <main class="panel active" id="grammar-panel">
+            <div class="grammar-grid">
+                
+                <!-- Lesson 19 Card -->
+                <article class="card">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title">L19：假設形與勸告</h2>
+                        <span class="lesson-tag">L19 課文</span>
+                    </div>
+                    
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 1. 動詞・形容詞「ば形」</h3>
+                        <div class="grammar-formula">一類: う段 → え段 + ば | 二類: る → れば | 三類: すれば / くれば</div>
+                        <p class="grammar-desc">表示前面的條件成立時，後面就會跟著發生。常用於規律、邏輯成立的假設。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>時間が<span>あれば</span>、寝ます。</span>
+                                    <button class="play-btn" data-sentence="時間があれば、寝ます。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">如果有時間的話，我就會睡覺。</div>
+                            </li>
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>安<span>ければ</span>買います。</span>
+                                    <button class="play-btn" data-sentence="安ければ買います。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">如果便宜的話，我就買。</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 2. 假設與後續「たら」</h3>
+                        <div class="grammar-formula">動詞: 読んだら | い形: 寒かったら | な形/名: 元氣だったら / 獨身だったら</div>
+                        <p class="grammar-desc">口語中限制最少、使用範圍最廣的假設。包含「~之後」的確定假設用法。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>明日雨が<span>降ったら</span>行きません。</span>
+                                    <button class="play-btn" data-sentence="明日雨が降ったら行きません。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">如果明天下雨的話，我就不去。 (假設)</div>
+                            </li>
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>5時に<span>なったら</span>、帰ります。</span>
+                                    <button class="play-btn" data-sentence="5時になったら、帰ります。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">到了五點的話（之後），我就回家。 (確定條件)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 3. 建議與對策「なら」</h3>
+                        <div class="grammar-formula">常接名詞、形容詞、動詞普通形 + なら</div>
+                        <p class="grammar-desc">表示針對對方所提的事情，提供自己的意見、建議或判斷。後句多為建議或要求。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>日本に<span>行くなら</span>、ドライヤーを買ってきてください。</span>
+                                    <button class="play-btn" data-sentence="日本に行くなら、ドライヤーを買ってきてください。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">如果是要去日本的話，請幫我買吹風機回來。</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 4. 勸告「~たほうがいい」</h3>
+                        <div class="grammar-formula">肯定: Vた + ほうがいい | 否定: Vない + ほうがいい</div>
+                        <p class="grammar-desc">給予對方的強烈建議，「最好做某事」或「最好不要做某事」。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>早く<span>寝たほうがいい</span>ですよ。</span>
+                                    <button class="play-btn" data-sentence="早く寝たほうがいいですよ。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">你最好早點睡覺比較好喔。</div>
+                            </li>
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>無理を<span>しないほうがいい</span>と思います。</span>
+                                    <button class="play-btn" data-sentence="無理をしないほうがいいと思います。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">我覺得最好不要勉強自己比較好。</div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Lesson 20 Card -->
+                <article class="card">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title">L20：授受表現與原因</h2>
+                        <span class="lesson-tag">L20 課文</span>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 1. 行為的授受 (動作恩惠)</h3>
+                        <div class="grammar-formula">Vて + あげる (為他人) | てくれる (他人為我) | てもらう (得到幫助)</div>
+                        <p class="grammar-desc">日語中非常強調「視角」和「恩惠轉移」。他人為自己做動作，一定要表達感謝。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>田中さんは私に本を貸し<span>てくれました</span>。</span>
+                                    <button class="play-btn" data-sentence="田中さんは私に本を貸してくれました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">田中先生借書給我。 (我心存感激)</div>
+                            </li>
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>私は田中さんに作文を直し<span>てもらいました</span>。</span>
+                                    <button class="play-btn" data-sentence="私は田中さんに作文を直してもらいました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">我請田中先生幫忙修改了作文。 (受益者視角)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 2. 表示原因的「て形」</h3>
+                        <div class="grammar-formula">動詞/形容詞/名詞 + て形 (後句必須是非意志表現)</div>
+                        <p class="grammar-desc">表示因為前面的情況而引起後面的狀態，後句必須是生理現象、無法控制的事情或遺憾心情。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>ゆうべは<span>暑くて</span>よく眠れませんでした。</span>
+                                    <button class="play-btn" data-sentence="ゆうべは暑くてよく眠れませんでした。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">昨晚因為太熱了，所以沒能睡得好。</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 3. 逆接與驚訝「のに」</h3>
+                        <div class="grammar-formula">普通體 (な形/名詞 + なのに) + のに</div>
+                        <p class="grammar-desc">表示轉折，翻譯為「雖然...卻...」。多帶有說話者主觀的「意外、驚訝、不滿或生氣」等情緒。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>一生懸命勉強した<span>のに</span>、N1に合格できなかった。</span>
+                                    <button class="play-btn" data-sentence="一生懸命勉強したのに、N1に合格できなかった。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">雖然拼命學習了，卻沒能通過 N1。 (不甘心/失望)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 4. 發現的「たら」</h3>
+                        <div class="grammar-formula">Vたら + 過去式句尾 (た)</div>
+                        <p class="grammar-desc">表示「做了 S1 動作後，發現了 S2 意外的現象或結果」。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>かばんを<span>開けたら</span>、財布がなくなっていました。</span>
+                                    <button class="play-btn" data-sentence="かばんを開けたら、財布がなくなっていました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">一打開包包，才發現皮夾不見了。</div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Lesson 21 Card -->
+                <article class="card">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title">L21：被動語態與推測</h2>
+                        <span class="lesson-tag">L21 課文</span>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 1. 被動語態 (受身形)</h3>
+                        <div class="grammar-formula">一類: a段 + れる | 二類: られる | 三類: される / こられる</div>
+                        <p class="grammar-desc">表示主體受到他人的影響或動作。分為直接被動、間接被害被動（感到困擾）和無生物主體被動。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>私は先生に<span>ほめられました</span>。</span>
+                                    <button class="play-btn" data-sentence="私は先生にほめられました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">我被老師稱讚了。 (直接被動)</div>
+                            </li>
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>雨に<span>降られて</span>風邪を引きました。</span>
+                                    <button class="play-btn" data-sentence="雨に降られて風邪を引きました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">被雨淋了（淋雨受害）而感冒了。 (被害被動)</div>
+                            </li>
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>日本の車はいろいろな国へ<span>輸出されています</span>。</span>
+                                    <button class="play-btn" data-sentence="日本の車はいろいろな国へ輸出されています。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">日本車正向許多國家出口。 (無生物主語客觀描述)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 2. 間接轉述「ようにと言う」</h3>
+                        <div class="grammar-formula">Vる / Vない + ように + 言う/頼む/注意する</div>
+                        <p class="grammar-desc">用來間接轉述第三者指示、要求或警告的事情。類似英語的 indirect command。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>医者は主人にお酒を<span>飲まないようにと</span>注意しました。</span>
+                                    <button class="play-btn" data-sentence="医者は主人にお酒を飲まないようにと注意しました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">醫生叮囑丈夫不要喝酒。</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 3. 傳聞與推測「らしい」</h3>
+                        <div class="grammar-formula">普通形 (名詞/な形不加だ) + らしいです</div>
+                        <p class="grammar-desc">表示基於客觀客觀的事實或傳言所做出的合乎情理的推測。「似乎」、「聽說」。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>消防車が走っています。どこかで火事があった<span>らしい</span>です。</span>
+                                    <button class="play-btn" data-sentence="消防車が走っています。どこかで火事があったらしいです。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">消防車在跑，好像什麼地方失火了。</div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+        <!-- TAB 2: VERB CONJUGATOR -->
+        <section class="panel" id="conjugator-panel">
+            <div class="card" style="margin-bottom: 2rem">
+                <div class="lesson-header">
+                    <h2 class="lesson-title"><i class="fas fa-cog"></i> 動詞變形操作台</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-muted)">支援一類、二類、三類動詞，輸入原形動詞（如「飲む」）即可自動變形。</p>
+                </div>
+
+                <div class="conjugator-layout">
+                    <!-- Left: Selectors -->
+                    <div class="verb-selector">
+                        <div class="custom-input-box">
+                            <input type="text" id="custom-verb-input" placeholder="輸入動詞原形...（例如：洗う）">
+                            <button id="add-custom-verb-btn" class="action-btn" style="position: absolute; right: 4px; top: 4px; padding: 0.5rem 1rem; font-size: 0.85rem">
+                                <i class="fas fa-plus"></i> 新增
+                            </button>
+                        </div>
+                        <h3 style="font-size: 0.95rem; text-transform: uppercase; color: var(--color-cyan); margin-bottom: 0.5rem">快選課文動詞</h3>
+                        <div class="quick-verbs" id="verbs-quick-list">
+                            <!-- JS loaded buttons -->
+                        </div>
+                    </div>
+
+                    <!-- Right: Display Screen -->
+                    <div class="conjugation-display">
+                        <div class="verb-header">
+                            <div>
+                                <h3 class="verb-info-title" id="verb-info-name">---</h3>
+                                <span class="verb-info-type" id="verb-info-type">動詞類型</span>
+                            </div>
+                            <div style="text-align: right">
+                                <div style="font-size: 0.85rem; color: var(--text-muted)">中文意思</div>
+                                <div style="font-size: 1.15rem; font-weight: 600; color: var(--color-cyan)" id="verb-info-trans">---</div>
+                            </div>
+                        </div>
+
+                        <div class="conjugation-grid">
+                            <div class="conj-card">
+                                <div class="conj-label">原形 (辞書形)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value" id="val-dict" style="color: var(--text-primary)">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-dict" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">辭典中的動詞原始狀態。</div>
+                            </div>
+                            <div class="conj-card">
+                                <div class="conj-label">否定形 (ない形)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value negative" id="val-neg">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-neg" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">表示否定、不做的動作。</div>
+                            </div>
+                            <div class="conj-card">
+                                <div class="conj-label">て形 (連結)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value" id="val-te" style="color: var(--color-cyan)">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-te" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">動作相連，或 L20 非意志原因。</div>
+                            </div>
+                            <div class="conj-card">
+                                <div class="conj-label">た形 (過去)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value" id="val-ta" style="color: var(--color-cyan)">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-ta" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">過去式狀態，L19 / L20 假設。</div>
+                            </div>
+                            <div class="conj-card">
+                                <div class="conj-label">ば形 (L19 假定)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value" id="val-ba">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-ba" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">如果有前面動作的話，表示必然條件。</div>
+                            </div>
+                            <div class="conj-card">
+                                <div class="conj-label">たら形 (L19/L20 假設)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value" id="val-tara">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-tara" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">口語假設最常用，包含「～之後」。</div>
+                            </div>
+                            <div class="conj-card">
+                                <div class="conj-label">被動形 (L21 受身)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value passive" id="val-passive">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-passive" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">表示被動承受或被害困擾（られる/れる）。</div>
+                            </div>
+                            <div class="conj-card" style="grid-column: span 1">
+                                <div class="conj-label">最好做...(L19 勸告)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value" id="val-adv-pos" style="color: var(--color-orange)">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-adv-pos" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">給予對方的積極強烈勸告.</div>
+                            </div>
+                            <div class="conj-card" style="grid-column: span 1">
+                                <div class="conj-label">最好別做...(L19 勸告)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value" id="val-adv-neg" style="color: var(--color-orange)">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-adv-neg" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">勸阻對方做某個勉強的事情。</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: TAIWANESE PITFALLS -->
+        <section class="panel" id="pitfalls-panel">
+            <div class="pitfalls-container">
+                
+                <div class="card">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title"><i class="fas fa-times-circle" style="color: var(--color-pink)"></i> 痛點 1：授受表現中「助詞」大不同！</h2>
+                        <span class="lesson-tag">L20 授受補充</span>
+                    </div>
+                    <div class="pitfall-row">
+                        <div>
+                            <p style="margin-bottom: 1rem">中文我們習慣都用「幫<strong>給</strong>某人做...」，導致學生會一律套用助詞 **に**。但在日語中，助詞的選用完全取決於**動詞**的性質：</p>
+                            <table class="compare-table">
+                                <thead>
+                                    <tr>
+                                        <th>助詞</th>
+                                        <th>適用情境</th>
+                                        <th>常見動詞</th>
+                                        <th>經典例句</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong style="color: var(--color-cyan)">の</strong></td>
+                                        <td>動作的對象是接受者的**身體部位**或**所有物**</td>
+                                        <td>手伝う、直す、洗う、運ぶ、持つ</td>
+                                        <td>弟<span style="color: var(--color-cyan)">の</span>宿題を手伝ってあげる。 (手提/輔助所有物)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong style="color: var(--color-emerald)">を</strong></td>
+                                        <td>動作的直接對象**是人**（及物動詞）</td>
+                                        <td>送る、招待する、呼ぶ、連れて行く、しかる</td>
+                                        <td>留學生<span style="color: var(--color-emerald)">を</span>パーティーに呼んであげる。 (人是受詞)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="vs-divider-box" style="display: flex; flex-direction: column; justify-content: center; gap: 1rem">
+                            <div class="pitfall-code-card">
+                                <span class="pitfall-tag-wrong">常犯錯誤</span>
+                                <div class="pitfall-code-title" style="font-family: monospace; color: var(--text-muted)">
+                                    <i class="fas fa-times"></i> 弟<span style="color: var(--color-pink); font-weight:700">に</span>宿題を手伝ってあげました。
+                                </div>
+                                <p class="pitfall-code-desc">直接用「に」表示幫給弟弟做事，是生硬的中式日文。</p>
+                            </div>
+                            <div class="pitfall-code-card" style="border-color: var(--color-emerald)">
+                                <span class="pitfall-tag-correct">正確表達</span>
+                                <div class="pitfall-code-title" style="font-family: monospace; color: var(--text-primary)">
+                                    <i class="fas fa-check" style="color: var(--color-emerald)"></i> 弟<span style="color: var(--color-emerald); font-weight:700">の</span>宿題を手伝ってあげました。
+                                </div>
+                                <p class="pitfall-code-desc">因為手傳的是弟弟的「宿題」（所有物），所以使用「の」。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title"><i class="fas fa-times-circle" style="color: var(--color-pink)"></i> 痛點 2：忘記轉換為「受益者視角」(てくれる / てもらう)</h2>
+                        <span class="lesson-tag">學習心態轉折</span>
+                    </div>
+                    <div class="pitfall-row">
+                        <div>
+                            <p style="margin-bottom: 1rem">中文是「客觀事实描述」的語言，而日文則是「情感連動與感恩」的語言。台灣同學在描述別人幫自己做事時，常常只說客觀動詞（作りました），這在日語中聽起來是冷淡甚至失禮的。</p>
+                            <div style="background: rgba(15,23,42,0.4); padding: 1rem; border-radius: 12px; border: 1px solid var(--card-border); margin-top: 1rem">
+                                <div style="font-weight: 600; color: var(--color-cyan); margin-bottom: 0.5rem"><i class="fas fa-lightbulb"></i> 受益視角核心觀念</div>
+                                <ul style="list-style-position: inside; font-size: 0.95rem; color: var(--text-muted)">
+                                    <li><strong>～てくれた</strong>：主體是他人，強調「他人體貼我，為我做了事」。</li>
+                                    <li><strong>～てもらった</strong>：主體是我，強調「我請求並得到了他人的幫助」。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vs-divider-box" style="display: flex; flex-direction: column; justify-content: center; gap: 1rem">
+                            <div class="pitfall-code-card">
+                                <span class="pitfall-tag-wrong">常犯錯誤 (語氣冷淡)</span>
+                                <div class="pitfall-code-title" style="font-family: monospace; color: var(--text-muted)">
+                                    山田さんは料理を<span style="color: var(--color-pink); font-weight:700">作りました</span>。
+                                </div>
+                                <p class="pitfall-code-desc">聽起來像是在匯報「山田煮了飯」的客觀事實，沒有半點感激之意。</p>
+                            </div>
+                            <div class="pitfall-code-card" style="border-color: var(--color-emerald)">
+                                <span class="pitfall-tag-correct">正確表達 (富有人情味)</span>
+                                <div class="pitfall-code-title" style="font-family: monospace; color: var(--text-primary)">
+                                    山田さんは料理を<span style="color: var(--color-emerald); font-weight:700">作ってくれました</span>。
+                                </div>
+                                <p class="pitfall-code-desc">帶有濃濃的感謝心意：山田先生（特地）為我煮了料理！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title"><i class="fas fa-times-circle" style="color: var(--color-pink)"></i> 痛點 3：對上司、長輩用「てあげる」(極其失禮！)</h2>
+                        <span class="lesson-tag">台生高頻雷區</span>
+                    </div>
+                    <div class="pitfall-row">
+                        <div>
+                            <p style="margin-bottom: 1rem">「あげる / てあげる」暗示著一種 **上對下**、施捨恩惠的語氣。如果您對老師或老闆說這個詞，會讓人有一種「我在恩賜你、為你施恩並要求你感謝」的傲慢感。</p>
+                            <div style="background: rgba(15,23,42,0.4); padding: 1rem; border-radius: 12px; border: 1px solid var(--card-border); margin-top: 1rem">
+                                <div style="font-weight: 600; color: var(--color-orange); margin-bottom: 0.5rem"><i class="fas fa-exclamation-triangle"></i> 禮貌替代公式：</div>
+                                <ul style="list-style-position: inside; font-size: 0.95rem; color: var(--text-muted)">
+                                    <li>改用提議語氣：<strong>～ましょうか</strong> (我來...好嗎？)</li>
+                                    <li>改用謙讓語結構：<strong>お + 動詞ます形去ます + します</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vs-divider-box" style="display: flex; flex-direction: column; justify-content: center; gap: 1rem">
+                            <div class="pitfall-code-card">
+                                <span class="pitfall-tag-wrong">長輩面前禁用 (失禮/高傲)</span>
+                                <div class="pitfall-code-title" style="font-family: monospace; color: var(--text-muted)">
+                                    先生、荷物を持って<span style="color: var(--color-pink); font-weight:700">あげます</span>。
+                                </div>
+                                <p class="pitfall-code-desc">潛台詞：「老師，我施恩幫你提行李囉，感恩我吧！」</p>
+                            </div>
+                            <div class="pitfall-code-card" style="border-color: var(--color-emerald)">
+                                <span class="pitfall-tag-correct">正確表達 (謙遜優美)</span>
+                                <div class="pitfall-code-title" style="font-family: monospace; color: var(--text-primary)">
+                                    先生、荷物を<span style="color: var(--color-emerald); font-weight:700">お持ちします</span>。
+                                </div>
+                                <p class="pitfall-code-desc">使用「お持ちします」(謙讓表現)，謙虛地表達自己願意為老師分擔重物。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 4: INTERACTIVE QUIZ & COMPREHENSION -->
+        <section class="panel" id="quiz-panel">
+            <div class="quiz-layout">
+                
+                <!-- Main Game Interface -->
+                <div class="card" style="margin-bottom: 2rem">
+                    <div class="quiz-progress">
+                        <span id="quiz-progress-text" style="font-size: 0.95rem; font-weight:600; color: var(--color-cyan)">載入中...</span>
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+                        </div>
+                        <span style="font-size: 0.85rem; color: var(--text-muted)">105分滿分挑戰</span>
+                    </div>
+
+                    <!-- Question dynamic box -->
+                    <div id="quiz-question-container">
+                        <!-- Loaded dynamically -->
+                    </div>
+
+                    <!-- Options (Choice buttons or Chips pool) -->
+                    <div id="quiz-options-container">
+                        <!-- Loaded dynamically -->
+                    </div>
+
+                    <!-- Explanatory feedback box (hidden initially) -->
+                    <div class="feedback-box" id="quiz-feedback" style="display: none">
+                        <!-- Loaded dynamically after submission -->
+                    </div>
+
+                    <!-- Submit & Next Button controls -->
+                    <div class="quiz-controls">
+                        <button class="action-btn secondary" onclick="resetQuiz()" id="quiz-restart-btn">
+                            <i class="fas fa-undo"></i> 重置測驗
+                        </button>
+                        <div>
+                            <button class="action-btn" id="quiz-submit-btn" disabled>
+                                <i class="fas fa-check"></i> 提交回答
+                            </button>
+                            <button class="action-btn" id="quiz-next-btn" style="display: none">
+                                下一題 <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reading comprehension reference material panel -->
+                <div class="card">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title"><i class="fas fa-file-text"></i> 互動閱讀器：土鍋煮飯方法</h2>
+                        <span class="lesson-tag">L19 閱讀文</span>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem">
+                        <i class="fas fa-info-circle"></i> 這是 L19 測驗第五大題的文章。將滑鼠游標移至<strong><u>底線單字</u></strong>上即可即時查看繁體中文翻譯！
+                    </p>
+
+                    <div class="reading-layout">
+                        <!-- Left: Japanese Text -->
+                        <div class="reading-passage">
+                            <h3 class="passage-title">土なべでご飯を炊く方法</h3>
+                            <p>
+                                土で作ったなべ「<span class="jp-word" data-translation="土砂鍋">土なべ</span>」でご飯を<span class="jp-word" data-translation="煮(飯)">炊く</span>方法を紹介しましょう。
+                                土なべで炊くと、<span class="jp-word" data-translation="電子鍋">電気釜</span>よりずっとおいしいごはんができます。
+                            </p>
+                            <p>
+                                まず、米２合(※１)を洗い、<span class="jp-word" data-translation="篩子/瀝水網">ざる</span>に入れて、<span class="jp-word" data-translation="水滴乾/濾乾">水が切れる</span>(※３)まで 30 分待ちます。
+                                それから、土なべに米を入れて、水を 400 ㏄加えます。<span class="jp-word" data-translation="平坦的">平らな</span>ふたを先に置き、それから大きいふたをして、そのまま置いておきます。
+                            </p>
+                            <p>
+                                <span class="jp-word" data-translation="經過20分鐘後">20 分たったら</span>ガスに火をつけます。火は普通の強さにして、<span class="jp-word" data-translation="經過15分鐘後">15 分たったら</span>、白い<span class="jp-word" data-translation="蒸氣/水氣">湯気</span>が出ているのを確認して、火を止めます。
+                                そして、そのまま置いておきましょう。<span class="jp-word" data-translation="20分鐘後">20 分後に</span>できあがりです。<span class="jp-word" data-translation="中途/半路">途中</span>でふたを開けて中を見てはいけません。できあがったら、ほかの入れ物に移しましょう。
+                            </p>
+                            <p>
+                                柔らかいご飯がいい場合は、少しだけ水の量を増やしてください。ただし、時間は決められたとおりにしてください。
+                            </p>
+                            <div class="vocab-note">
+                                <strong>補充註釋：</strong><br>
+                                (※1) 合(ごう)：米或酒的度量單位，1合＝180 cc<br>
+                                (※2) ざる：有網眼的竹篩、瀝水籃架<br>
+                                (※3) 水が切れる：水分完全濾乾、不殘留水
+                            </div>
+                        </div>
+
+                        <!-- Right: Educational summary / tips -->
+                        <div style="display:flex; flex-direction:column; justify-content:center; gap: 1rem">
+                            <div style="background: rgba(0, 242, 254, 0.05); border: 1px solid var(--color-cyan); padding: 1.25rem; border-radius: 12px">
+                                <h4 style="color: var(--color-cyan); margin-bottom: 0.5rem"><i class="fas fa-clock"></i> 時間線對照梳理：</h4>
+                                <ul style="list-style-position: inside; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6">
+                                    <li>洗米並濾乾：<strong>30分鐘</strong></li>
+                                    <li>加水靜置：<strong>20分鐘</strong> (蓋上兩層蓋子)</li>
+                                    <li>開中火煮飯：<strong>15分鐘</strong> (直至冒白氣)</li>
+                                    <li>關火悶飯：<strong>20分鐘</strong> (中途切忌開蓋)</li>
+                                    <li>總耗時：<strong>約1小時25分</strong></li>
+                                </ul>
+                            </div>
+                            <div style="background: rgba(255, 0, 127, 0.05); border: 1px solid var(--color-pink); padding: 1.25rem; border-radius: 12px">
+                                <h4 style="color: var(--color-pink); margin-bottom: 0.5rem"><i class="fas fa-lightbulb"></i> 閱讀考點提醒：</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5">
+                                    此文章考察對「假設與步驟」的關聯。例如問句「飯煮好後，以下做法何者不符？」，正確答案為「不能一直把飯留在土鍋裡 (移しましょう)」，悶飯時「不能中途開蓋子」等。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Main JavaScript Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
