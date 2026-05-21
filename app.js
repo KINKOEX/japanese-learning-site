@@ -12,6 +12,22 @@ const verbsDB = [
     { kanji: "遊ぶ", roma: "asobu", type: 1, base: "遊", end: "ぶ", translation: "玩耍" },
     { kanji: "読む", roma: "yomu", type: 1, base: "読", end: "む", translation: "閱讀" },
     { kanji: "帰る", roma: "kaeru", type: 1, base: "帰", end: "る", translation: "回家" },
+    { kanji: "聞く", roma: "kiku", type: 1, base: "聞", end: "く", translation: "聽/問" },
+    { kanji: "しかる", roma: "shikaru", type: 1, base: "しか", end: "る", translation: "責備" },
+    { kanji: "盗む", roma: "nusumu", type: 1, base: "盗", end: "む", translation: "偷竊" },
+    { kanji: "破る", roma: "yaburu", type: 1, base: "破", end: "る", translation: "撕毀" },
+    { kanji: "降る", roma: "furu", type: 1, base: "降", end: "る", translation: "下(雨/雪)" },
+    { kanji: "誘う", roma: "sasou", type: 1, base: "誘", end: "う", translation: "邀請" },
+    { kanji: "壊す", roma: "kowasu", type: 1, base: "壊", end: "す", translation: "破壞" },
+    { kanji: "受け取る", roma: "uketoru", type: 1, base: "受け取", end: "る", translation: "接受/領取" },
+    { kanji: "断る", roma: "kotowaru", type: 1, base: "断", end: "る", translation: "拒絕" },
+    { kanji: "決まる", roma: "kimaru", type: 1, base: "決ま", end: "る", translation: "決定(自動)" },
+    { kanji: "集まる", roma: "atsumaru", type: 1, base: "集ま", end: "る", translation: "聚集" },
+    { kanji: "しまる", roma: "shimaru", type: 1, base: "しま", end: "る", translation: "關閉(自動)" },
+    { kanji: "泣く", roma: "naku", type: 1, base: "泣", end: "く", translation: "哭泣" },
+    { kanji: "笑う", roma: "warau", type: 1, base: "笑", end: "う", translation: "笑" },
+    { kanji: "怒る", roma: "okoru", type: 1, base: "怒", end: "る", translation: "生氣" },
+    { kanji: "驚く", roma: "odoroku", type: 1, base: "驚", end: "く", translation: "驚訝" },
     { kanji: "のどが渇く", roma: "nodo ga kawaku", type: 1, base: "のどが渇", end: "く", translation: "喉嚨渴" },
     { kanji: "間に合う", roma: "maniau", type: 1, base: "間に合", end: "う", translation: "來得及" },
     { kanji: "飼う", roma: "kau", type: 1, base: "飼", end: "う", translation: "飼養" },
@@ -25,180 +41,346 @@ const verbsDB = [
     { kanji: "調べる", roma: "shiraberu", type: 2, base: "調べ", end: "る", translation: "調查" },
     { kanji: "覚える", roma: "oboeru", type: 2, base: "覚え", end: "る", translation: "記住/學習" },
     { kanji: "つかれる", roma: "tsukareru", type: 2, base: "つかれ", end: "る", translation: "疲倦" },
-    { kanji: "閉める", roma: "shimeru", type: 2, base: "閉め", end: "る", translation: "關閉" },
+    { kanji: "閉める", roma: "shimeru", type: 2, base: "閉め", end: "る", translation: "關閉(他動)" },
     { kanji: "忘れる", roma: "wasureru", type: 2, base: "忘れ", end: "る", translation: "忘記" },
+    { kanji: "決める", roma: "kimeru", type: 2, base: "決め", end: "る", translation: "決定(他動)" },
     // Group 3
     { kanji: "する", roma: "suru", type: 3, base: "", end: "する", translation: "做" },
     { kanji: "来る", roma: "kuru", type: 3, base: "", end: "来る", translation: "來" },
     { kanji: "予約する", roma: "yoyakusuru", type: 3, base: "予約", end: "する", translation: "預約" },
-    { kanji: "質問する", roma: "shitsumonsuru", type: 3, base: "質問", end: "する", translation: "提問" }
+    { kanji: "質問する", roma: "shitsumonsuru", type: 3, base: "質問", end: "する", translation: "提問" },
+    { kanji: "感動する", roma: "kandousuru", type: 3, base: "感動", end: "する", translation: "感動" }
 ];
 
-// Quiz Questions Database (L19 - L21 Content)
-const quizQuestions = [
-    {
-        type: "radio",
-        question: "わたしは夏休みに______北海道へ行こうと思っています。",
-        options: [
-            "なれば",
-            "なったら",
-            "なるなら"
-        ],
-        answer: 1, // index 1: なったら (tara is most appropriate for chronological sequence/certain time in future)
-        explanation: "「なったら」表示等到了那個時間點之後。夏天是一定會到來的（時間的轉移後果），在口語中最常用「～たら」表示時間的順序關係（當...之後）。"
-    },
-    {
-        type: "radio",
-        question: "ここを______ふたが開きます。",
-        options: [
-            "押すと",
-            "押すなら",
-            "押せば"
-        ],
-        answer: 0, // index 0: 押すと (natural/inevitable consequence)
-        explanation: "「～と」表示必然的結果（機器操作、自然規律等），翻譯為「一按這裡，蓋子就會打開」。"
-    },
-    {
-        type: "radio",
-        question: "来年アメリカへ行くそうですね。アメリカへ______その前に車の運転を習っておいたほうがいいです。",
-        options: [
-            "行けば",
-            "行ったら",
-            "行くなら"
-        ],
-        answer: 2, // index 2: 行くなら (nara is used for giving advice before the action takes place)
-        explanation: "在要去美國（未發生的動作）之前先學開車，這種提供建議、對策的用法必須使用「～なら」（如果是要去的話...）。"
-    },
-    {
-        type: "radio",
-        question: "A：「日本語を習いたいですが」<br>B：「日本語を______東呉の推広班のほうがいいですよ。」",
-        options: [
-            "習うなら",
-            "習えば",
-            "習ったら"
-        ],
-        answer: 0, // index 0: 習うなら (advice/suggestion)
-        explanation: "根據對方剛才說的話（想要學日文），給予建議或提議，應使用「～なら」（如果是要學日文的話...）。"
-    },
-    {
-        type: "radio",
-        question: "このことばは辞書を______分からないでしょう。",
-        options: [
-            "見れば",
-            "見ても",
-            "見なければ"
-        ],
-        answer: 2, // index 2: 見なければ (Vなければ...ない)
-        explanation: "句尾是「分からないでしょう」（可能不懂吧），表示否定。因此前半句為「如果不查字典的話」 -> 「見なければ」 。"
-    },
-    {
-        type: "radio",
-        question: "A：「日本語がもっと上手になりたいな。」<br>B：「日本語が上手になりたい______、たくさんの人と日本語で話すことだ。」",
-        options: [
-            "なら",
-            "たら",
-            "ば"
-        ],
-        answer: 0, // index 0: なら
-        explanation: "「なら」常用於針對對方的期望或計劃給予「建議、忠告」。句尾的「話すことだ」是「應該去說...」的建議語氣。"
-    },
-    {
-        type: "radio",
-        question: "（失禮避坑題）當你想幫日文老師拿行李時，以下哪句日文是**最得體、最禮貌**的？",
-        options: [
-            "先生、荷物を持ってあげます。",
-            "先生、荷物を持ってくれますか。",
-            "先生、荷物をお持ちします。"
-        ],
-        answer: 2, // index 2: 先生、荷物をお持ちします。(謙讓表現)
-        explanation: "「Vてあげる」有由上對下的施恩感，在長輩或老師面前使用極其失禮！最得體的說法是使用謙讓語「お持ちします」或提議「持ちましょうか」。"
-    },
-    {
-        type: "radio",
-        question: "（視角分析題）媽媽今天早上幫我做便當，要表達感謝，應該說：",
-        options: [
-            "母は今朝お弁当を作りました。",
-            "母は今朝お弁当を作ってくれました。",
-            "わたしは母に今朝お弁当を作ってあげました。"
-        ],
-        answer: 1, // index 1: 作ってくれました
-        explanation: "日文習慣把「恩惠感」表達出來，如果僅用普通的動詞形式（作りました），顯得冷淡。他人為我做事，應使用「Vてくれる」表達感謝之意。"
-    },
-    {
-        type: "radio",
-        question: "（受身形應用）我的日記被姐姐偷看了（感到很困擾），日語的說法應該是：",
-        options: [
-            "姉は日記を読みました。",
-            "わたしの日記は姉に読まれました。",
-            "私は姉に日記を読まれました。"
-        ],
-        answer: 2, // index 2: 私は姉に日記を読まれました (Adversative passive structure: Subj は Agent に Obj を Verb-passive)
-        explanation: "表示自己所有的東西（日記）被他人做出某動作，而自己感到困擾（間接被害被動），標準結構是「主語（被害者）は＋行為者に入力對象を＋被動動詞」。"
-    },
-    {
-        type: "radio",
-        question: "（好的事情 vs 困擾的事情）早上被爸爸早早叫醒（我想多睡一會，覺得很煩），日語應選用哪種說法？",
-        options: [
-            "わたしは毎朝早く父に起こされました。",
-            "私は父に毎朝起こしてもらいました。",
-            "父は毎朝早くわたしを起こしてあげました。"
-        ],
-        answer: 0, // index 0: 起こされました (Passive expresses annoyance / unwanted event)
-        explanation: "日語中，受到他人行為時：好的事情（心存感激）使用「～てもらう」，討厭或困擾的事情使用「被動形（起こされる）」。"
-    },
-    {
-        type: "radio",
-        question: "醫生叮囑丈夫「不要喝酒」，間接轉述命令的日文是：<br>医者は主人にお酒を______ようにと注意しました。",
-        options: [
-            "飲まない",
-            "飲む",
-            "飲まれる"
-        ],
-        answer: 0, // index 0: 飲まない
-        explanation: "「～ように言う/注意する」前接動詞「る形」（要求做某事）或「ない形」（要求不要做某事）。不要喝酒 -> 「飲まないように」。"
-    },
-    {
-        type: "radio",
-        question: "陳老師研究室的燈熄了。他「似乎」已經回家了（基於現狀推測）。",
-        options: [
-            "先生はもう帰るらしいです。",
-            "先生はもう帰ったらしいです。",
-            "先生はもう帰ったらしくないです。"
-        ],
-        answer: 1, // index 1: 帰ったらしいです
-        explanation: "「らしい」表示推測，前接動詞普通體。此時人已經回家了（過去發生），因此使用過去式「帰った」＋「らしいです」。注意「らしい」用作推論時一般沒有否定形「らしくない」。"
-    },
-    {
-        type: "arrange",
-        question: "請重組以下單字卡片，拼出正確的日文句子：<br>『這是看起來便宜，但意外地貴。』",
-        chips: ["これは", "安そうに", "見えるが", "案外", "高い"],
-        answer: "これは 安そうに 見えるが 案外 高い",
-        explanation: "此題出自小測驗的句子重組題。「安そうに見える」（看起來很便宜），「案外高い」（出乎意料地貴）。"
-    },
-    {
-        type: "arrange",
-        question: "請重組以下單字卡片，拼出正確的日文句子：<br>『如果是要去參加比賽的話，最好早點開始做準備。』",
-        chips: ["コンテストに", "出るなら", "早く", "準備を", "始めたほうが", "いいです"],
-        answer: "コンテストに 出るなら 早く 準備を 始めたほうが いいです",
-        explanation: "運用了 L19 的「出るなら」（如果是要參加的話 - 提案/建議前置）以及「～たほうがいいです」（最好...比較好 - 強烈建議）。"
-    },
-    {
-        type: "radio",
-        question: "（土鍋煮飯閱讀題）關於煮飯時的「水」，文章中敘述正確的是：",
-        options: [
-            "水的量大約是米量的2倍。",
-            "洗完米後，必須把水濾乾瀝乾（30分鐘）。",
-            "米放在水裡泡的時候，不要蓋蓋子。",
-            "水的量和飯的軟硬度完全沒有關係。"
-        ],
-        answer: 1, // index 1: 洗完米後，必須濾乾
-        explanation: "原文為：「まず、米２合を洗い、ざるに入れて、水が切れるまで 30 分待ちます。」（首先洗兩合米，放進篩子裡，等待濾乾30分鐘）。因此濾乾是正確步驟。"
-    }
-];
+// Quiz Categories Databases (L19小測驗, L21-22綜合挑戰, 土鍋閱讀測驗)
+const quizCategories = {
+    l19: [
+        {
+            type: "radio",
+            question: "わたしは夏休みに______北海道へ行こうと思っています。",
+            options: ["なれば", "なったら", "なるなら"],
+            answer: 1,
+            explanation: "「なったら」表示等到了那個時間點之後。夏天是一定會到來的（時間的推移/確定條件），在口語中最常用「～たら」表示前後動作的順序關係（當...之後）。"
+        },
+        {
+            type: "radio",
+            question: "かにを______やはり北海道ですね。",
+            options: ["食べたら", "食べるなら"],
+            answer: 1,
+            explanation: "「～なら」表示針對對方提出的事情，給予建議或判斷。意思是「如果是要吃螃蟹的話，那當然是北海道囉」。"
+        },
+        {
+            type: "radio",
+            question: "這裡按下去的話，蓋子就會打開：<br>ここを______ふたが開きます。",
+            options: ["押すと", "押すなら"],
+            answer: 0,
+            explanation: "「～と」表示機器操作、物理自然現象等必然引起的結果。翻譯為「一按這裡，蓋子就會打開」。"
+        },
+        {
+            type: "radio",
+            question: "来年アメリカへ行くそうですね。アメリカへ______その前に車の運転を習っておいたほうがいいです。",
+            options: ["行けば", "行ったら", "行くなら"],
+            answer: 2,
+            explanation: "針對要去美國（未發生的動作）之前先學開車，這種提供建議、對策的用法必須使用「～なら」（如果是要去的話...）。"
+        },
+        {
+            type: "radio",
+            question: "A：「日本語を習いたいですが」<br>B：「日本語を______東呉の推広班のほうがいいですよ。」",
+            options: ["習うなら", "習えば"],
+            answer: 0,
+            explanation: "根據對方提出的意願，給予建議，應使用「普通形 + なら」。"
+        },
+        {
+            type: "radio",
+            question: "這個字就算查了字典，大概還是不懂吧：<br>このことばは辞書を______分からないでしょう。",
+            options: ["見れば", "見ても", "見るなら"],
+            answer: 1,
+            explanation: "後半句為「不懂吧」，表示縱使做了查字典的動作也無效，這屬於逆接假定（即使...也），應使用「Vても」（見ても）。"
+        },
+        {
+            type: "radio",
+            question: "来週東京へ出張しますから、東京へ______友達に会いたいです。",
+            options: ["行けば", "行ったら"],
+            answer: 1,
+            explanation: "「友達に会いたい」表示說話者的個人希望。假定句中，只有「～たら」後句可以接意志、命令或希望的表達。「行ったら」意為「到了東京之後，我想去見朋友」。"
+        },
+        {
+            type: "radio",
+            question: "明天如果天氣晴朗的話，我就去海邊：<br>あした______海へ行きます。",
+            options: ["晴れると", "晴れれば"],
+            answer: 1,
+            explanation: "「海へ行きます」是意志表達，不能接在表示自然規律、一...就...的「～と」後面；而「晴れれば」後句可以跟隨意志行為。"
+        },
+        {
+            type: "radio",
+            question: "急げば 9 時の高鉄に______。",
+            options: ["乗れます", "乗ります"],
+            answer: 0,
+            explanation: "「急げば」（如果趕快的話）後面搭配「能搭上」的可能形動詞「乗れます」最符合邏輯。"
+        },
+        {
+            type: "radio",
+            question: "這是必要的東西，所以即使很貴也必須買：<br>これは必要なものですから、______買わなければなりません。",
+            options: ["高ければ", "高くても"],
+            answer: 1,
+            explanation: "「即使貴也必須買」是讓步/逆接條件，應使用形容詞去 `い` 加上 `くても` $\rightarrow$ `高くても`。"
+        },
+        {
+            type: "radio",
+            question: "便宜的話大家都會買吧：<br>安いと______。",
+            options: ["買いましょう", "みんなが買うでしょう"],
+            answer: 1,
+            explanation: "「～と」的前後句有客觀因果關係，後句絕對不能接說話者的主觀意志、命令、勸誘（如「買いましょう」），因此只能接客觀推測「みんなが買うでしょう」。"
+        },
+        {
+            type: "radio",
+            question: "______相談に来てください。",
+            options: ["困ったら", "困ると"],
+            answer: 0,
+            explanation: "「相談に来てください」（請來商量）是請求、要求。句尾為要求/請求時，前句的假定條件只能用「～たら」，不能用「～と」。"
+        },
+        {
+            type: "radio",
+            question: "錄音聽聽看自己的聲音，聽起來會像別人的聲音所以會嚇一跳：<br>自分の声を録音して______ほかの人の声のように聞こえるのでびっくりします。",
+            options: ["聞いてみると", "聞いてみるなら"],
+            answer: 0,
+            explanation: "表示一做某動作，就隨之發現了後續的客觀現象或結果，應使用「Vてみると」（一試聽，就...）。"
+        },
+        {
+            type: "radio",
+            question: "收到信的話，最好馬上寫回信比較好：<br>手紙を______すぐ返事を書いたほうがいい。",
+            options: ["もらうなら", "もらったら", "もらえば"],
+            answer: 1,
+            explanation: "表示事情發生之後（收到信之後），最廣泛使用的條件句是「～たら」 $\rightarrow$ 「もらったら」。"
+        },
+        {
+            type: "radio",
+            question: "練習的話就會變厲害，所以請一定要參加看看：<br>練習を______上手になるから、ぜひ出てみてください。",
+            options: ["するなら", "すれば"],
+            answer: 1,
+            explanation: "「練習すれば上手になる」是一般的規律與自然因果（只要練習就會進步），使用「～ば」最恰當。"
+        },
+        // Particle Fill-in-the-blank questions (from test paper Part 2)
+        {
+            type: "radio",
+            question: "（助詞題）夜遅く 1 人で外______歩くのは危ないです。",
+            options: ["を", "が", "に"],
+            answer: 0,
+            explanation: "「歩く」表示移動的動作，移動的空間場所（在外面走）助詞使用「を」。"
+        },
+        {
+            type: "radio",
+            question: "（助詞題）予定______変わったら、知らせてください。",
+            options: ["を", "が", "に"],
+            answer: 1,
+            explanation: "「変わる」是自動詞（改變），其主語（計畫）後面應使用主格助詞「が」。"
+        },
+        {
+            type: "radio",
+            question: "（助詞題）来年の 4 月______妹が日本へ来ます。",
+            options: ["を", "が", "に"],
+            answer: 2,
+            explanation: "具體時間（4月）後面要加上表示時間點的助詞「に」。"
+        },
+        {
+            type: "radio",
+            question: "（助詞題）そうしたら私は大学の寮______出て、妹と二人で住むつもりです。",
+            options: ["を", "が", "に"],
+            answer: 0,
+            explanation: "「出る」表示離開的地點，離開、出發的場所後面助詞使用「を」。"
+        },
+        {
+            type: "radio",
+            question: "（助詞題）北海道へ旅行に行くつもりです。林さんにどんな行き方がある______聞いてみた。",
+            options: ["を", "か", "に"],
+            answer: 1,
+            explanation: "「どんな行き方があるか」是嵌入句（間接疑問句，去哪裡、有什麼方法），結尾使用疑問助詞「か」。"
+        },
+        {
+            type: "radio",
+            question: "（助詞題）家族______台湾へ来たら、どこへ連れて行きたいんですか。",
+            options: ["が", "を", "に"],
+            answer: 0,
+            explanation: "在假定子句「家族が台灣へ来たら」中，子句的主語（家人）助詞使用「が」，不能用「は」。"
+        },
+        {
+            type: "radio",
+            question: "（助詞題）「このエアコン、修理に 3 万円はかかりますよ。」<br>「えっ！3 万円______かかるんですか。高いですね。」",
+            options: ["を", "も", "に"],
+            answer: 1,
+            explanation: "「も」接在數量詞後面，表示驚訝於數量之多（竟然要花到三萬日幣啊！）。"
+        },
+        {
+            type: "radio",
+            question: "（助詞題）パソコンを買う______ノート型が軽くて便利です。",
+            options: ["が", "なら", "に"],
+            answer: 1,
+            explanation: "「～なら」表示針對前面提到的話題（如果要買電腦的話）提出建議。「電腦的話，筆記型很輕很方便喔」。"
+        },
+        {
+            type: "radio",
+            question: "（助詞題）ホテル______着いたら、すぐ電話を掛けます。",
+            options: ["を", "が", "に"],
+            answer: 2,
+            explanation: "「着く」是到達動詞，到達的目的地後面助詞使用「に」。"
+        },
+        {
+            type: "radio",
+            question: "（助詞題）急げば 8 時 10 分の授業______間に合うでしょう。",
+            options: ["を", "g", "に"],
+            answer: 2,
+            explanation: "「間に合う」表示來得及，來得及的對象/目標（課堂、班車等）助詞固定搭配「に」。"
+        }
+    ],
+    l21: [
+        {
+            type: "arrange",
+            question: "（課文對話重組）請重組卡片拼出 L21 對話：<br>『上週五早上我把車停在車站前，可是回來看的時候就不見了。』",
+            chips: ["先週の金曜日の朝、", "駅の前に", "止めておいたんですが、", "帰りに見たら、", "なかったんです。"],
+            answer: "先週の金曜日の朝、 駅の前に 止めておいたんですが、 帰りに見たら、 なかったんです。",
+            explanation: "這句包含了「Vておく」（事先做好準備）的過去式「止めておいた」，以及「見たら、なかった」（一看發現不見了的「たら」發現與意外用法）。"
+        },
+        {
+            type: "radio",
+            question: "（課文對話）接續前句，對方推測說『應該是有人把鎖弄壞，把車騎走了吧。』，日文是：",
+            options: [
+                "だれかがかぎを壊して、乗って行ってしまったんでしょう。",
+                "だれかにかぎを壊されて、乗って行かれました。",
+                "だれかがかぎを壊して、乗って行きました。"
+            ],
+            answer: 0,
+            explanation: "「Vてしまう」表示遺憾、不好的結果；「～んでしょう」表示帶有依據的推論（因為車子不見了）。"
+        },
+        {
+            type: "arrange",
+            question: "（課文對話重組）請重組卡片拼出對話：<br>『最好先去報警比較好，因為他們可能會幫你找。』",
+            chips: ["警察に", "届けを出しておいた", "方がいいですよ。", "探してくれる", "かもしれませんから。"],
+            answer: "警察に 届けを出しておいた 方がいいですよ。 探してくれる かもしれませんから。",
+            explanation: "「～たほうがいい」表示強烈建議，「～ておく」表示事先做好準備；「～かもしれません」表示不確定推測，「から」在句尾倒裝表示理由。"
+        },
+        {
+            type: "radio",
+            question: "（課文對話）『昨天被中川太太你這麼一說，所以我馬上去警察局試試看。』，日文是：",
+            options: [
+                "昨日中川さんに言わせたので、さっそく警察へ行きました。",
+                "昨日中川さんに言われたので、さっそく警察へ行ってみました。",
+                "昨日中川さんは私に言ったので、さっそく警察へ行きました。"
+            ],
+            answer: 1,
+            explanation: "「中川さんに言われた」是被動形，表示被中川太太勸告（動作發出者 + に + 被動動詞）。「行ってみました」表示嘗試做某事。"
+        },
+        {
+            type: "radio",
+            question: "（被動被害）我的 T 恤被弟弟弄髒了（2萬元買的，很心痛），以下說法哪句**最自然、最符合日文習慣**？",
+            options: [
+                "私のTシャツは弟に汚されました。",
+                "私は弟にTシャツを汚されました。",
+                "弟は私のTシャツを汚されました。"
+            ],
+            answer: 1,
+            explanation: "日語在表示「自己所有的物件被他人做出某動作，而自己感到困擾」時（間接被害被動），主語必須是「我」（被害者），即「私は行為者に物品を被動動詞」。中文直譯的「我的T恤被弄髒了」在日文聽起來極度不自然。"
+        },
+        {
+            type: "radio",
+            question: "（自動詞被動）深夜被小孩一直哭，結果我沒能睡好（感到困擾無奈）：",
+            options: [
+                "夜中に子供は泣かれて寝られませんでした。",
+                "夜中に子供に泣かれて寝られませんでした。",
+                "私は夜中に子供を泣かせて寝ませんでした。"
+            ],
+            answer: 1,
+            explanation: "日文特有的「自動詞被害被動」：別人做出某動作（哭泣），對我產生困擾影響。句型為：`私は子供に泣かれた`（我被小孩哭了）。"
+        },
+        {
+            type: "radio",
+            question: "（使役被動）我是被媽媽逼著去買菜的（覺得超麻煩很不甘願）：",
+            options: [
+                "私は母に買い物に行かせられました。",
+                "私は母に買い物に行かされました。",
+                "I was made to go shopping by mother."
+            ],
+            answer: 1,
+            explanation: "被動＋使役（被逼著做某事）的「使役被動形」。一類動詞 `行く` 變形為 `行かされる`。(`行かせられる` 雖然語法也通，但口語一般縮約為 `行かされる`。)"
+        },
+        {
+            type: "radio",
+            question: "（使役助詞）『老師讓學生寫作文。』由於『寫作文』的他動詞屬性，學生的助詞應是：",
+            options: [
+                "先生は学生を作文を書かせました。",
+                "先生は学生に作文を書かせました。",
+                "先生は学生が作文を書かせました。"
+            ],
+            answer: 1,
+            explanation: "使役句助詞規則：後方動詞若是「他動詞」（有 `を` 賓語，如 `作文を書く`），被使役者（學生）後面必須用 `に`，絕對不能在一個句子中出現兩個 `を`（雙を禁忌）！"
+        },
+        {
+            type: "radio",
+            question: "（使役助詞）『媽媽讓小孩去睡覺。』由於『睡覺 (寝る)』是自動詞，小孩的助詞應是：",
+            options: [
+                "母は子どもを寝させました。",
+                "母は子どもに寝させました。",
+                "母は子どもが寝させました。"
+            ],
+            answer: 0,
+            explanation: "使役句助詞規則：後方動詞若是「自動詞」（無 `を`，如 `寝る`、`行く`），被使役者後面使用 `を`。因此是 `子どもを寝させる`。"
+        },
+        {
+            type: "radio",
+            question: "（使役與恩惠）要表達『父母（成全我、讓我心存感激地）讓我學鋼琴。』：",
+            options: [
+                "両親は私にピアノを習わせました。",
+                "両親は私にピアノを習わせてくれました。",
+                "私は両親にピアノを習わせてもらいました。"
+            ],
+            answer: 1,
+            explanation: "將「使役 (習わせる - 讓我學)」結合「恩惠/授受 (てくれる - 為我做)」，即 `習わせてくれた`，完美表達了父母的允許/成全與說話者滿滿的感激之情。"
+        }
+    ],
+    reading: [
+        {
+            type: "radio",
+            question: "（土鍋煮飯閱讀題）關於煮飯時的「水」，文章中敘述正確的是：",
+            options: [
+                "水的量大約是米量的2倍。",
+                "洗完米後，必須把水濾乾瀝乾（30分鐘）。",
+                "米放在水裡泡的時候，不要蓋蓋子。",
+                "水的量和飯的軟硬度完全沒有關係。"
+            ],
+            answer: 1,
+            explanation: "原文為：「まず、米２合を洗い、ざるに入れて、水が切れるまで 30 分待ちます。」（首先洗兩合米，放進篩子裡，等待濾乾30分鐘）。因此濾乾是正確步驟。"
+        },
+        {
+            type: "radio",
+            question: "（土鍋煮飯閱讀題）從在土鍋裡放入米和水，到飯煮好為止，大約需要花多少時間？",
+            options: [
+                "大約 35 分鐘",
+                "大約 55 分鐘",
+                "大約 20 分鐘",
+                "大約 15 分鐘"
+            ],
+            answer: 1,
+            explanation: "根據文章步驟：米水入鍋後靜置 20 分鐘，然後開火煮 15 分鐘，關火後再悶 20 分鐘。20 + 15 + 20 = 55 分鐘左右。因此是 55 分鐘。"
+        },
+        {
+            type: "radio",
+            question: "（土鍋煮飯閱讀題）以下關於土鍋煮飯的敘述，哪一項與文章內容**不符合 (合わない)**？",
+            options: [
+                "開火煮的時候，火候調整為普通的強強火（中火）。",
+                "用土鍋煮出來的飯，比用一般的電子鍋（電氣釜）煮出來的更好吃。",
+                "飯煮好之後，可以一直把飯放在土鍋裡面不管它。",
+                "火熄滅之後，要維持蓋著蓋子的狀態放置 20 分鐘。"
+            ],
+            answer: 2,
+            explanation: "原文為：「できあがったら、ほかの入れ物に移しましょう。」（煮好之後，移到別的容器中吧）。因此「一直放在土鍋裡」是不符合文章敘述的。"
+        }
+    ]
+};
 
 // App State
 let currentTab = "grammar";
 let currentVerbIndex = 0;
+let currentCategory = "l19";
+let quizQuestions = quizCategories[currentCategory];
 let currentQuestionIndex = 0;
 let quizScore = 0;
 let userAnswers = []; // record user options
@@ -223,13 +405,13 @@ function conjugateVerb(verb) {
         ta: "",
         te: "",
         advicePos: "",
-        adviceNeg: ""
+        adviceNeg: "",
+        causative: "",
+        causativePassive: ""
     };
 
     if (type === 1) {
         // Group 1 verbs
-        // e.g. 買う base: "買" end: "う"
-        // base hiragana/kanji ends in row u -> e for 'ba', a for 'neg' and 'passive'
         const baseChar = end;
         let aRow = "", eRow = "", iRow = "", tForm = "";
         
@@ -245,7 +427,7 @@ function conjugateVerb(verb) {
             case "る": aRow = "ら"; eRow = "れ"; iRow = "り"; tForm = "った"; break;
         }
 
-        // Special case: 行く (iku) -> te/ta is 行った/行って (not 行いた)
+        // Special case: 行く (iku) -> te/ta is 行った/行って
         if (kanji === "行く" || kanji.endsWith("行く")) {
             tForm = "った";
         }
@@ -256,21 +438,33 @@ function conjugateVerb(verb) {
         result.neg = base + aRow + "ない";
         result.ta = base + tForm;
         
-        // te form is just ta form with 'a' -> 'e' or 'da' -> 'de'
         let teForm = tForm;
         if (tForm.endsWith("た")) {
             teForm = tForm.slice(0, -1) + "て";
         } else if (tForm.endsWith("だ")) {
-            teForm = tForm.slice(0, -1) + "で";
+            teForm = tForm.slice(0, -1) + "de";
+        }
+        // fix te mapping for standard display
+        if (baseChar === "ぐ") { teForm = "いだ"; }
+        if (teForm.endsWith("た")) {
+            teForm = teForm.slice(0, -1) + "て";
+        } else if (teForm.endsWith("だ")) {
+            teForm = teForm.slice(0, -1) + "で";
         }
         result.te = base + teForm;
         
         result.advicePos = result.ta + "ほうがいい";
         result.adviceNeg = result.neg + "ほうがいい";
+        
+        result.causative = base + aRow + "せる";
+        if (baseChar === "す") {
+            result.causativePassive = base + "させられる";
+        } else {
+            result.causativePassive = base + aRow + "される";
+        }
 
     } else if (type === 2) {
-        // Group 2 verbs (ru -> reba, tara, rareru, nai, ta, te)
-        // base: "食べ" end: "る"
+        // Group 2 verbs
         result.ba = base + "れば";
         result.tara = base + "たら";
         result.passive = base + "られる";
@@ -281,16 +475,21 @@ function conjugateVerb(verb) {
         result.advicePos = result.ta + "ほうがいい";
         result.adviceNeg = result.neg + "ほうがいい";
 
+        result.causative = base + "させる";
+        result.causativePassive = base + "させられる";
+
     } else if (type === 3) {
-        // Group 3 irregular verbs (する, 来る)
+        // Group 3 irregular verbs
         if (kanji === "する" || kanji.endsWith("する")) {
-            // base is prefixes like "予約"
             result.ba = base + "すれば";
             result.tara = base + "したら";
             result.passive = base + "される";
             result.neg = base + "しない";
             result.ta = base + "した";
             result.te = base + "して";
+            
+            result.causative = base + "させる";
+            result.causativePassive = base + "させられる";
         } else if (kanji === "来る" || kanji.endsWith("来る")) {
             result.ba = base + "くれば";
             result.tara = base + "きたら";
@@ -298,6 +497,9 @@ function conjugateVerb(verb) {
             result.neg = base + "こない";
             result.ta = base + "きた";
             result.te = base + "きて";
+            
+            result.causative = base + "こさせる";
+            result.causativePassive = base + "こさせられる";
         }
         result.advicePos = result.ta + "ほうがいい";
         result.adviceNeg = result.neg + "ほうがいい";
@@ -311,50 +513,48 @@ let voiceEngine = localStorage.getItem("jpsite_voice_engine") || "google";
 let currentAudio = null;
 
 // Speak text in Japanese
-function speakJapanese(text) {
-    // Clean text: remove HTML tags or brackets if any
+function speakJapanese(text, btnElement = null) {
+    document.querySelectorAll(".play-btn, .conj-voice-btn").forEach(btn => btn.classList.remove("playing"));
     const cleanText = text.replace(/<[^>]*>/g, "").trim();
     if (!cleanText) return;
 
     if (voiceEngine === "browser") {
-        speakWithBrowser(cleanText);
+        speakWithBrowser(cleanText, btnElement);
     } else {
-        speakWithGoogle(cleanText);
+        speakWithGoogle(cleanText, btnElement);
     }
 }
 
 // Fallback to Browser Speech Synthesis
-function speakWithBrowser(text) {
+function speakWithBrowser(text, btnElement = null) {
     if (!('speechSynthesis' in window)) {
         alert("很抱歉，您的瀏覽器不支援發音功能。");
         return;
     }
-    
-    // Cancel any current speaking
     window.speechSynthesis.cancel();
     
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'ja-JP';
-    utterance.rate = 0.85; // slightly slower for learners
+    utterance.rate = 0.85;
     
-    // Try to find a Japanese voice
     const voices = window.speechSynthesis.getVoices();
     const jaVoice = voices.find(v => v.lang.includes('ja'));
     if (jaVoice) {
         utterance.voice = jaVoice;
     }
     
+    if (btnElement) {
+        utterance.onstart = () => { btnElement.classList.add("playing"); };
+        utterance.onend = utterance.onerror = () => { btnElement.classList.remove("playing"); };
+    }
     window.speechSynthesis.speak(utterance);
 }
 
 // Speak using Google TTS for natural Pitch Accent
-function speakWithGoogle(text) {
-    // Stop any ongoing browser synthesis
+function speakWithGoogle(text, btnElement = null) {
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
     }
-
-    // Stop current audio if playing
     if (currentAudio) {
         currentAudio.pause();
         currentAudio = null;
@@ -363,13 +563,19 @@ function speakWithGoogle(text) {
     const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=ja&q=${encodeURIComponent(text)}`;
     currentAudio = new Audio(audioUrl);
     
-    // Fallback in case Google TTS fails (e.g. offline, cors, rate limit)
+    if (btnElement) {
+        currentAudio.addEventListener("play", () => { btnElement.classList.add("playing"); });
+        currentAudio.addEventListener("ended", () => { btnElement.classList.remove("playing"); });
+        currentAudio.addEventListener("pause", () => { btnElement.classList.remove("playing"); });
+        currentAudio.addEventListener("error", () => { btnElement.classList.remove("playing"); });
+    }
+
     const playPromise = currentAudio.play();
-    
     if (playPromise !== undefined) {
         playPromise.catch(error => {
             console.warn("Google TTS 播放失敗，自動降級使用瀏覽器語音: ", error);
-            speakWithBrowser(text);
+            if (btnElement) btnElement.classList.remove("playing");
+            speakWithBrowser(text, btnElement);
         });
     }
 }
@@ -379,10 +585,8 @@ function setVoiceEngine(engine) {
     voiceEngine = engine;
     localStorage.setItem("jpsite_voice_engine", engine);
     
-    // Update UI active state
     const googleBtn = document.getElementById("engine-btn-google");
     const browserBtn = document.getElementById("engine-btn-browser");
-    
     if (googleBtn && browserBtn) {
         if (engine === "google") {
             googleBtn.classList.add("active");
@@ -402,7 +606,6 @@ function handleOJADSearch() {
         alert("請輸入要查詢聲調的日文單字！");
         return;
     }
-    
     const url = `http://www.gavo.t.u-tokyo.ac.jp/ojad/search/index/word:${encodeURIComponent(word)}`;
     window.open(url, "_blank");
 }
@@ -415,7 +618,6 @@ function toggleAssistantPanel() {
     
     const isCollapsed = card.classList.toggle("collapsed");
     localStorage.setItem("jpsite_assistant_collapsed", isCollapsed ? "true" : "false");
-    
     if (isCollapsed) {
         icon.innerHTML = `<i class="fas fa-chevron-down"></i>`;
     } else {
@@ -426,8 +628,6 @@ function toggleAssistantPanel() {
 // Tab Switching Control
 function switchTab(tabId) {
     currentTab = tabId;
-    
-    // Update nav-btns
     document.querySelectorAll(".tab-btn").forEach(btn => {
         if (btn.getAttribute("data-tab") === tabId) {
             btn.classList.add("active");
@@ -436,7 +636,6 @@ function switchTab(tabId) {
         }
     });
     
-    // Update panel visibility
     document.querySelectorAll(".panel").forEach(panel => {
         if (panel.id === `${tabId}-panel`) {
             panel.classList.add("active");
@@ -445,9 +644,7 @@ function switchTab(tabId) {
         }
     });
 
-    // Special trigger for speech synthesis voices loading
     if (tabId === 'grammar') {
-        // trigger get voices once
         if (typeof window.speechSynthesis !== 'undefined') {
             window.speechSynthesis.getVoices();
         }
@@ -470,11 +667,9 @@ function renderConjugator() {
         listContainer.appendChild(btn);
     });
 
-    // Get current verb object
     const selectedVerb = verbsDB[currentVerbIndex];
     const conjugations = conjugateVerb(selectedVerb);
 
-    // Render screen
     document.getElementById("verb-info-name").innerText = conjugations.dict;
     document.getElementById("verb-info-type").innerText = conjugations.typeStr;
     document.getElementById("verb-info-trans").innerText = conjugations.translation;
@@ -488,6 +683,10 @@ function renderConjugator() {
     document.getElementById("val-passive").innerText = conjugations.passive;
     document.getElementById("val-adv-pos").innerText = conjugations.advicePos;
     document.getElementById("val-adv-neg").innerText = conjugations.adviceNeg;
+    
+    // Causative rendering
+    document.getElementById("val-causative").innerText = conjugations.causative;
+    document.getElementById("val-causative-passive").innerText = conjugations.causativePassive;
 }
 
 // Custom verb input handler
@@ -495,7 +694,6 @@ function handleCustomVerbInput() {
     const input = document.getElementById("custom-verb-input").value.trim();
     if (!input) return;
 
-    // Check if ending matches Japanese verb endings
     const lastChar = input.slice(-1);
     const validEndings = ["う", "く", "ぐ", "す", "つ", "ぬ", "ぶ", "む", "る"];
     
@@ -526,15 +724,10 @@ function handleCustomVerbInput() {
         document.getElementById("custom-verb-input").value = "";
         renderConjugator();
     } else if (validEndings.includes(lastChar)) {
-        // Guess group type
-        // Rules of thumb: 
-        // - doesn't end in ru -> Group 1
-        // - ends in iru/eru -> usually Group 2, but could be Group 1
         let type = 1;
         if (lastChar === "る") {
-            // Default to group 2 if ends in iru/eru, else Group 1
             const secondToLast = input.slice(-2, -1);
-            const Group2Vowels = ["い", "き", "し", "ち", "に", "ひ", "み", "り", "え", "け", "せ", "て", "ね", "へ", "め", "れ", "得", "食", "見", "寝", "調", "覚", "開", "閉", "忘", "起"];
+            const Group2Vowels = ["い", "き", "し", "ち", "に", "ひ", "み", "り", "え", "け", "せ", "て", "ね", "へ", "め", "れ", "得", "食", "見", "寝", "調", "覚", "開", "閉", "忘", "起", "決"];
             if (Group2Vowels.includes(secondToLast)) {
                 type = 2;
             }
@@ -557,6 +750,21 @@ function handleCustomVerbInput() {
     }
 }
 
+// Select Quiz Category Tab
+function selectQuizCategory(category) {
+    currentCategory = category;
+    quizQuestions = quizCategories[category];
+    
+    // update category switcher UI buttons
+    document.querySelectorAll(".quiz-theme-switcher .engine-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+    const activeBtn = document.getElementById(`quiz-btn-${category}`);
+    if (activeBtn) activeBtn.classList.add("active");
+    
+    resetQuiz();
+}
+
 // Quiz Rendering & Interaction State
 function renderQuiz() {
     const qBox = document.getElementById("quiz-question-container");
@@ -571,7 +779,6 @@ function renderQuiz() {
     submitBtn.disabled = true;
     nextBtn.style.display = "none";
 
-    // Update Progress
     const progressText = document.getElementById("quiz-progress-text");
     const progressFill = document.getElementById("quiz-progress-fill");
     
@@ -591,7 +798,6 @@ function renderQuiz() {
             btn.className = "option-btn";
             btn.innerHTML = `<span style="font-weight:600; color: var(--color-cyan)">${String.fromCharCode(65 + idx)}.</span> ${opt}`;
             btn.addEventListener("click", () => {
-                // Select Option
                 document.querySelectorAll(".option-btn").forEach(b => b.classList.remove("selected"));
                 btn.classList.add("selected");
                 userAnswers[currentQuestionIndex] = idx;
@@ -606,12 +812,10 @@ function renderQuiz() {
             </div>
             <div class="word-chips-pool" id="word-chips-pool-box"></div>
         `;
-        optBox.className = ""; // clear flex column
+        optBox.className = "";
 
         assembledSentence = [];
         const poolBox = document.getElementById("word-chips-pool-box");
-        
-        // Shuffle chips slightly for fun (but stable for quiz)
         const chipsCopy = [...q.chips].sort(() => 0.5 - Math.random());
         
         chipsCopy.forEach((chip, index) => {
@@ -621,11 +825,8 @@ function renderQuiz() {
             chipBtn.id = `chip-${index}`;
             chipBtn.addEventListener("click", () => {
                 if (chipBtn.classList.contains("used")) return;
-                
-                // Add to assembled
                 assembledSentence.push({ text: chip, id: chipBtn.id });
                 chipBtn.classList.add("used");
-                
                 updateAssembledSentenceDisplay(poolBox);
             });
             poolBox.appendChild(chipBtn);
@@ -651,13 +852,9 @@ function updateAssembledSentenceDisplay(poolBox) {
         span.style.borderColor = "var(--color-cyan)";
         span.innerHTML = `${chipObj.text} <i class="fas fa-times-circle" style="margin-left: 0.35rem; color: var(--color-pink)"></i>`;
         span.addEventListener("click", () => {
-            // Remove from assembled
             assembledSentence.splice(index, 1);
-            
-            // Re-enable in pool
             const origChip = document.getElementById(chipObj.id);
             if (origChip) origChip.classList.remove("used");
-            
             updateAssembledSentenceDisplay(poolBox);
         });
         assembler.appendChild(span);
@@ -684,10 +881,9 @@ function submitAnswer() {
         const correctChoice = q.answer;
         isCorrect = userChoice === correctChoice;
 
-        // Visual options correct/wrong
         const optionBtns = document.querySelectorAll(".option-btn");
         optionBtns.forEach((btn, idx) => {
-            btn.style.pointerEvents = "none"; // disable clicks
+            btn.style.pointerEvents = "none";
             if (idx === correctChoice) {
                 btn.classList.add("correct");
             } else if (idx === userChoice && !isCorrect) {
@@ -707,9 +903,7 @@ function submitAnswer() {
         const correctSentence = q.answer;
         isCorrect = userSentence === correctSentence;
         
-        userAnswers[currentQuestionIndex] = userSentence; // save state
-
-        // disable pool chips
+        userAnswers[currentQuestionIndex] = userSentence;
         document.querySelectorAll(".word-chip").forEach(c => c.style.pointerEvents = "none");
 
         detailHTML = `
@@ -739,7 +933,6 @@ function submitAnswer() {
 // Next question or result display
 function nextQuestion() {
     currentQuestionIndex++;
-    
     if (currentQuestionIndex < quizQuestions.length) {
         renderQuiz();
     } else {
@@ -748,6 +941,7 @@ function nextQuestion() {
 }
 
 // Display Quiz Result
+// Note: Quiz now calculates scores relative to the current category length
 function showQuizResults() {
     const qBox = document.getElementById("quiz-question-container");
     const optBox = document.getElementById("quiz-options-container");
@@ -759,7 +953,6 @@ function showQuizResults() {
     submitBtn.style.display = "none";
     nextBtn.style.display = "none";
 
-    // Progress bar Full
     document.getElementById("quiz-progress-text").innerText = "測驗結束！";
     document.getElementById("quiz-progress-fill").style.width = "100%";
 
@@ -767,17 +960,16 @@ function showQuizResults() {
     
     let evaluation = "";
     if (correctPct === 100) {
-        evaluation = "完美無瑕！您已完全熟練掌握了 L19-L21 所有文法考點！💯";
+        evaluation = "完美無瑕！您已完全熟練掌握了該單元所有文法與題目！💯";
     } else if (correctPct >= 80) {
-        evaluation = "優秀！對條件假設、授受表現、被動形有很深厚的理解！🌟";
+        evaluation = "優秀！對教材中的條件假定、被動與使役有極深厚的理解！🌟";
     } else if (correctPct >= 60) {
-        evaluation = "及格了，建議您多閱讀「台灣人常犯錯誤」對決卡片，釐清授受表現的視角細節。👍";
+        evaluation = "及格了，建議您多閱讀「避雷指南」中的痛點對決，釐清細節觀念。👍";
     } else {
-        evaluation = "還需努力！請重新閱讀課堂文法卡片並利用動詞變形模擬器多加練習！📚";
+        evaluation = "還需努力！請重新閱讀課堂文法卡片並利用變形操作台多加練習！📚";
     }
 
-    // Save score to localStorage
-    localStorage.setItem("jpsite_last_score", `${quizScore}/${quizQuestions.length} (${correctPct}%)`);
+    localStorage.setItem(`jpsite_score_${currentCategory}`, `${quizScore}/${quizQuestions.length} (${correctPct}%)`);
 
     qBox.innerHTML = `
         <div class="quiz-result-screen">
@@ -818,7 +1010,7 @@ window.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener("click", (e) => {
             e.stopPropagation();
             const textToSpeak = btn.getAttribute("data-sentence");
-            speakJapanese(textToSpeak);
+            speakJapanese(textToSpeak, btn);
         });
     });
 
@@ -835,14 +1027,10 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("quiz-next-btn").addEventListener("click", nextQuestion);
 
     // 5. Setup Voice Assistant panel events
-    // Initialize UI active state from state variable
     setVoiceEngine(voiceEngine);
-    
-    // Bind voice engine switches
     document.getElementById("engine-btn-google").addEventListener("click", () => setVoiceEngine("google"));
     document.getElementById("engine-btn-browser").addEventListener("click", () => setVoiceEngine("browser"));
     
-    // Bind OJAD Dictionary search
     document.getElementById("ojad-search-btn").addEventListener("click", handleOJADSearch);
     document.getElementById("ojad-search-input").addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
@@ -850,10 +1038,8 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     });
     
-    // Bind toggle collapse for assistant card
     document.getElementById("assistant-toggle").addEventListener("click", toggleAssistantPanel);
     
-    // Set initial collapse state from preference
     const isAssistantCollapsed = localStorage.getItem("jpsite_assistant_collapsed") === "true";
     if (isAssistantCollapsed) {
         const card = document.getElementById("accent-assistant-card");
@@ -870,15 +1056,31 @@ window.addEventListener("DOMContentLoaded", () => {
             const targetEl = document.getElementById(targetId);
             if (targetEl) {
                 const textToSpeak = targetEl.innerText.trim();
-                // Avoid playing empty placeholder state
                 if (textToSpeak && textToSpeak !== "---") {
-                    speakJapanese(textToSpeak);
+                    speakJapanese(textToSpeak, btn);
                 }
             }
         });
     });
 
-    // 7. Initialize renderers
+    // 7. Setup interactive tooltip click toggles
+    document.querySelectorAll(".jp-word").forEach(word => {
+        word.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isActive = word.classList.contains("active");
+            document.querySelectorAll(".jp-word").forEach(w => w.classList.remove("active"));
+            if (!isActive) {
+                word.classList.add("active");
+            }
+        });
+    });
+    
+    document.addEventListener("click", () => {
+        document.querySelectorAll(".jp-word").forEach(w => w.classList.remove("active"));
+    });
+
+    // 8. Initialize renderers
     renderConjugator();
-    renderQuiz();
+    // Default select category L19
+    selectQuizCategory("l19");
 });

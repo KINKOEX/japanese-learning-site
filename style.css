@@ -473,8 +473,14 @@ header p {
 
 .conjugation-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+}
+
+@media (max-width: 1100px) {
+    .conjugation-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 600px) {
@@ -1061,4 +1067,256 @@ header p {
         gap: 1.5rem;
     }
 }
+
+@media (max-width: 600px) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+        padding-bottom: 85px; /* 為底部導覽列預留空間 */
+    }
+
+    .container {
+        padding: 1rem 0.75rem;
+    }
+    
+    header {
+        margin-bottom: 1.75rem;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    header p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    /* 底部固定毛玻璃導覽列 (Spotify/Duolingo 風格) */
+    .nav-tabs {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 20px 20px 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+        background: rgba(10, 14, 26, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        padding: 0.5rem 0.5rem 0.65rem 0.5rem; /* 微調底部邊距適應手機安全區 */
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        overflow-x: visible;
+    }
+    
+    .tab-btn {
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.4rem 0.1rem;
+        font-size: 0.7rem;
+        border-radius: 12px;
+        background: transparent;
+        border: 1px solid transparent;
+        white-space: nowrap;
+        color: var(--text-muted);
+    }
+    
+    .tab-btn:hover {
+        background: transparent;
+        color: var(--text-primary);
+    }
+    
+    .tab-btn.active {
+        background: rgba(29, 41, 74, 0.6);
+        border-color: rgba(255, 255, 255, 0.05);
+        color: var(--text-primary);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .tab-btn i {
+        font-size: 1.15rem;
+    }
+    
+    .card {
+        padding: 1.15rem;
+        border-radius: 14px;
+    }
+    
+    .lesson-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .lesson-title {
+        font-size: 1.2rem;
+    }
+    
+    .grammar-formula {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    /* 加大播放按鈕觸控範圍與點擊回饋 */
+    .play-btn, .conj-voice-btn {
+        width: 42px;
+        height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        flex-shrink: 0;
+        transition: var(--transition);
+        margin-left: 0.5rem;
+    }
+
+    .play-btn:active, .conj-voice-btn:active {
+        transform: scale(0.9);
+        background: rgba(0, 242, 254, 0.15);
+    }
+    
+    /* 避雷指南：表格卡片化 */
+    .compare-table, .compare-table tbody, .compare-table tr, .compare-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .compare-table thead {
+        display: none;
+    }
+    
+    .compare-table tr {
+        background: rgba(15, 23, 42, 0.3);
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        margin-bottom: 1.25rem;
+        padding: 0.75rem 1rem;
+    }
+    
+    .compare-table td {
+        border-bottom: none;
+        padding: 0.4rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .compare-table td::before {
+        content: attr(data-label);
+        font-size: 0.75rem;
+        color: var(--color-cyan);
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0.2rem;
+        opacity: 0.8;
+    }
+
+    .compare-table td[data-label="助詞"] {
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.4rem;
+        font-size: 1.15rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .compare-table td[data-label="助詞"]::before {
+        margin-bottom: 0;
+    }
+    
+    /* 動詞快選清單：單列橫向滑動晶片流 (Chips Row) */
+    .quick-verbs {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 0.5rem;
+        max-height: none;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .quick-verbs::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .verb-btn {
+        flex: 0 0 auto;
+        padding: 0.5rem 0.85rem;
+        font-size: 0.85rem;
+        border-radius: 20px;
+    }
+    
+    .verb-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .verb-header div:last-child {
+        text-align: left !important;
+    }
+    
+    .conjugation-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 拼句挑戰區塊調整 */
+    .sentence-assembler {
+        min-height: 60px;
+        padding: 0.5rem;
+    }
+    
+    .word-chip {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.75rem;
+    }
+    
+    /* 土鍋閱讀器調整 */
+    .reading-passage {
+        padding: 1rem;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    /* 單字點擊翻譯氣泡 */
+    .jp-word.active::after {
+        opacity: 1 !important;
+        bottom: 135% !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* 語音播放波紋與發光視覺回饋 */
+@keyframes audioPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.4); }
+    50% { transform: scale(1.08); box-shadow: 0 0 0 6px rgba(0, 242, 254, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
+}
+
+.play-btn.playing, .conj-voice-btn.playing {
+    animation: audioPulse 0.8s infinite;
+    color: var(--color-cyan) !important;
+    border-color: var(--color-cyan) !important;
+    background: rgba(0, 242, 254, 0.1) !important;
+}
+
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>讀本 - L19-L21</title>
+    <title>日語讀本 - L19至L21教材平台</title>
     <meta name="description" content="本平台以進學日文讀本 L19、L20、L21 課程為核心，提供文法教室、動詞自動變形模擬器、台灣學生易錯對決、以及多維度的拼句與閱讀互動測驗，助您快速攻克日文假設、授受與被動難關！">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,23 +20,23 @@
     <div class="container">
         
         <header>
-            <h1><i class="fas fa-torii-gate" style="margin-right: 0.5rem"></i> 互動式日文學習系統</h1>
+            <h1><i class="fas fa-torii-gate" style="margin-right: 0.5rem"></i> 日語讀本</h1>
             <p>專門為 L19 (假設形)、L20 (授受表現)、L21 (被動形) 打造的深度學習空間</p>
         </header>
 
         <!-- Navigation Tabs -->
         <nav class="nav-tabs" id="main-nav">
             <button class="tab-btn active" data-tab="grammar" id="tab-btn-grammar">
-                <i class="fas fa-book-open"></i> 文法教室
+                <i class="fas fa-book-open"></i> <span>文法教室</span>
             </button>
             <button class="tab-btn" data-tab="conjugator" id="tab-btn-conjugator">
-                <i class="fas fa-sliders"></i> 動詞變形模擬器
+                <i class="fas fa-sliders"></i> <span>動詞變形</span>
             </button>
             <button class="tab-btn" data-tab="pitfalls" id="tab-btn-pitfalls">
-                <i class="fas fa-bolt"></i> 台生常犯錯誤對決
+                <i class="fas fa-bolt"></i> <span>避雷指南</span>
             </button>
             <button class="tab-btn" data-tab="quiz" id="tab-btn-quiz">
-                <i class="fas fa-gamepad"></i> 互動式挑戰
+                <i class="fas fa-gamepad"></i> <span>互動挑戰</span>
             </button>
         </nav>
 
@@ -354,6 +354,96 @@
                     </div>
                 </article>
 
+                <!-- Lesson 22 Card -->
+                <article class="card">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title">L22：使役形與使役被動</h2>
+                        <span class="lesson-tag">L22 課文</span>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 1. 使役形變形與意涵</h3>
+                        <div class="grammar-formula">一類: a段 + せる | 二類: させる | 三類: させる / こさせる</div>
+                        <p class="grammar-desc">表示「讓、叫、逼」他人做某個動作。主要有四個光譜：強制（逼迫）、允許（成全）、放任（不管）與情感引起。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>先生は学生に宿題を<span>させました</span>。</span>
+                                    <button class="play-btn" data-sentence="先生は学生に宿題をさせました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">老師讓（逼）學生做作業。 (強制)</div>
+                            </li>
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>娘にピアノを<span>習わせます</span>。</span>
+                                    <button class="play-btn" data-sentence="娘にピアノを習わせます。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">讓女兒學鋼琴。 (成全/允許)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 2. 使役句的助詞規則</h3>
+                        <div class="grammar-formula">自動詞：使役主 は 被使役者 【を】 V使役 | 他動詞：使役主 は 被使役者 【に】 賓語 【を】 V使役</div>
+                        <p class="grammar-desc">自動詞使役中，被使役者用「を」；他動詞使役中，為了避免句子裡出現兩個「を」（雙を禁忌），被使役者必須改用「に」。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>母は子ども<span>を</span>買い物に<span>行かせました</span>。</span>
+                                    <button class="play-btn" data-sentence="母は子どもを買い物に行かせました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">媽媽讓小孩去買東西。 (行く是自動詞，用 を)</div>
+                            </li>
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>先生は学生<span>に</span>作文<span>を</span><span>書かせました</span>。</span>
+                                    <button class="play-btn" data-sentence="先生は学生に作文を書かせました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">老師讓學生寫作文。 (書く是他動詞，用 に...を)</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 3. 請求允許「～させていただけませんか」</h3>
+                        <div class="grammar-formula">V使役て形 + いただけませんか (極具禮貌的職場請求許可句)</div>
+                        <p class="grammar-desc">表示「能不能請您讓我做某事？」。比一般的請求更能展現謙遜和禮貌，常用於請假或提出提議。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>熱があるので、今日<span>休ませていただけませんか</span>。</span>
+                                    <button class="play-btn" data-sentence="熱があるので、今日休ませていただけませんか。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">因為發燒，今天可以讓我請假嗎？</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grammar-item">
+                        <h3 class="grammar-title"><i class="fas fa-star"></i> 4. 使役被動形（被迫/被害感）</h3>
+                        <div class="grammar-formula">一類: a段 + される (す結尾為 させられる) | 二類: させられる | 三類: させられる / こさせられる</div>
+                        <p class="grammar-desc">表示「被迫、不得不做某事」，通常帶有很不情願、覺得麻煩的負面心情。</p>
+                        <ul class="examples-list">
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>私は母に野菜を<span>食べさせられました</span>。</span>
+                                    <button class="play-btn" data-sentence="私は母に野菜を食べさせられました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">我被媽媽逼著吃蔬菜。 (很不甘願)</div>
+                            </li>
+                            <li class="example-box">
+                                <div class="jp-sentence">
+                                    <span>昨日、私は先輩にお酒を<span>飲まされました</span>。</span>
+                                    <button class="play-btn" data-sentence="昨日、私は先輩にお酒を飲まされました。" title="點擊發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="zh-translation">昨天我被前輩逼著喝酒了。 (一類動詞飲まされる)</div>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+
             </div>
         </main>
 
@@ -450,6 +540,22 @@
                                 </div>
                                 <div class="conj-meaning">表示被動承受或被害困擾（られる/れる）。</div>
                             </div>
+                            <div class="conj-card">
+                                <div class="conj-label">使役形 (L22)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value passive" id="val-causative" style="color: var(--color-violet)">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-causative" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">表示「讓、叫、逼」他人做某事（させる/せる）。</div>
+                            </div>
+                            <div class="conj-card">
+                                <div class="conj-label">使役被動形 (L22)</div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="conj-value passive" id="val-causative-passive" style="color: var(--color-pink)">---</div>
+                                    <button class="play-btn conj-voice-btn" data-target-id="val-causative-passive" title="播放發音"><i class="fas fa-volume-up"></i></button>
+                                </div>
+                                <div class="conj-meaning">表示「被迫、不得不」做某事（させられる/される）。</div>
+                            </div>
                             <div class="conj-card" style="grid-column: span 1">
                                 <div class="conj-label">最好做...(L19 勸告)</div>
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -495,16 +601,16 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><strong style="color: var(--color-cyan)">の</strong></td>
-                                        <td>動作的對象是接受者的**身體部位**或**所有物**</td>
-                                        <td>手伝う、直す、洗う、運ぶ、持つ</td>
-                                        <td>弟<span style="color: var(--color-cyan)">の</span>宿題を手伝ってあげる。 (手提/輔助所有物)</td>
+                                        <td data-label="助詞"><strong style="color: var(--color-cyan)">の</strong></td>
+                                        <td data-label="適用情境">動作的對象是接受者的**身體部位**或**所有物**</td>
+                                        <td data-label="常見動詞">手伝う、直す、洗う、運ぶ、持つ</td>
+                                        <td data-label="經典例句">弟<span style="color: var(--color-cyan)">の</span>宿題を手伝ってあげる。 (手提/輔助所有物)</td>
                                     </tr>
                                     <tr>
-                                        <td><strong style="color: var(--color-emerald)">を</strong></td>
-                                        <td>動作的直接對象**是人**（及物動詞）</td>
-                                        <td>送る、招待する、呼ぶ、連れて行く、しかる</td>
-                                        <td>留學生<span style="color: var(--color-emerald)">を</span>パーティーに呼んであげる。 (人是受詞)</td>
+                                        <td data-label="助詞"><strong style="color: var(--color-emerald)">を</strong></td>
+                                        <td data-label="適用情境">動作的直接對象**是人**（及物動詞）</td>
+                                        <td data-label="常見動詞">送る、招待する、呼ぶ、連れて行く、しかる</td>
+                                        <td data-label="經典例句">留學生<span style="color: var(--color-emerald)">を</span>パーティーに呼んであげる。 (人是受詞)</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -598,6 +704,93 @@
                     </div>
                 </div>
 
+                <div class="card">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title"><i class="fas fa-times-circle" style="color: var(--color-pink)"></i> 痛點 4：使役句中絕對不能出現兩個 を！(雙を禁忌)</h2>
+                        <span class="lesson-tag">L22 助詞陷阱</span>
+                    </div>
+                    <div class="pitfall-row">
+                        <div>
+                            <p style="margin-bottom: 1rem">在日語中，一個單句（沒有從屬子句）中一般不允許出現兩個由助詞 **を** 引導的賓語。因此在使役句中：</p>
+                            <table class="compare-table">
+                                <thead>
+                                    <tr>
+                                        <th>動詞類型</th>
+                                        <th>被使役者助詞</th>
+                                        <th>理由</th>
+                                        <th>經典例句</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-label="動詞類型">自動詞 (如 行く)</td>
+                                        <td data-label="被使役者助詞"><strong style="color: var(--color-emerald)">を</strong></td>
+                                        <td data-label="理由">自動詞本身沒有賓語，不會衝突。</td>
+                                        <td data-label="經典例句">学生<span style="color: var(--color-emerald)">を</span>行かせます。</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="動詞類型">他動詞 (如 書く)</td>
+                                        <td data-label="被使役者助詞"><strong style="color: var(--color-cyan)">に</strong></td>
+                                        <td data-label="理由">他動詞已用「を」接賓語，為避開「雙を」，人必須改用「に」。</td>
+                                        <td data-label="經典例句">学生<span style="color: var(--color-cyan)">に</span>作文<span style="color: var(--color-emerald)">を</span>書かせます。</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="vs-divider-box" style="display: flex; flex-direction: column; justify-content: center; gap: 1rem">
+                            <div class="pitfall-code-card">
+                                <span class="pitfall-tag-wrong">常犯錯誤 (雙を衝突)</span>
+                                <div class="pitfall-code-title" style="font-family: monospace; color: var(--text-muted)">
+                                    <i class="fas fa-times"></i> 先生は学生<span style="color: var(--color-pink); font-weight:700">を</span>作文<span style="color: var(--color-pink); font-weight:700">を</span>書かせました。
+                                </div>
+                                <p class="pitfall-code-desc">一個句子出現了兩個「を」，違反日語語感，非常彆扭。</p>
+                            </div>
+                            <div class="pitfall-code-card" style="border-color: var(--color-emerald)">
+                                <span class="pitfall-tag-correct">正確表達 (避開雙を)</span>
+                                <div class="pitfall-code-title" style="font-family: monospace; color: var(--text-primary)">
+                                    <i class="fas fa-check" style="color: var(--color-emerald)"></i> 先生は学生<span style="color: var(--color-emerald); font-weight:700">に</span>作文<span style="color: var(--color-cyan); font-weight:700">を</span>書かせました。
+                                </div>
+                                <p class="pitfall-code-desc">將人（學生）的助詞改為「に」，完美避開「雙收」禁忌！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="lesson-header">
+                        <h2 class="lesson-title"><i class="fas fa-times-circle" style="color: var(--color-pink)"></i> 痛點 5：中文「讓」的無禮使役陷阱</h2>
+                        <span class="lesson-tag">職場與日常禁忌</span>
+                    </div>
+                    <div class="pitfall-row">
+                        <div>
+                            <p style="margin-bottom: 1rem">中文我們經常說「讓我來做...」或「讓老師教我...」。但如果直接把中文的「讓」翻譯成日文的使役形（如：先生に教えさせます），聽在日本人耳裡，會變成**「強迫、逼迫老師教我」**，非常無禮與傲慢！</p>
+                            <div style="background: rgba(15,23,42,0.4); padding: 1rem; border-radius: 12px; border: 1px solid var(--card-border); margin-top: 1rem">
+                                <div style="font-weight: 600; color: var(--color-orange); margin-bottom: 0.5rem"><i class="fas fa-info-circle"></i> 正確的表達思維：</div>
+                                <ul style="list-style-position: inside; font-size: 0.95rem; color: var(--text-muted)">
+                                    <li>請求別人為自己做某事：改用恩惠授受 **～てもらう** 或 **～ていただく**。</li>
+                                    <li>請求別人「允許」自己做某事：改用使役加恩惠 **～させてくれる/～させてもらう**。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vs-divider-box" style="display: flex; flex-direction: column; justify-content: center; gap: 1rem">
+                            <div class="pitfall-code-card">
+                                <span class="pitfall-tag-wrong">中文直譯 (極度失禮！)</span>
+                                <div class="pitfall-code-title" style="font-family: monospace; color: var(--text-muted)">
+                                    私は先生に日本語を<span style="color: var(--color-pink); font-weight:700">教えさせました</span>。
+                                </div>
+                                <p class="pitfall-code-desc">聽起來像：「我命令、逼迫老師教我日語」（上對下的強制）。</p>
+                            </div>
+                            <div class="pitfall-code-card" style="border-color: var(--color-emerald)">
+                                <span class="pitfall-tag-correct">正確表達 (感恩受恩)</span>
+                                <div class="pitfall-code-title" style="font-family: monospace; color: var(--text-primary)">
+                                    私は先生に日本語を<span style="color: var(--color-emerald); font-weight:700">教えていただきました</span>。
+                                </div>
+                                <p class="pitfall-code-desc">使用「Vていただく」(請人做某事)，表示感謝老師屈尊教導我。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -607,6 +800,24 @@
                 
                 <!-- Main Game Interface -->
                 <div class="card" style="margin-bottom: 2rem">
+                    <!-- Quiz Theme Switcher -->
+                    <div class="quiz-theme-switcher" style="margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding-bottom: 1.25rem;">
+                        <h4 style="font-size: 0.95rem; color: var(--text-primary); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.35rem; margin-top: 0;">
+                            <i class="fas fa-filter" style="color: var(--color-cyan)"></i> 選擇測驗主題
+                        </h4>
+                        <div class="engine-buttons" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="engine-btn active" id="quiz-btn-l19" onclick="selectQuizCategory('l19')">
+                                <i class="fas fa-graduation-cap"></i> L19 模擬測驗
+                            </button>
+                            <button class="engine-btn" id="quiz-btn-l21" onclick="selectQuizCategory('l21')">
+                                <i class="fas fa-comments"></i> L21/L22 課文被動使役
+                            </button>
+                            <button class="engine-btn" id="quiz-btn-reading" onclick="selectQuizCategory('reading')">
+                                <i class="fas fa-file-alt"></i> 土鍋煮飯閱讀測驗
+                            </button>
+                        </div>
+                    </div>
+
                     <div class="quiz-progress">
                         <span id="quiz-progress-text" style="font-size: 0.95rem; font-weight:600; color: var(--color-cyan)">載入中...</span>
                         <div class="quiz-progress-bar">
