@@ -1225,5 +1225,65 @@
   });
 })();
 </script>
+<script>
+(function(){
+const words={
+l4:[['なんとかなる','なんとかなる','設法解決'],['確かに','たしかに','確實'],['理解','りかい','理解'],['自身','じしん','自身'],['アナウンス','アナウンス','廣播'],['ところが','ところが','然而'],['友人','ゆうじん','朋友'],['例えば','たとえば','例如'],['けれども','けれども','雖然；但是'],['助ける','たすける','幫助'],['慣れる','なれる','習慣'],['駅員','えきいん','站務員'],['安全','あんぜん','安全'],['必要','ひつよう','必要'],['地下鉄','ちかてつ','地下鐵'],['流れる','ながれる','播放；流動'],['周り','まわり','周圍'],['初めて','はじめて','第一次'],['困る','こまる','困擾'],['サービス','サービス','服務'],['場所','ばしょ','場所'],['乗るたびに','のるたびに','每次搭乘'],['聞かされる','きかされる','被迫聽'],['不便','ふべん','不方便']],
+l5:[['当時','とうじ','當時'],['社会','しゃかい','社會'],['生活','せいかつ','生活'],['うち','うち','之中'],['たつ','たつ','經過（時間）'],['開ける','あける','打開'],['戻す','もどす','恢復；放回'],['新聞','しんぶん','報紙'],['テレビ','テレビ','電視'],['人間','にんげん','人類'],['技術','ぎじゅつ','技術'],['確認','かくにん','確認'],['科学','かがく','科學'],['何百年','なんびゃくねん','幾百年'],['ぜひ','ぜひ','務必'],['球','たま','球體'],['大阪城','おおさかじょう','大阪城'],['100年ごとに','ひゃくねんごとに','每隔一百年'],['ことになっている','ことになっている','規定如此'],['ということです','ということです','據說']]}
+const furis=[['万国博覧会','ばんこくはくらんかい'],['鉄道','てつどう'],['文句','もんく'],['車内','しゃない'],['放送','ほうそう'],['電車','でんしゃ'],['案内','あんない'],['理解','りかい'],['自身','じしん'],['公共','こうきょう'],['安全','あんぜん'],['友人','ゆうじん'],['迷惑','めいわく'],['複雑','ふくざつ'],['不親切','ふしんせつ'],['騒音','そうおん'],['通勤','つうきん'],['世紀','せいき'],['新聞','しんぶん'],['寿命','じゅみょう'],['専門家','せんもんか'],['医療','いりょう'],['技術','ぎじゅつ'],['進歩','しんぽ'],['人間','にんげん'],['冷凍','れいとう'],['大阪城','おおさかじょう'],['記念','きねん'],['直径','ちょっけい'],['当時','とうじ'],['科学','かがく'],['生活','せいかつ'],['社会','しゃかい'],['芸術','げいじゅつ'],['状態','じょうたい'],['中身','なかみ'],['感想','かんそう'],['可能','かのう'],['特集','とくしゅう']];
+function addRuby(p){
+const walker=document.createTreeWalker(p,NodeFilter.SHOW_TEXT);const nodes=[];
+while(walker.nextNode())nodes.push(walker.currentNode);
+nodes.forEach(n=>{const text=n.nodeValue;const parts=[];let i=0;
+while(i<text.length){const found=furis.find(x=>text.startsWith(x[0],i));if(found){const ruby=document.createElement('ruby');ruby.textContent=found[0];const rt=document.createElement('rt');rt.textContent=found[1];ruby.append(rt);parts.push(ruby);i+=found[0].length}else{parts.push(document.createTextNode(text[i]));i++}}
+if(parts.some(x=>x.nodeType===1))n.replaceWith(...parts);
+});
+}
+function speech(t){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ja-JP';u.rate=.9;speechSynthesis.speak(u)}
+function upgrade(){
+for(const code of ['l4','l5']){
+const reading=document.querySelector('#tab-reading .integrated-45.'+code);
+if(reading){
+reading.classList.add('space-y-4');const h=reading.querySelector('h3');if(h)h.className='font-bold text-lg text-slate-900';
+const whole=document.createElement('button');whole.type='button';whole.className='bg-blue-50 border border-blue-200 rounded-lg px-3 py-2 text-blue-700';whole.textContent='🔊 朗讀本課';whole.onclick=()=>speech([...reading.querySelectorAll('p[lang="ja"]')].map(p=>p.textContent).join(' '));h?.after(whole);
+reading.querySelectorAll('[id$="-full"] > div.border-b').forEach((section,i)=>{
+const jp=section.querySelector('p[lang="ja"]'),zh=section.querySelector('p.text-slate-600');if(!jp||!zh)return;
+section.className='bg-slate-50/80 rounded-xl border border-slate-200 p-3 sm:p-4 space-y-3 mb-3';
+jp.className='japanese-text text-base sm:text-lg leading-loose text-slate-800';addRuby(jp);
+zh.classList.add('hidden');const original=section.querySelector('button[data-jp]');original?.remove();
+const bar=document.createElement('div');bar.className='flex flex-wrap items-center justify-between gap-2 text-xs font-semibold text-slate-500';
+const tag=document.createElement('span');tag.textContent='【段落 '+(i+1)+'】';
+const buttons=document.createElement('div');buttons.className='flex gap-3';
+const play=document.createElement('button');play.type='button';play.className='text-blue-600';play.textContent='▶ 播放此段';play.onclick=()=>speech(jp.textContent);
+const trans=document.createElement('button');trans.type='button';trans.className='text-indigo-600';trans.textContent='顯示中譯';trans.onclick=()=>{const hidden=zh.classList.toggle('hidden');trans.textContent=hidden?'顯示中譯':'隱藏中譯'};
+buttons.append(play,trans);bar.append(tag,buttons);section.prepend(bar);
+});
+}
+const vocab=document.querySelector('#tab-vocab .integrated-45.'+code),grid=vocab?.querySelector('.grid');if(!grid)continue;
+grid.className='grid grid-cols-1 sm:grid-cols-2 gap-3';
+const existing=new Set([...grid.querySelectorAll('b[lang="ja"]')].map(b=>b.textContent.trim()));
+[...grid.children].forEach(card=>{
+const b=card.querySelector('b[lang="ja"]');if(!b)return;
+card.className='rounded-2xl border border-slate-200 bg-white p-4 shadow-sm';
+b.className='text-xl font-bold text-slate-900';const kana=b.nextElementSibling;if(kana)kana.className='text-blue-600 text-sm ml-2';
+const btn=document.createElement('button');btn.type='button';btn.className='float-right text-blue-500';btn.textContent='🔊';btn.onclick=()=>speech(b.textContent);card.prepend(btn);
+const tag=document.createElement('span');tag.className='inline-block rounded-md bg-emerald-50 text-emerald-700 px-2 py-1 text-xs mt-2';tag.textContent='第'+code.slice(1)+'課 單字';card.append(tag);
+});
+words[code].forEach(([word,kana,meaning])=>{
+if(existing.has(word))return;existing.add(word);
+const card=document.createElement('div');card.className='rounded-2xl border border-slate-200 bg-white p-4 shadow-sm';
+const top=document.createElement('div');top.className='flex justify-between items-center gap-2';
+const title=document.createElement('div');const strong=document.createElement('strong');strong.className='text-xl';strong.textContent=word;const sub=document.createElement('span');sub.className='text-blue-600 text-sm ml-2';sub.textContent=kana;title.append(strong,sub);
+const btn=document.createElement('button');btn.type='button';btn.textContent='🔊';btn.onclick=()=>speech(word);top.append(title,btn);
+const desc=document.createElement('p');desc.className='text-slate-600 mt-2';desc.textContent=meaning;
+const tag=document.createElement('span');tag.className='inline-block rounded-md bg-emerald-50 text-emerald-700 px-2 py-1 text-xs mt-2';tag.textContent='第'+code.slice(1)+'課 單字';
+card.append(top,desc,tag);grid.append(card);
+});
+const note=document.createElement('p');note.className='text-xs text-slate-500 mt-3';note.textContent='依目前提供的課文照片及可核對的練習整理；未提供的頁面不視為已核對。';vocab.append(note);
+}
+}
+document.addEventListener('DOMContentLoaded',upgrade);
+})();
+</script>
 </body>
 </html>
