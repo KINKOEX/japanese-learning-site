@@ -1,21 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>日語第1～3課｜考前衝刺互動學習手冊</title>
-  <meta name="description" content="第1～3課日文課文、中文翻譯、單字、文法重點、克漏字與模擬考，支援假名隱藏、日語朗讀、測驗記錄。">
-  <meta name="theme-color" content="#1e3a8a">
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Noto Sans TC & JP -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>日語第1～3課｜考前衝刺互動學習手冊</title>
+<meta content="第1～3課日文課文、中文翻譯、單字、文法重點、克漏字與模擬考，支援假名隱藏、日語朗讀、測驗記錄。" name="description"/>
+<meta content="#1e3a8a" name="theme-color"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts: Noto Sans TC & JP -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<script>
     if (window.tailwind) tailwind.config = {
       theme: {
         extend: {
@@ -37,8 +37,7 @@
       }
     }
   </script>
-
-  <style>
+<style>
     :focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
     button:disabled { cursor: default; }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; } }
@@ -74,906 +73,841 @@
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans pb-24 md:pb-12 antialiased selection:bg-blue-100 selection:text-blue-900">
-
-  <!-- 頂部導航與標題 -->
-  <header class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white shadow-md relative sm:sticky sm:top-0 z-40">
-    <div class="max-w-4xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
-      <div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
-        <div class="hidden sm:flex w-10 h-10 rounded-xl bg-blue-600/60 border border-blue-400/40 flex items-center justify-center text-xl shadow-inner">
-          <i class="fa-solid fa-graduation-cap text-yellow-300"></i>
-        </div>
-        <div>
-          <h1 class="text-base sm:text-xl font-bold tracking-tight leading-tight">日語 N3-N2 考前重點衝刺</h1>
-          <p class="hidden sm:block text-xs text-blue-200">第1課 色のイメージ ｜ 第2課 じゃんけん ｜ 第3課 駐車場</p>
-        </div>
-      </div>
-      <!-- 假名切換與語音停止 -->
-      <div class="flex items-center gap-2 flex-shrink-0">
-        <button id="stopSpeechBtn" type="button" onclick="stopSpeech()" title="停止日文朗讀" aria-label="停止日文朗讀" class="text-xs sm:text-sm bg-blue-700/80 hover:bg-blue-600 px-2.5 py-2 rounded-lg border border-blue-400/40" >
-          <i class="fa-solid fa-stop"></i>
-        </button>
-        <button id="toggleFuriganaBtn" type="button" aria-pressed="false" onclick="toggleFurigana()" class="text-xs sm:text-sm bg-blue-700/80 hover:bg-blue-600 active:scale-95 transition px-3 py-1.5 rounded-lg border border-blue-400/40 flex items-center gap-1.5 shadow-sm">
-          <i class="fa-solid fa-eye text-blue-200"></i>
-          <span id="furiBtnText">隱藏振假名</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- 模組標籤頁 (支援橫向滑動) -->
-    <div class="max-w-4xl mx-auto px-2 border-t border-blue-800/60 flex overflow-x-auto no-scrollbar py-1 gap-1 text-xs sm:text-sm font-medium">
-      <button onclick="switchTab('tab-reading')" class="tab-nav active flex-shrink-0 px-3 py-2 rounded-lg text-white bg-blue-600 font-bold flex items-center gap-1.5 transition">
-        <i class="fa-solid fa-book-open"></i> 1. 課文朗讀與對照
+<!-- 頂部導航與標題 -->
+<header class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white shadow-md relative sm:sticky sm:top-0 z-40">
+<div class="max-w-4xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
+<div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
+<div class="hidden sm:flex w-10 h-10 rounded-xl bg-blue-600/60 border border-blue-400/40 flex items-center justify-center text-xl shadow-inner">
+<i class="fa-solid fa-graduation-cap text-yellow-300"></i>
+</div>
+<div>
+<h1 class="text-base sm:text-xl font-bold tracking-tight leading-tight">日語第 1～3 課教材總複習</h1>
+<p class="hidden sm:block text-xs text-blue-200">第1課 色のイメージ ｜ 第2課 じゃんけん ｜ 第3課 駐車場</p>
+</div>
+</div>
+<!-- 假名切換與語音停止 -->
+<div class="flex items-center gap-2 flex-shrink-0">
+<button aria-label="停止日文朗讀" class="text-xs sm:text-sm bg-blue-700/80 hover:bg-blue-600 px-2.5 py-2 rounded-lg border border-blue-400/40" id="stopSpeechBtn" onclick="stopSpeech()" title="停止日文朗讀" type="button">
+<i class="fa-solid fa-stop"></i>
+</button>
+<button aria-pressed="false" class="text-xs sm:text-sm bg-blue-700/80 hover:bg-blue-600 active:scale-95 transition px-3 py-1.5 rounded-lg border border-blue-400/40 flex items-center gap-1.5 shadow-sm" id="toggleFuriganaBtn" onclick="toggleFurigana()" type="button">
+<i class="fa-solid fa-eye text-blue-200"></i>
+<span id="furiBtnText">隱藏振假名</span>
+</button>
+</div>
+</div>
+<!-- 模組標籤頁 (支援橫向滑動) -->
+<div class="max-w-4xl mx-auto px-2 border-t border-blue-800/60 flex overflow-x-auto no-scrollbar py-1 gap-1 text-xs sm:text-sm font-medium">
+<button class="tab-nav active flex-shrink-0 px-3 py-2 rounded-lg text-white bg-blue-600 font-bold flex items-center gap-1.5 transition" onclick="switchTab('tab-reading')">
+<i class="fa-solid fa-book-open"></i> 1. 課文朗讀與對照
       </button>
-      <button onclick="switchTab('tab-vocab')" class="tab-nav flex-shrink-0 px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-blue-800/60 flex items-center gap-1.5 transition">
-        <i class="fa-solid fa-font"></i> 2. 生詞讀音與釋義
+<button class="tab-nav flex-shrink-0 px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-blue-800/60 flex items-center gap-1.5 transition" onclick="switchTab('tab-vocab')">
+<i class="fa-solid fa-font"></i> 2. 生詞讀音與釋義
       </button>
-      <button onclick="switchTab('tab-grammar')" class="tab-nav flex-shrink-0 px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-blue-800/60 flex items-center gap-1.5 transition">
-        <i class="fa-solid fa-diagram-project"></i> 3. 核心文型與表格
+<button class="tab-nav flex-shrink-0 px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-blue-800/60 flex items-center gap-1.5 transition" onclick="switchTab('tab-grammar')">
+<i class="fa-solid fa-diagram-project"></i> 3. 核心文型與表格
       </button>
-      <button onclick="switchTab('tab-cloze')" class="tab-nav flex-shrink-0 px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-blue-800/60 flex items-center gap-1.5 transition">
-        <i class="fa-solid fa-pen-to-square"></i> 4. 克漏字測驗
+<button class="tab-nav flex-shrink-0 px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-blue-800/60 flex items-center gap-1.5 transition" onclick="switchTab('tab-cloze')">
+<i class="fa-solid fa-pen-to-square"></i> 4. 克漏字測驗
       </button>
-      <button onclick="switchTab('tab-mock')" class="tab-nav flex-shrink-0 px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-blue-800/60 flex items-center gap-1.5 transition">
-        <i class="fa-solid fa-trophy"></i> 5. 綜合模擬考
-      </button>
-    </div>
-  </header>
-
-  <main class="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
-
-    <!-- 課別快捷篩選條 (適用前三模組) -->
-    <div id="lessonFilterBar" class="mb-5 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between flex-wrap gap-2">
-      <div class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-bold">
-        <i class="fa-solid fa-sliders text-blue-600"></i>
-        <span>快速篩選單元：</span>
-      </div>
-      <div class="flex gap-1.5 text-xs sm:text-sm">
-        <button onclick="filterLesson('all')" class="filter-btn active px-2.5 py-1 rounded-md bg-blue-600 text-white font-medium">全部課別</button>
-        <button onclick="filterLesson('l1')" class="filter-btn px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium">第1課 色のイメージ</button>
-        <button onclick="filterLesson('l2')" class="filter-btn px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium">第2課 じゃんけん</button>
-        <button onclick="filterLesson('l3')" class="filter-btn px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium">第3課 駐車場</button>
-      </div>
-    </div>
-
-    <!-- ==============================================================
+<button class="tab-nav flex-shrink-0 px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-blue-800/60 flex items-center gap-1.5 transition" onclick="switchTab('tab-mock')">
+<i class="fa-solid fa-trophy"></i> 5. 綜合模擬考
+      </button><button class="tab-nav flex-shrink-0 px-3 py-2 rounded-lg text-blue-100 hover:text-white hover:bg-blue-800/60 flex items-center gap-1.5 transition" onclick="switchTab('tab-workbook')"><i class="fa-solid fa-clipboard-check"></i> 6. 教材原題與本文設問</button>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-6"><div class="max-w-4xl mx-auto bg-amber-50 border border-amber-200 text-amber-900 text-xs rounded-xl p-3 mb-4">教材核對補齊版：以提供的 17 張書頁照片為核對依據；新增教材文型、關聯語及原題。照片未涵蓋的頁數／未提供聽力音檔仍無法確認，請勿當作整本教材的完整答案庫。</div>
+<!-- 課別快捷篩選條 (適用前三模組) -->
+<div class="mb-5 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between flex-wrap gap-2" id="lessonFilterBar">
+<div class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 font-bold">
+<i class="fa-solid fa-sliders text-blue-600"></i>
+<span>快速篩選單元：</span>
+</div>
+<div class="flex gap-1.5 text-xs sm:text-sm">
+<button class="filter-btn active px-2.5 py-1 rounded-md bg-blue-600 text-white font-medium" onclick="filterLesson('all')">全部課別</button>
+<button class="filter-btn px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium" onclick="filterLesson('l1')">第1課 色のイメージ</button>
+<button class="filter-btn px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium" onclick="filterLesson('l2')">第2課 じゃんけん</button>
+<button class="filter-btn px-2.5 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium" onclick="filterLesson('l3')">第3課 駐車場</button>
+</div>
+</div>
+<!-- ==============================================================
          TAB 1: 課文朗讀與段落翻譯 (中日對照 + 語音朗讀 + 振假名)
          ============================================================== -->
-    <section id="tab-reading" class="tab-content block space-y-5">
-      
-      <!-- 第1課 -->
-      <article class="lesson-box l1 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm space-y-4">
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="bg-rose-100 text-rose-700 text-xs font-bold px-2.5 py-1 rounded-full">第 1 課</span>
-            <h2 class="text-base sm:text-lg font-bold text-slate-900">比較(1) 色のイメージ</h2>
-          </div>
-          <button onclick="speakLesson('l1')" class="text-xs text-blue-600 hover:text-blue-700 bg-blue-50 px-2.5 py-1.5 rounded-lg border border-blue-200 flex items-center gap-1 active:scale-95">
-            <i class="fa-solid fa-volume-high"></i> 朗讀本課
+<section class="tab-content block space-y-5" id="tab-reading">
+<!-- 第1課 -->
+<article class="lesson-box l1 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2">
+<span class="bg-rose-100 text-rose-700 text-xs font-bold px-2.5 py-1 rounded-full">第 1 課</span>
+<h2 class="text-base sm:text-lg font-bold text-slate-900">比較(1) 色のイメージ</h2>
+</div>
+<button class="text-xs text-blue-600 hover:text-blue-700 bg-blue-50 px-2.5 py-1.5 rounded-lg border border-blue-200 flex items-center gap-1 active:scale-95" onclick="speakLesson('l1')">
+<i class="fa-solid fa-volume-high"></i> 朗讀本課
           </button>
-        </div>
-
-        <!-- 段落 1-1 -->
-        <div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
-          <div class="flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>【段落 1：顏色與性格心理】</span>
-            <div class="flex gap-2">
-              <button onclick="speakSentence(this)" data-text="好きな色は人によって違います。好きな色でその人の性格が分かると言う人もいます。でも、明るい色より暗い色のほうが好きな人は性格も暗いでしょうか。色と性格に関係があるかどうかは分かりませんが、色とその色からイメージするものは関係があるかもしれません。" class="text-blue-600 hover:underline flex items-center gap-1">
-                <i class="fa-solid fa-play text-[10px]"></i> 播放此段
+</div>
+<!-- 段落 1-1 -->
+<div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
+<div class="flex justify-between items-center text-xs font-semibold text-slate-500">
+<span>【段落 1：顏色與性格心理】</span>
+<div class="flex gap-2">
+<button class="text-blue-600 hover:underline flex items-center gap-1" data-text="好きな色は人によって違います。好きな色でその人の性格が分かると言う人もいます。でも、明るい色より暗い色のほうが好きな人は性格も暗いでしょうか。色と性格が関係があるかどうかは分かりませんが、色とその色からイメージするものは関係があるかもしれません。" onclick="speakSentence(this)">
+<i class="fa-solid fa-play text-[10px]"></i> 播放此段
               </button>
-              <button onclick="toggleTrans('trans-1-1', this)" class="text-indigo-600 hover:underline">顯示中譯</button>
-            </div>
-          </div>
-          <p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
-            <ruby>好<rt>す</rt></ruby>きな<ruby>色<rt>いろ</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>によって<ruby>違<rt>ちが</rt></ruby>います。<ruby>好<rt>す</rt></ruby>きな<ruby>色<rt>いろ</rt></ruby>でその<ruby>人<rt>ひと</rt></ruby>の<ruby>性格<rt>せいかく</rt></ruby>が<ruby>分<rt>わ</rt></ruby>かると<ruby>言<rt>い</rt></ruby>う<ruby>人<rt>ひと</rt></ruby>もいます。でも、<ruby>明<rt>あか</rt></ruby>るい<ruby>色<rt>いろ</rt></ruby>より<ruby>暗<rt>くら</rt></ruby>い<ruby>色<rt>いろ</rt></ruby>のほうが<ruby>好<rt>す</rt></ruby>きな<ruby>人<rt>ひと</rt></ruby>は<ruby>性格<rt>せいかく</rt></ruby>も<ruby>暗<rt>くら</rt></ruby>いでしょうか。<ruby>色<rt>いろ</rt></ruby>と<ruby>性格<rt>せいかく</rt></ruby>に<ruby>関係<rt>かんけい</rt></ruby>があるかどうかは<ruby>分<rt>わ</rt></ruby>かりませんが、<ruby>色<rt>いろ</rt></ruby>とその<ruby>色<rt>いろ</rt></ruby>からイメージするものは<ruby>関係<rt>かんけい</rt></ruby>があるかもしれません。
+<button class="text-indigo-600 hover:underline" onclick="toggleTrans('trans-1-1', this)">顯示中譯</button>
+</div>
+</div>
+<p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
+<ruby>好<rt>す</rt></ruby>きな<ruby>色<rt>いろ</rt></ruby>は<ruby>人<rt>ひと</rt></ruby>によって<ruby>違<rt>ちが</rt></ruby>います。<ruby>好<rt>す</rt></ruby>きな<ruby>色<rt>いろ</rt></ruby>でその<ruby>人<rt>ひと</rt></ruby>の<ruby>性格<rt>せいかく</rt></ruby>が<ruby>分<rt>わ</rt></ruby>かると<ruby>言<rt>い</rt></ruby>う<ruby>人<rt>ひと</rt></ruby>もいます。でも、<ruby>明<rt>あか</rt></ruby>るい<ruby>色<rt>いろ</rt></ruby>より<ruby>暗<rt>くら</rt></ruby>い<ruby>色<rt>いろ</rt></ruby>のほうが<ruby>好<rt>す</rt></ruby>きな<ruby>人<rt>ひと</rt></ruby>は<ruby>性格<rt>せいかく</rt></ruby>も<ruby>暗<rt>くら</rt></ruby>いでしょうか。<ruby>色<rt>いろ</rt></ruby>と<ruby>性格<rt>せいかく</rt></ruby>が<ruby>関係<rt>かんけい</rt></ruby>があるかどうかは<ruby>分<rt>わ</rt></ruby>かりませんが、<ruby>色<rt>いろ</rt></ruby>とその<ruby>色<rt>いろ</rt></ruby>からイメージするものは<ruby>関係<rt>かんけい</rt></ruby>があるかもしれません。
           </p>
-          <div id="trans-1-1" class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed">
-            <strong>【段落翻譯】</strong> 喜歡的顏色因人而異。也有人說能從喜歡的顏色看出一個人的性格。但是，比起明亮的顏色更喜歡暗色的人，性格也會很陰沉嗎？顏色和性格究竟有沒有關係我們不得而知，但顏色與從該顏色所聯想到的事物之間，也許是有關聯的。
+<div class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed" id="trans-1-1">
+<strong>【段落翻譯】</strong> 喜歡的顏色因人而異。也有人說能從喜歡的顏色看出一個人的性格。但是，比起明亮的顏色更喜歡暗色的人，性格也會很陰沉嗎？顏色和性格究竟有沒有關係我們不得而知，但顏色與從該顏色所聯想到的事物之間，也許是有關聯的。
           </div>
-        </div>
-
-        <!-- 段落 1-2 -->
-        <div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
-          <div class="flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>【段落 2：紅黃藍果汁實驗】</span>
-            <div class="flex gap-2">
-              <button onclick="speakSentence(this)" data-text="青と赤と黄色の中でどれが一番「危険」をイメージしますか。だいたいどこの国でも赤から「危険」を連想するのではないでしょうか。赤のイメージはもちろん「危険」だけではありません。日本の中華料理のお店ではカウンターやテーブルは赤です。もしそれが青だったら、きっと食欲がなくなるでしょう。でも、青には別のイメージがあります。夏の暑い日はのどが渇きます。そんな時にあなたは何色のジュースが飲みたいですか。日本で赤と青と黄色のジュースを用意して、道を通る人に実験してみました。黄色も人気がありましたが、赤は一番人気がありませんでした。青はきっと青を見ると涼しく感じるのではないでしょうか。" class="text-blue-600 hover:underline flex items-center gap-1">
-                <i class="fa-solid fa-play text-[10px]"></i> 播放此段
+</div>
+<!-- 段落 1-2 -->
+<div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
+<div class="flex justify-between items-center text-xs font-semibold text-slate-500">
+<span>【段落 2：紅黃藍果汁實驗】</span>
+<div class="flex gap-2">
+<button class="text-blue-600 hover:underline flex items-center gap-1" data-text="青と赤と黄色の中でどれが一番「危険」をイメージしますか。だいたいどこの国でも赤から「危険」を連想するのではないでしょうか。赤のイメージはもちろん「危険」だけではありません。日本の中華料理のお店ではカウンターやテーブルは赤です。もしそれが青だったら、きっと食欲がなくなるでしょう。でも、青には別のイメージがあります。夏の暑い日はのどが渇きます。そんな時にあなたはどんな色のジュースが飲みたくなりますか。日本で赤と青と黄色のジュースを用意して、道を通る人に実験してみました。黄色のジュースも人気がありましたが、青ほどではありませんでした。赤は一番人気がありませんでした。きっと青を見ると涼しく感じるのではないでしょうか。" onclick="speakSentence(this)">
+<i class="fa-solid fa-play text-[10px]"></i> 播放此段
               </button>
-              <button onclick="toggleTrans('trans-1-2', this)" class="text-indigo-600 hover:underline">顯示中譯</button>
-            </div>
-          </div>
-          <p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
-            <ruby>青<rt>あお</rt></ruby>と<ruby>赤<rt>あか</rt></ruby>と<ruby>黄色<rt>きいろ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>でどれが<ruby>一番<rt>いちばん</rt></ruby>「<ruby>危険<rt>きけん</rt></ruby>」をイメージしますか。だいたいどこの<ruby>国<rt>くに</rt></ruby>でも<ruby>赤<rt>あか</rt></ruby>から「<ruby>危険<rt>きけん</rt></ruby>」を<ruby>連想<rt>れんそう</rt></ruby>するのではないでしょうか。<ruby>赤<rt>あか</rt></ruby>のイメージはもちろん「<ruby>危険<rt>きけん</rt></ruby>」だけではありません。<ruby>日本<rt>にほん</rt></ruby>の<ruby>中華料理<rt>ちゅうかりょうり</rt></ruby>のお<ruby>店<rt>みせ</rt></ruby>ではカウンターやテーブルは<ruby>赤<rt>あか</rt></ruby>です。もしそれが<ruby>青<rt>あお</rt></ruby>だったら、きっと<ruby>食欲<rt>しょくよく</rt></ruby>がなくなるでしょう。でも、<ruby>青<rt>あお</rt></ruby>には<ruby>別<rt>べつ</rt></ruby>のイメージがあります。<ruby>夏<rt>なつ</rt></ruby>の<ruby>暑<rt>あつ</rt></ruby>い<ruby>日<rt>ひ</rt></ruby>はのどが<ruby>渇<rt>かわ</rt></ruby>きます。そんな<ruby>時<rt>とき</rt></ruby>にあなたは何色のジュースが<ruby>飲<rt>の</rt></ruby>みたいですか。<ruby>日本<rt>にほん</rt></ruby>で<ruby>赤<rt>あか</rt></ruby>と<ruby>青<rt>あお</rt></ruby>と<ruby>黄色<rt>きいろ</rt></ruby>のジュースを<ruby>用意<rt>ようい</rt></ruby>して、<ruby>道<rt>みち</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>人<rt>ひと</rt></ruby>に<ruby>実験<rt>じっけん</rt></ruby>してみました。<ruby>黄色<rt>きいろ</rt></ruby>も<ruby>人気<rt>にんき</rt></ruby>がありましたが、<ruby>赤<rt>あか</rt></ruby>は<ruby>一番<rt>いちばん</rt></ruby><ruby>人気<rt>にんき</rt></ruby>がありませんでした。青はきっと青を見ると<ruby>涼<rt>すず</rt></ruby>しく<ruby>感<rt>かん</rt></ruby>じるのではないでしょうか。
+<button class="text-indigo-600 hover:underline" onclick="toggleTrans('trans-1-2', this)">顯示中譯</button>
+</div>
+</div>
+<p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
+<ruby>青<rt>あお</rt></ruby>と<ruby>赤<rt>あか</rt></ruby>と<ruby>黄色<rt>きいろ</rt></ruby>の<ruby>中<rt>なか</rt></ruby>でどれが<ruby>一番<rt>いちばん</rt></ruby>「<ruby>危険<rt>きけん</rt></ruby>」をイメージしますか。だいたいどこの<ruby>国<rt>くに</rt></ruby>でも<ruby>赤<rt>あか</rt></ruby>から「<ruby>危険<rt>きけん</rt></ruby>」を<ruby>連想<rt>れんそう</rt></ruby>するのではないでしょうか。<ruby>赤<rt>あか</rt></ruby>のイメージはもちろん「<ruby>危険<rt>きけん</rt></ruby>」だけではありません。<ruby>日本<rt>にほん</rt></ruby>の<ruby>中華料理<rt>ちゅうかりょうり</rt></ruby>のお<ruby>店<rt>みせ</rt></ruby>ではカウンターやテーブルは<ruby>赤<rt>あか</rt></ruby>です。もしそれが<ruby>青<rt>あお</rt></ruby>だったら、きっと<ruby>食欲<rt>しょくよく</rt></ruby>がなくなるでしょう。でも、<ruby>青<rt>あお</rt></ruby>には<ruby>別<rt>べつ</rt></ruby>のイメージがあります。<ruby>夏<rt>なつ</rt></ruby>の<ruby>暑<rt>あつ</rt></ruby>い<ruby>日<rt>ひ</rt></ruby>はのどが<ruby>渇<rt>かわ</rt></ruby>きます。そんな<ruby>時<rt>とき</rt></ruby>にあなたはどんな<ruby>色<rt>いろ</rt></ruby>のジュースが<ruby>飲<rt>の</rt></ruby>みたくなりますか。<ruby>日本<rt>にほん</rt></ruby>で<ruby>赤<rt>あか</rt></ruby>と<ruby>青<rt>あお</rt></ruby>と<ruby>黄色<rt>きいろ</rt></ruby>のジュースを<ruby>用意<rt>ようい</rt></ruby>して、<ruby>道<rt>みち</rt></ruby>を<ruby>通<rt>とお</rt></ruby>る<ruby>人<rt>ひと</rt></ruby>に<ruby>実験<rt>じっけん</rt></ruby>してみました。<ruby>黄色<rt>きいろ</rt></ruby>のジュースも<ruby>人気<rt>にんき</rt></ruby>がありましたが、<ruby>青<rt>あお</rt></ruby>ほどではありませんでした。<ruby>赤<rt>あか</rt></ruby>は<ruby>一番<rt>いちばん</rt></ruby><ruby>人気<rt>にんき</rt></ruby>がありませんでした。きっと<ruby>青<rt>あお</rt></ruby>を<ruby>見<rt>み</rt></ruby>ると<ruby>涼<rt>すず</rt></ruby>しく<ruby>感<rt>かん</rt></ruby>じるのではないでしょうか。
           </p>
-          <div id="trans-1-2" class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed">
-            <strong>【段落翻譯】</strong> 在藍色、紅色與黃色當中，哪一個最會讓你聯想到「危險」呢？大概在任何國家，大家都會從紅色聯想到危險吧。當然，紅色的印象不只有「危險」。在日本的中華料理餐廳裡，吧台或桌子都是紅色的。如果換成是藍色，肯定會讓人食慾全消。不過，藍色也有另一種印象。夏天炎熱的日子喉嚨會乾渴，在那種時候你想喝什麼顏色的果汁呢？在日本曾準備了紅、藍、黃三種顏色的果汁，對路人做了實驗。黃色也很受歡迎，但紅色最不受歡迎。至於藍色，肯定是因為看到藍色就會讓人感覺清涼吧。
+<div class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed" id="trans-1-2">
+<strong>【段落翻譯】</strong> 在藍色、紅色與黃色當中，哪一個最會讓你聯想到「危險」呢？大概在任何國家，大家都會從紅色聯想到危險吧。當然，紅色的印象不只有「危險」。在日本的中華料理餐廳裡，吧台或桌子都是紅色的。如果換成是藍色，肯定會讓人食慾全消。不過，藍色也有另一種印象。夏天炎熱的日子喉嚨會乾渴，在那種時候你會想喝什麼顏色的果汁呢？在日本曾準備了紅、藍、黃三種顏色的果汁，對路人做了實驗。黃色果汁也有人喜歡，但不及藍色受歡迎。紅色最不受歡迎。大概是因為看到藍色就會覺得清涼吧。
           </div>
-        </div>
-
-        <!-- 段落 1-3 -->
-        <div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
-          <div class="flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>【段落 3：黑白箱子重量實驗】</span>
-            <div class="flex gap-2">
-              <button onclick="speakSentence(this)" data-text="別の実験では同じ形で同じ大きさの箱を2つ持ってもらって、どちらの箱が重いか尋ねました。1つは白で、もう1つは黒でした。ほとんどの人が黒い箱のほうが重いと答えました。でも、本当は2つの箱は同じ重さでした。明るい色に比べて、暗い色はなんとなく重く感じるようです。" class="text-blue-600 hover:underline flex items-center gap-1">
-                <i class="fa-solid fa-play text-[10px]"></i> 播放此段
+</div>
+<!-- 段落 1-3 -->
+<div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
+<div class="flex justify-between items-center text-xs font-semibold text-slate-500">
+<span>【段落 3：黑白箱子重量實驗】</span>
+<div class="flex gap-2">
+<button class="text-blue-600 hover:underline flex items-center gap-1" data-text="別の実験では同じ形で同じ大きさの箱を2つ持ってもらって、どちらの箱が重いか尋ねました。1つは白で、もう1つは黒でした。ほとんどの人が黒い箱のほうが重いと答えました。でも、本当は2つの箱は同じ重さでした。明るい色に比べて、暗い色はなんとなく重く感じるようです。" onclick="speakSentence(this)">
+<i class="fa-solid fa-play text-[10px]"></i> 播放此段
               </button>
-              <button onclick="toggleTrans('trans-1-3', this)" class="text-indigo-600 hover:underline">顯示中譯</button>
-            </div>
-          </div>
-          <p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
-            <ruby>別<rt>べつ</rt></ruby>の<ruby>実験<rt>じっけん</rt></ruby>では<ruby>同<rt>おな</rt></ruby>じ<ruby>形<rt>かたち</rt></ruby>で<ruby>同<rt>おな</rt></ruby>じ<ruby>大<rt>おお</rt></ruby>きさの<ruby>箱<rt>はこ</rt></ruby>を2つ<ruby>持<rt>も</rt></ruby>ってもらって、どちらの<ruby>箱<rt>はこ</rt></ruby>が<ruby>重<rt>おも</rt></ruby>いか<ruby>尋<rt>たず</rt></ruby>ねました。1つは<ruby>白<rt>しろ</rt></ruby>で、もう1つは<ruby>黒<rt>くろ</rt></ruby>でした。ほとんどの<ruby>人<rt>ひと</rt></ruby>が<ruby>黒<rt>くろ</rt></ruby>い<ruby>箱<rt>はこ</rt></ruby>のほうが<ruby>重<rt>おも</rt></ruby>いと<ruby>答<rt>こた</rt></ruby>えました。でも、<ruby>本当<rt>ほんとう</rt></ruby>は2つの<ruby>箱<rt>はこ</rt></ruby>は<ruby>同<rt>おな</rt></ruby>じ<ruby>重<rt>おも</rt></ruby>さでした。<ruby>明<rt>あか</rt></ruby>るい<ruby>色<rt>いろ</rt></ruby>に<ruby>比<rt>くら</rt></ruby>べて、<ruby>暗<rt>くら</rt></ruby>い<ruby>色<rt>いろ</rt></ruby>はなんとなく<ruby>重<rt>おも</rt></ruby>く<ruby>感<rt>かん</rt></ruby>じるようです。
+<button class="text-indigo-600 hover:underline" onclick="toggleTrans('trans-1-3', this)">顯示中譯</button>
+</div>
+</div>
+<p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
+<ruby>別<rt>べつ</rt></ruby>の<ruby>実験<rt>じっけん</rt></ruby>では<ruby>同<rt>おな</rt></ruby>じ<ruby>形<rt>かたち</rt></ruby>で<ruby>同<rt>おな</rt></ruby>じ<ruby>大<rt>おお</rt></ruby>きさの<ruby>箱<rt>はこ</rt></ruby>を2つ<ruby>持<rt>も</rt></ruby>ってもらって、どちらの<ruby>箱<rt>はこ</rt></ruby>が<ruby>重<rt>おも</rt></ruby>いか<ruby>尋<rt>たず</rt></ruby>ねました。1つは<ruby>白<rt>しろ</rt></ruby>で、もう1つは<ruby>黒<rt>くろ</rt></ruby>でした。ほとんどの<ruby>人<rt>ひと</rt></ruby>が<ruby>黒<rt>くろ</rt></ruby>い<ruby>箱<rt>はこ</rt></ruby>のほうが<ruby>重<rt>おも</rt></ruby>いと<ruby>答<rt>こた</rt></ruby>えました。でも、<ruby>本当<rt>ほんとう</rt></ruby>は2つの<ruby>箱<rt>はこ</rt></ruby>は<ruby>同<rt>おな</rt></ruby>じ<ruby>重<rt>おも</rt></ruby>さでした。<ruby>明<rt>あか</rt></ruby>るい<ruby>色<rt>いろ</rt></ruby>に<ruby>比<rt>くら</rt></ruby>べて、<ruby>暗<rt>くら</rt></ruby>い<ruby>色<rt>いろ</rt></ruby>はなんとなく<ruby>重<rt>おも</rt></ruby>く<ruby>感<rt>かん</rt></ruby>じるようです。
           </p>
-          <div id="trans-1-3" class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed">
-            <strong>【段落翻譯】</strong> 在另一項實驗中，請受試者拿著兩個形狀和大小都相同的箱子，並詢問哪一個箱子比較重。一個是白色的，另一個是黑色的。幾乎所有人都回答黑色的箱子比較重。但事實上，兩個箱子重量完全一樣。比起明亮的顏色，暗色似乎總會讓人覺得較為沉重。
+<div class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed" id="trans-1-3">
+<strong>【段落翻譯】</strong> 在另一項實驗中，請受試者拿著兩個形狀和大小都相同的箱子，並詢問哪一個箱子比較重。一個是白色的，另一個是黑色的。幾乎所有人都回答黑色的箱子比較重。但事實上，兩個箱子重量完全一樣。比起明亮的顏色，暗色似乎總會讓人覺得較為沉重。
           </div>
-        </div>
-      </article>
-
-      <!-- 第2課 -->
-      <article class="lesson-box l2 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm space-y-4">
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2.5 py-1 rounded-full">第 2 課</span>
-            <h2 class="text-base sm:text-lg font-bold text-slate-900">様子・類似(1) 世界のじゃんけん</h2>
-          </div>
-          <button onclick="speakLesson('l2')" class="text-xs text-blue-600 hover:text-blue-700 bg-blue-50 px-2.5 py-1.5 rounded-lg border border-blue-200 flex items-center gap-1 active:scale-95">
-            <i class="fa-solid fa-volume-high"></i> 朗讀本課
+</div>
+</article>
+<!-- 第2課 -->
+<article class="lesson-box l2 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2">
+<span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-2.5 py-1 rounded-full">第 2 課</span>
+<h2 class="text-base sm:text-lg font-bold text-slate-900">様子・類似(1) 世界のじゃんけん</h2>
+</div>
+<button class="text-xs text-blue-600 hover:text-blue-700 bg-blue-50 px-2.5 py-1.5 rounded-lg border border-blue-200 flex items-center gap-1 active:scale-95" onclick="speakLesson('l2')">
+<i class="fa-solid fa-volume-high"></i> 朗讀本課
           </button>
-        </div>
-
-        <!-- 段落 2-1 -->
-        <div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
-          <div class="flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>【段落 1：鬼ごっこ與日本猜拳】</span>
-            <div class="flex gap-2">
-              <button onclick="speakSentence(this)" data-text="子どもの遊びにはいろいろありますが、「鬼ごっこ」というのはだいたい世界中にある遊びのようです。その鬼はどうやって決めますか。日本では「じゃんけん」で決めるのが普通です。「じゃんけん、ぽん」と言って、グー、チョキ、パーのどれか1つを出して、負けた人が鬼になります。このじゃんけんも世界各地にあって、よく似ています。手を握る「グー」が「石」を、指を二本出す「チョキ」が「はさみ」を、手を開く「パー」が「紙」を表すのが一番多いです。石とはさみと紙の勝負ですから、グーはチョキに勝って、チョキはパーに勝つことが分かります。紙は石を包むので、パーはグーに勝ちます。国によって、グーが金づちだったり、紙が布だったりします。" class="text-blue-600 hover:underline flex items-center gap-1">
-                <i class="fa-solid fa-play text-[10px]"></i> 播放此段
+</div>
+<!-- 段落 2-1 -->
+<div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
+<div class="flex justify-between items-center text-xs font-semibold text-slate-500">
+<span>【段落 1：鬼ごっこ與日本猜拳】</span>
+<div class="flex gap-2">
+<button class="text-blue-600 hover:underline flex items-center gap-1" data-text="子どもの遊びにはいろいろありますが、「鬼ごっこ」というのはだいたい世界中にある遊びのようです。その鬼はどうやって決めますか。日本では「じゃんけん」で決めるのが普通です。「じゃんけん、ぽん」と言って、グー、チョキ、パーのどれか1つを出して、負けた人が鬼になります。このじゃんけんも世界各地にあって、よく似ています。手を握る「グー」が「石」を、指を二本出す「チョキ」が「はさみ」を、手を開く「パー」が「紙」を表すのが一番多いです。石とはさみと紙の勝負ですから、グーはチョキに勝って、チョキはパーに勝つことが分かります。紙は石を包むので、パーはグーに勝ちます。国によって、グーが金づちだったり、紙が布だったりします。" onclick="speakSentence(this)">
+<i class="fa-solid fa-play text-[10px]"></i> 播放此段
               </button>
-              <button onclick="toggleTrans('trans-2-1', this)" class="text-indigo-600 hover:underline">顯示中譯</button>
-            </div>
-          </div>
-          <p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
-            <ruby>子<rt>こ</rt></ruby>どもの<ruby>遊<rt>あそ</rt></ruby>びにはいろいろありますが、「<ruby>鬼<rt>おに</rt></ruby>ごっこ」というのはだいたい<ruby>世界中<rt>せかいじゅう</rt></ruby>にある<ruby>遊<rt>あそ</rt></ruby>びのようです。その<ruby>鬼<rt>おに</rt></ruby>はどうやって<ruby>決<rt>き</rt></ruby>めますか。<ruby>日本<rt>にほん</rt></ruby>では「じゃんけん」で<ruby>決<rt>き</rt></ruby>めるのが<ruby>普通<rt>ふつう</rt></ruby>です。「じゃんけん、ぽん」と<ruby>言<rt>い</rt></ruby>って、グー、チョキ、パーのどれか1つを<ruby>出<rt>だ</rt></ruby>して、<ruby>負<rt>ま</rt></ruby>けた<ruby>人<rt>ひと</rt></ruby>が<ruby>鬼<rt>おに</rt></ruby>になります。このじゃんけんも<ruby>世界各地<rt>せかいかくち</rt></ruby>にあって、よく<ruby>似<rt>に</rt></ruby>ています。<ruby>手<rt>て</rt></ruby>を<ruby>握<rt>にぎ</rt></ruby>る「グー」が「<ruby>石<rt>いし</rt></ruby>」を、<ruby>指<rt>ゆび</rt></ruby>を<ruby>二本<rt>にほん</rt></ruby><ruby>出<rt>だ</rt></ruby>す「チョキ」が「はさみ」を、<ruby>手<rt>て</rt></ruby>を<ruby>開<rt>ひら</rt></ruby>く「パー」が「<ruby>紙<rt>かみ</rt></ruby>」を<ruby>表<rt>あらわ</rt></ruby>すのが<ruby>一番<rt>いちばん</rt></ruby><ruby>多<rt>おお</rt></ruby>いです。<ruby>石<rt>いし</rt></ruby>とはさみと<ruby>紙<rt>かみ</rt></ruby>の<ruby>勝負<rt>しょうぶ</rt></ruby>ですから、グーはチョキに<ruby>勝<rt>か</rt></ruby>って、チョキはパーに<ruby>勝<rt>か</rt></ruby>つことが<ruby>分<rt>わ</rt></ruby>かります。<ruby>紙<rt>かみ</rt></ruby>は<ruby>石<rt>いし</rt></ruby>を<ruby>包<rt>つつ</rt></ruby>むので、パーはグーに<ruby>勝<rt>か</rt></ruby>ちます。<ruby>国<rt>くに</rt></ruby>によって、グーが<ruby>金<rt>かな</rt></ruby>づちだったり、<ruby>紙<rt>かみ</rt></ruby>が<ruby>布<rt>ぬの</rt></ruby>だったりします。
+<button class="text-indigo-600 hover:underline" onclick="toggleTrans('trans-2-1', this)">顯示中譯</button>
+</div>
+</div>
+<p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
+<ruby>子<rt>こ</rt></ruby>どもの<ruby>遊<rt>あそ</rt></ruby>びにはいろいろありますが、「<ruby>鬼<rt>おに</rt></ruby>ごっこ」というのはだいたい<ruby>世界中<rt>せかいじゅう</rt></ruby>にある<ruby>遊<rt>あそ</rt></ruby>びのようです。その<ruby>鬼<rt>おに</rt></ruby>はどうやって<ruby>決<rt>き</rt></ruby>めますか。<ruby>日本<rt>にほん</rt></ruby>では「じゃんけん」で<ruby>決<rt>き</rt></ruby>めるのが<ruby>普通<rt>ふつう</rt></ruby>です。「じゃんけん、ぽん」と<ruby>言<rt>い</rt></ruby>って、グー、チョキ、パーのどれか1つを<ruby>出<rt>だ</rt></ruby>して、<ruby>負<rt>ま</rt></ruby>けた<ruby>人<rt>ひと</rt></ruby>が<ruby>鬼<rt>おに</rt></ruby>になります。このじゃんけんも<ruby>世界各地<rt>せかいかくち</rt></ruby>にあって、よく<ruby>似<rt>に</rt></ruby>ています。<ruby>手<rt>て</rt></ruby>を<ruby>握<rt>にぎ</rt></ruby>る「グー」が「<ruby>石<rt>いし</rt></ruby>」を、<ruby>指<rt>ゆび</rt></ruby>を<ruby>二本<rt>にほん</rt></ruby><ruby>出<rt>だ</rt></ruby>す「チョキ」が「はさみ」を、<ruby>手<rt>て</rt></ruby>を<ruby>開<rt>ひら</rt></ruby>く「パー」が「<ruby>紙<rt>かみ</rt></ruby>」を<ruby>表<rt>あらわ</rt></ruby>すのが<ruby>一番<rt>いちばん</rt></ruby><ruby>多<rt>おお</rt></ruby>いです。<ruby>石<rt>いし</rt></ruby>とはさみと<ruby>紙<rt>かみ</rt></ruby>の<ruby>勝負<rt>しょうぶ</rt></ruby>ですから、グーはチョキに<ruby>勝<rt>か</rt></ruby>って、チョキはパーに<ruby>勝<rt>か</rt></ruby>つことが<ruby>分<rt>わ</rt></ruby>かります。<ruby>紙<rt>かみ</rt></ruby>は<ruby>石<rt>いし</rt></ruby>を<ruby>包<rt>つつ</rt></ruby>むので、パーはグーに<ruby>勝<rt>か</rt></ruby>ちます。<ruby>国<rt>くに</rt></ruby>によって、グーが<ruby>金<rt>かな</rt></ruby>づちだったり、<ruby>紙<rt>かみ</rt></ruby>が<ruby>布<rt>ぬの</rt></ruby>だったりします。
           </p>
-          <div id="trans-2-1" class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed">
-            <strong>【段落翻譯】</strong> 兒童的遊戲種類繁多，而所謂的「鬼抓人（鬼ごっこ）」似乎是全世界幾乎都有的遊戲。那當抓人者的「鬼」是怎麼決定的呢？在日本通常是以「猜拳（じゃんけん）」來決定。喊著「じゃんけん、ぽん」，伸出剪刀、石頭、布中的任一種，輸的人就當鬼。這種猜拳在世界各地也都有，而且非常相似。握緊拳頭的「石頭」代表石頭、伸出兩隻手指的「剪刀」代表剪刀、張開手的「布」代表紙，這是最常見的。因為是石頭、剪刀與紙的對決，所以石頭贏剪刀、剪刀贏布。由於紙可以包住石頭，所以布贏石頭。依國家不同，有時石頭會代表鐵鎚（金づち），紙代表布料（布）。
+<div class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed" id="trans-2-1">
+<strong>【段落翻譯】</strong> 兒童的遊戲種類繁多，而所謂的「鬼抓人（鬼ごっこ）」似乎是全世界幾乎都有的遊戲。那當抓人者的「鬼」是怎麼決定的呢？在日本通常是以「猜拳（じゃんけん）」來決定。喊著「じゃんけん、ぽん」，伸出剪刀、石頭、布中的任一種，輸的人就當鬼。這種猜拳在世界各地也都有，而且非常相似。握緊拳頭的「石頭」代表石頭、伸出兩隻手指的「剪刀」代表剪刀、張開手的「布」代表紙，這是最常見的。因為是石頭、剪刀與紙的對決，所以石頭贏剪刀、剪刀贏布。由於紙可以包住石頭，所以布贏石頭。依國家不同，有時石頭會代表鐵鎚（金づち），紙代表布料（布）。
           </div>
-        </div>
-
-        <!-- 段落 2-2 -->
-        <div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
-          <div class="flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>【段落 2：馬來西亞與印尼猜拳】</span>
-            <div class="flex gap-2">
-              <button onclick="speakSentence(this)" data-text="マレーシアのじゃんけんはちょっと違います。グーとパーの形は日本とそっくりですが、チョキは指先を全部合わせて前に出して、まるで鳥のくちばしのような形を作ります。そして、パーは紙ではなくて水を表します。ですから、石と鳥と水の勝負です。インドネシアにもじゃんけんのような遊びがあります。握りこぶしから親指だけを出すのが「象」で、人差し指だけを出すのが「人」、小指だけ出すのが「アリ」だそうです。象が人に勝って、人がアリに勝つのは分かりますが、どうしてアリが象に勝つのでしょうか。アリみたいに小さくても大きいものを倒すことができるところがおもしろいです。" class="text-blue-600 hover:underline flex items-center gap-1">
-                <i class="fa-solid fa-play text-[10px]"></i> 播放此段
+</div>
+<!-- 段落 2-2 -->
+<div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
+<div class="flex justify-between items-center text-xs font-semibold text-slate-500">
+<span>【段落 2：馬來西亞與印尼猜拳】</span>
+<div class="flex gap-2">
+<button class="text-blue-600 hover:underline flex items-center gap-1" data-text="マレーシアのじゃんけんはちょっと違います。グーとパーの形は日本とそっくりですが、チョキは指先を全部合わせて前に出して、まるで鳥のくちばしのような形を作ります。そして、パーは紙ではなくて水を表します。ですから、石と鳥と水の勝負です。インドネシアにもじゃんけんのような遊びがあります。握りこぶしから親指だけを出すのが「象」で、人差し指だけを出すのが「人」、小指だけ出すのが「アリ」だそうです。象が人に勝って、人がアリに勝つのは分かりますが、どうしてアリが象に勝つのでしょうか。アリみたいに小さくても大きいものを倒すことができるところがおもしろいです。" onclick="speakSentence(this)">
+<i class="fa-solid fa-play text-[10px]"></i> 播放此段
               </button>
-              <button onclick="toggleTrans('trans-2-2', this)" class="text-indigo-600 hover:underline">顯示中譯</button>
-            </div>
-          </div>
-          <p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
+<button class="text-indigo-600 hover:underline" onclick="toggleTrans('trans-2-2', this)">顯示中譯</button>
+</div>
+</div>
+<p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
             マレーシアのじゃんけんはちょっと<ruby>違<rt>ちが</rt></ruby>います。グーとパーの<ruby>形<rt>かたち</rt></ruby>は<ruby>日本<rt>にほん</rt></ruby>とそっくりですが、チョキは<ruby>指先<rt>ゆびさき</rt></ruby>を<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>合<rt>あ</rt></ruby>わせて<ruby>前<rt>まえ</rt></ruby>に<ruby>出<rt>だ</rt></ruby>して、まるで<ruby>鳥<rt>とり</rt></ruby>のくちばしのような<ruby>形<rt>かたち</rt></ruby>を<ruby>作<rt>つく</rt></ruby>ります。そして、パーは<ruby>紙<rt>かみ</rt></ruby>ではなくて<ruby>水<rt>みず</rt></ruby>を<ruby>表<rt>あらわ</rt></ruby>します。ですから、<ruby>石<rt>いし</rt></ruby>と<ruby>鳥<rt>とり</rt></ruby>と<ruby>水<rt>みず</rt></ruby>の<ruby>勝負<rt>しょうぶ</rt></ruby>です。インドネシアにもじゃんけんのような<ruby>遊<rt>あそ</rt></ruby>びがあります。<ruby>握<rt>にぎ</rt></ruby>りこぶしから<ruby>親指<rt>おやゆび</rt></ruby>だけを<ruby>出<rt>だ</rt></ruby>すのが「<ruby>象<rt>ぞう</rt></ruby>」で、<ruby>人差<rt>ひとさ</rt></ruby>し<ruby>指<rt>ゆび</rt></ruby>だけを<ruby>出<rt>だ</rt></ruby>すのが「<ruby>人<rt>ひと</rt></ruby>」、<ruby>小指<rt>こゆび</rt></ruby>だけ<ruby>出<rt>だ</rt></ruby>すのが「アリ」だそうです。<ruby>象<rt>ぞう</rt></ruby>が<ruby>人<rt>ひと</rt></ruby>に<ruby>勝<rt>か</rt></ruby>って、<ruby>人<rt>ひと</rt></ruby>がアリに<ruby>勝<rt>か</rt></ruby>つのは<ruby>分<rt>わ</rt></ruby>かりますが、どうしてアリが<ruby>象<rt>ぞう</rt></ruby>に<ruby>勝<rt>か</rt></ruby>つのでしょうか。アリみたいに<ruby>小<rt>ちい</rt></ruby>さくても<ruby>大<rt>おお</rt></ruby>きいものを<ruby>倒<rt>たお</rt></ruby>すことができるところがおもしろいです。
           </p>
-          <div id="trans-2-2" class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed">
-            <strong>【段落翻譯】</strong> 馬來西亞的猜拳則有些不同。石頭和布的形狀和日本一模一樣（そっくり），但剪刀則是將所有指尖碰在一起伸向前，做出宛如鳥嘴一般的形狀。而且，布不是代表紙，而是代表「水」。因此，這是石頭、鳥與水的對決。在印尼也有類似猜拳的遊戲。握緊的拳頭只伸出大拇指代表「大象」，只伸出食指代表「人」，只伸出小指據說代表「螞蟻」。大象贏人、人贏螞蟻這點容易理解，但為什麼螞蟻能贏大象呢？像螞蟻這般渺小卻能擊倒龐然大物，這點正是其有趣之處。
+<div class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed" id="trans-2-2">
+<strong>【段落翻譯】</strong> 馬來西亞的猜拳則有些不同。石頭和布的形狀和日本一模一樣（そっくり），但剪刀則是將所有指尖碰在一起伸向前，做出宛如鳥嘴一般的形狀。而且，布不是代表紙，而是代表「水」。因此，這是石頭、鳥與水的對決。在印尼也有類似猜拳的遊戲。握緊的拳頭只伸出大拇指代表「大象」，只伸出食指代表「人」，只伸出小指據說代表「螞蟻」。大象贏人、人贏螞蟻這點容易理解，但為什麼螞蟻能贏大象呢？像螞蟻這般渺小卻能擊倒龐然大物，這點正是其有趣之處。
           </div>
-        </div>
-      </article>
-
-      <!-- 第3課 -->
-      <article class="lesson-box l3 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm space-y-4">
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-          <div class="flex items-center gap-2">
-            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-full">第 3 課</span>
-            <h2 class="text-base sm:text-lg font-bold text-slate-900">程度・変化(1) 不便な駐車場</h2>
-          </div>
-          <button onclick="speakLesson('l3')" class="text-xs text-blue-600 hover:text-blue-700 bg-blue-50 px-2.5 py-1.5 rounded-lg border border-blue-200 flex items-center gap-1 active:scale-95">
-            <i class="fa-solid fa-volume-high"></i> 朗讀本課
+</div>
+</article>
+<!-- 第3課 -->
+<article class="lesson-box l3 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2">
+<span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-full">第 3 課</span>
+<h2 class="text-base sm:text-lg font-bold text-slate-900">程度・変化(1) 不便な駐車場</h2>
+</div>
+<button class="text-xs text-blue-600 hover:text-blue-700 bg-blue-50 px-2.5 py-1.5 rounded-lg border border-blue-200 flex items-center gap-1 active:scale-95" onclick="speakLesson('l3')">
+<i class="fa-solid fa-volume-high"></i> 朗讀本課
           </button>
-        </div>
-
-        <!-- 段落 3-1 -->
-        <div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
-          <div class="flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>【段落 1：停車場的定價問題】</span>
-            <div class="flex gap-2">
-              <button onclick="speakSentence(this)" data-text="ある会社が駅のすぐ近くに3階建ての駐車場を造ったのですが、あまり利用する人がいなかったそうです。料金は1時間300円ですからそんなに高くありません。駅からやや遠いところにも駐車場がありますが、こちらは30分100円です。1時間で比べれば、駅の近くの駐車場のほうがこちらより100円高いです。でも、アパートの家賃もそうですが、駅に近ければ近いほど高くなるのが普通です。" class="text-blue-600 hover:underline flex items-center gap-1">
-                <i class="fa-solid fa-play text-[10px]"></i> 播放此段
+</div>
+<!-- 段落 3-1 -->
+<div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
+<div class="flex justify-between items-center text-xs font-semibold text-slate-500">
+<span>【段落 1：停車場的定價問題】</span>
+<div class="flex gap-2">
+<button class="text-blue-600 hover:underline flex items-center gap-1" data-text="ある会社が駅のすぐ近くに3階建ての駐車場を造ったのですが、あまり利用する人がいなかったそうです。料金は1時間300円ですからそんなに高くありません。駅からやや遠いところにも駐車場がありますが、こちらは30分100円です。1時間で比べれば、駅の近くの駐車場のほうがこちらより100円高いです。でも、アパートの家賃もそうですが、駅に近ければ近いほど高くなるのが普通です。" onclick="speakSentence(this)">
+<i class="fa-solid fa-play text-[10px]"></i> 播放此段
               </button>
-              <button onclick="toggleTrans('trans-3-1', this)" class="text-indigo-600 hover:underline">顯示中譯</button>
-            </div>
-          </div>
-          <p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
+<button class="text-indigo-600 hover:underline" onclick="toggleTrans('trans-3-1', this)">顯示中譯</button>
+</div>
+</div>
+<p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
             ある<ruby>会社<rt>かいしゃ</rt></ruby>が<ruby>駅<rt>えき</rt></ruby>のすぐ<ruby>近<rt>ちか</rt></ruby>くに3<ruby>階建<rt>かいだ</rt></ruby>ての<ruby>駐車場<rt>ちゅうしゃじょう</rt></ruby>を<ruby>造<rt>つく</rt></ruby>ったのですが、あまり<ruby>利用<rt>りよう</rt></ruby>する<ruby>人<rt>ひと</rt></ruby>がいなかったそうです。<ruby>料金<rt>りょうきん</rt></ruby>は1<ruby>時間<rt>じかん</rt></ruby>300<ruby>円<rt>えん</rt></ruby>ですからそんなに<ruby>高<rt>たか</rt></ruby>くありません。<ruby>駅<rt>えき</rt></ruby>からやや<ruby>遠<rt>とお</rt></ruby>いところにも<ruby>駐車場<rt>ちゅうしゃじょう</rt></ruby>がありますが、こちらは30<ruby>分<rt>ぷん</rt></ruby>100<ruby>円<rt>えん</rt></ruby>です。1<ruby>時間<rt>じかん</rt></ruby>で<ruby>比<rt>くら</rt></ruby>べれば、<ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くの<ruby>駐車場<rt>ちゅうしゃじょう</rt></ruby>のほうがこちらより100<ruby>円<rt>えん</rt></ruby><ruby>高<rt>たか</rt></ruby>いです。でも、アパートの<ruby>家賃<rt>やちん</rt></ruby>もそうですが、<ruby>駅<rt>えき</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>ければ<ruby>近<rt>ちか</rt></ruby>いほど<ruby>高<rt>たか</rt></ruby>くなるのが<ruby>普通<rt>ふつう</rt></ruby>です。
           </p>
-          <div id="trans-3-1" class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed">
-            <strong>【段落翻譯】</strong> 某家公司在車站正旁邊蓋了一座三層樓的停車場，但據說使用的人並不多。費用是一小時300日圓，並不算太貴。雖然離車站稍微偏遠一點的地方也有停車場，那裡是30分鐘100日圓。以一小時來相比的話，車站附近的停車場比那裡貴了100日圓。不過，就像公寓房租一樣，離車站越近費用就越高，本來就是很正常的。
+<div class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed" id="trans-3-1">
+<strong>【段落翻譯】</strong> 某家公司在車站正旁邊蓋了一座三層樓的停車場，但據說使用的人並不多。費用是一小時300日圓，並不算太貴。雖然離車站稍微偏遠一點的地方也有停車場，那裡是30分鐘100日圓。以一小時來相比的話，車站附近的停車場比那裡貴了100日圓。不過，就像公寓房租一樣，離車站越近費用就越高，本來就是很正常的。
           </div>
-        </div>
-
-        <!-- 段落 3-2 -->
-        <div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
-          <div class="flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>【段落 2：無電梯之苦與降價策略】</span>
-            <div class="flex gap-2">
-              <button onclick="speakSentence(this)" data-text="それでは、なぜ駅の近くの駐車場は人気がないのでしょうか。実は、この駐車場にはエレベーターがないので、3階に止めたら階段で降りたり上ったりしなければならないのです。これがけっこうつらいようです。それで、1階はいつもいっぱいで、2階もまあまあ利用があるのですが、3階はほとんど利用されませんでした。困った経営者は何かいい方法はないか考えて、1つのアイディアを思いつきました。上に行けば行くほど料金を安くすることにしたのです。さっそく2階は1時間200円にして、3階はそれよりさらに50円安くしました。" class="text-blue-600 hover:underline flex items-center gap-1">
-                <i class="fa-solid fa-play text-[10px]"></i> 播放此段
+</div>
+<!-- 段落 3-2 -->
+<div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
+<div class="flex justify-between items-center text-xs font-semibold text-slate-500">
+<span>【段落 2：無電梯之苦與降價策略】</span>
+<div class="flex gap-2">
+<button class="text-blue-600 hover:underline flex items-center gap-1" data-text="それでは、なぜ駅の近くの駐車場は人気がないのでしょうか。実は、この駐車場にはエレベーターがないので、3階に止めたら階段で降りたり上ったりしなければならないのです。これがけっこうつらいようです。それで、1階はいつもいっぱいで、2階もまあまあ利用があるのですが、3階はほとんど利用されませんでした。困った経営者は何かいい方法はないか考えて、1つのアイディアを思いつきました。上に行けば行くほど料金を安くすることにしたのです。さっそく2階は1時間200円にして、3階はそれよりさらに50円安くしました。" onclick="speakSentence(this)">
+<i class="fa-solid fa-play text-[10px]"></i> 播放此段
               </button>
-              <button onclick="toggleTrans('trans-3-2', this)" class="text-indigo-600 hover:underline">顯示中譯</button>
-            </div>
-          </div>
-          <p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
+<button class="text-indigo-600 hover:underline" onclick="toggleTrans('trans-3-2', this)">顯示中譯</button>
+</div>
+</div>
+<p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
             それでは、なぜ<ruby>駅<rt>えき</rt></ruby>の<ruby>近<rt>ちか</rt></ruby>くの<ruby>駐車場<rt>ちゅうしゃじょう</rt></ruby>は<ruby>人気<rt>にんき</rt></ruby>がないのでしょうか。<ruby>実<rt>じつ</rt></ruby>は、この<ruby>駐車場<rt>ちゅうしゃじょう</rt></ruby>にはエレベーターがないので、3<ruby>階<rt>かい</rt></ruby>に<ruby>止<rt>と</rt></ruby>めたら<ruby>階段<rt>かいだん</rt></ruby>で<ruby>降<rt>お</rt></ruby>りたり<ruby>上<rt>のぼ</rt></ruby>ったりしなければならないのです。これがけっこうつらいようです。それで、1<ruby>階<rt>かい</rt></ruby>はいつもいっぱいで、2<ruby>階<rt>かい</rt></ruby>もまあまあ<ruby>利用<rt>りよう</rt></ruby>があるのですが、3<ruby>階<rt>かい</rt></ruby>はほとんど<ruby>利用<rt>りよう</rt></ruby>されませんでした。<ruby>困<rt>こま</rt></ruby>った<ruby>経営者<rt>けいえいしゃ</rt></ruby>は<ruby>何<rt>なに</rt></ruby>かいい<ruby>方法<rt>ほうほう</rt></ruby>はないか<ruby>考<rt>かんが</rt></ruby>えて、1つのアイディアを<ruby>思<rt>おも</rt></ruby>いつきました。<ruby>上<rt>うえ</rt></ruby>に<ruby>行<rt>い</rt></ruby>けば<ruby>行<rt>い</rt></ruby>くほど<ruby>料金<rt>りょうきん</rt></ruby>を<ruby>安<rt>やす</rt></ruby>くすることにしたのです。さっそく2<ruby>階<rt>かい</rt></ruby>は1<ruby>時間<rt>じかん</rt></ruby>200<ruby>円<rt>えん</rt></ruby>にして、3<ruby>階<rt>かい</rt></ruby>はそれよりさらに50<ruby>円<rt>えん</rt></ruby><ruby>安<rt>やす</rt></ruby>くしました。
           </p>
-          <div id="trans-3-2" class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed">
-            <strong>【段落翻譯】</strong> 那麼，為什麼車站附近的停車場會不受歡迎呢？其實，這座停車場因為沒有電梯，如果停在3樓的話，就必須走樓梯上上下下。這似乎相當吃力痛苦。因此，1樓總是客滿，2樓也還算有人利用，但3樓則幾乎無人使用。苦惱的經營者思考著有沒有什麼好方法，靈機一動想出了一個點子：決定採取「越往高樓層，收費越便宜」。於是立刻將2樓定為每小時200日圓，而3樓則比2樓再便宜50日圓（150日圓）。
+<div class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed" id="trans-3-2">
+<strong>【段落翻譯】</strong> 那麼，為什麼車站附近的停車場會不受歡迎呢？其實，這座停車場因為沒有電梯，如果停在3樓的話，就必須走樓梯上上下下。這似乎相當吃力痛苦。因此，1樓總是客滿，2樓也還算有人利用，但3樓則幾乎無人使用。苦惱的經營者思考著有沒有什麼好方法，靈機一動想出了一個點子：決定採取「越往高樓層，收費越便宜」。於是立刻將2樓定為每小時200日圓，而3樓則比2樓再便宜50日圓（150日圓）。
           </div>
-        </div>
-
-        <!-- 段落 3-3 -->
-        <div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
-          <div class="flex justify-between items-center text-xs font-semibold text-slate-500">
-            <span>【段落 3：滿車大成功】</span>
-            <div class="flex gap-2">
-              <button onclick="speakSentence(this)" data-text="この方法は大成功でした。今では上のほうほど早くいっぱいになって、1階から3階までいつも「満車」の表示が出ています。少しでも安くなるならエレベーターなんてなくてもいいと考える人が多いのでしょう。どれくらい安ければ、不便でもかまわないと考えるか、それが問題です。" class="text-blue-600 hover:underline flex items-center gap-1">
-                <i class="fa-solid fa-play text-[10px]"></i> 播放此段
+</div>
+<!-- 段落 3-3 -->
+<div class="bg-slate-50/80 rounded-xl p-3.5 sm:p-4 border border-slate-200/80 space-y-2.5">
+<div class="flex justify-between items-center text-xs font-semibold text-slate-500">
+<span>【段落 3：滿車大成功】</span>
+<div class="flex gap-2">
+<button class="text-blue-600 hover:underline flex items-center gap-1" data-text="この方法は大成功でした。今では上のほうほど早くいっぱいになって、1階から3階までいつも「満車」の表示が出ています。少しでも安くなるならエレベーターなんてなくてもいいと考える人が多いのでしょう。どれくらい安ければ、不便でもかまわないと考えるか、それが問題です。" onclick="speakSentence(this)">
+<i class="fa-solid fa-play text-[10px]"></i> 播放此段
               </button>
-              <button onclick="toggleTrans('trans-3-3', this)" class="text-indigo-600 hover:underline">顯示中譯</button>
-            </div>
-          </div>
-          <p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
+<button class="text-indigo-600 hover:underline" onclick="toggleTrans('trans-3-3', this)">顯示中譯</button>
+</div>
+</div>
+<p class="japanese-text text-base sm:text-lg leading-loose text-slate-800">
             この<ruby>方法<rt>ほうほう</rt></ruby>は<ruby>大成功<rt>だいせいこう</rt></ruby>でした。<ruby>今<rt>いま</rt></ruby>では<ruby>上<rt>うえ</rt></ruby>のほうほど<ruby>早<rt>はや</rt></ruby>くいっぱいになって、1<ruby>階<rt>かい</rt></ruby>から3<ruby>階<rt>かい</rt></ruby>までいつも「<ruby>満車<rt>まんしゃ</rt></ruby>」の<ruby>表示<rt>ひょうじ</rt></ruby>が<ruby>出<rt>で</rt></ruby>ています。<ruby>少<rt>すこ</rt></ruby>しでも<ruby>安<rt>やす</rt></ruby>くなるならエレベーターなんてなくてもいいと<ruby>考<rt>かんが</rt></ruby>える<ruby>人<rt>ひと</rt></ruby>が<ruby>多<rt>おお</rt></ruby>いのでしょう。どれくらい<ruby>安<rt>やす</rt></ruby>ければ、<ruby>不便<rt>ふべん</rt></ruby>でもかまわないと<ruby>考<rt>かんが</rt></ruby>えるか、それが<ruby>問題<rt>もんだい</rt></ruby>です。
           </p>
-          <div id="trans-3-3" class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed">
-            <strong>【段落翻譯】</strong> 這個方法取得了巨大的成功。現在反而是越上面的樓層越早客滿，從1樓到3樓總是顯示著「滿車」的標誌。只要能便宜一點，就算沒有電梯也無所謂的人應該很多吧。到底要便宜到什麼程度，人們才會覺得即使不方便也無所謂呢？這正是值得探討的問題。
+<div class="hidden text-sm bg-blue-50/70 text-slate-700 p-3 rounded-lg border-l-4 border-blue-500 leading-relaxed" id="trans-3-3">
+<strong>【段落翻譯】</strong> 這個方法取得了巨大的成功。現在反而是越上面的樓層越早客滿，從1樓到3樓總是顯示著「滿車」的標誌。只要能便宜一點，就算沒有電梯也無所謂的人應該很多吧。到底要便宜到什麼程度，人們才會覺得即使不方便也無所謂呢？這正是值得探討的問題。
           </div>
-        </div>
-      </article>
-
-    </section>
-
-    <!-- ==============================================================
+</div>
+</article>
+</section>
+<!-- ==============================================================
          TAB 2: 生詞讀音與釋義字庫 (翻轉字卡 / 考點分類)
          ============================================================== -->
-    <section id="tab-vocab" class="tab-content hidden space-y-6">
-
-      <!-- 自他動詞與對比專題卡 -->
-      <div class="vocab-focus-card bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-4 sm:p-5 shadow-sm">
-        <h3 class="text-base font-bold text-amber-900 flex items-center gap-2 mb-3">
-          <i class="fa-solid fa-bolt text-amber-500"></i> 考試大考點：自動詞 vs 他動詞對決
+<section class="tab-content hidden space-y-6" id="tab-vocab">
+<!-- 自他動詞與對比專題卡 -->
+<div class="vocab-focus-card bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-4 sm:p-5 shadow-sm">
+<h3 class="text-base font-bold text-amber-900 flex items-center gap-2 mb-3">
+<i class="fa-solid fa-bolt text-amber-500"></i> 考試大考點：自動詞 vs 他動詞對決
         </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-          <div class="bg-white p-3 rounded-xl border border-amber-200/70 shadow-2xs">
-            <div class="font-bold text-slate-800 text-base mb-1">渇く vs 乾く／乾かす</div>
-            <p class="text-xs text-slate-600 mb-1"><strong>のどが渇く</strong>【自I】：喉嚨乾渴 (想喝飲料)</p>
-            <p class="text-xs text-slate-600 mb-1"><strong>洗濯物が乾く</strong>【自I】：衣服變乾了</p>
-            <p class="text-xs text-slate-600"><strong>服を乾かす</strong>【他I】：烘乾／吹乾衣服</p>
-          </div>
-          <div class="bg-white p-3 rounded-xl border border-amber-200/70 shadow-2xs">
-            <div class="font-bold text-slate-800 text-base mb-1">通る vs 通す</div>
-            <p class="text-xs text-slate-600 mb-1"><strong>道・人が通る</strong>【自I】：通過、經過</p>
-            <p class="text-xs text-slate-600"><strong>客を居間に通す</strong>【他I】：引領、讓客人通過</p>
-          </div>
-          <div class="bg-white p-3 rounded-xl border border-amber-200/70 shadow-2xs">
-            <div class="font-bold text-slate-800 text-base mb-1">倒れる vs 倒す</div>
-            <p class="text-xs text-slate-600 mb-1"><strong>木・人が倒れる</strong>【自II】：倒下、摔倒</p>
-            <p class="text-xs text-slate-600"><strong>相手・敵を倒す</strong>【他I】：打倒、擊敗對方</p>
-          </div>
-          <div class="bg-white p-3 rounded-xl border border-amber-200/70 shadow-2xs">
-            <div class="font-bold text-slate-800 text-base mb-1">決まる vs 決める</div>
-            <p class="text-xs text-slate-600 mb-1"><strong>予定が決まる</strong>【自I】：事情/規則決定了</p>
-            <p class="text-xs text-slate-600"><strong>リーダーを決める</strong>【他II】：決定某人、選出</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 生詞列表 (網格卡片) -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="vocabGrid">
-        <!-- 第1課單字 -->
-        <div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">性格</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[せいかく]</span>
-              </div>
-              <button onclick="speakWord('性格')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 名詞</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">個性、性格。例：性格が明るい、性格が合う。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">連想（する）</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[れんそう]</span>
-              </div>
-              <button onclick="speakWord('連想する')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 動III</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">聯想。句型：AからBを連想する (從A聯想到B)。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">尋ねる</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[たずねる]</span>
-              </div>
-              <button onclick="speakWord('たずねる')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 動II</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">詢問、打聽（＝聞く）。注意同音「訪ねる」為拜訪。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">比べる</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[くらべる]</span>
-              </div>
-              <button onclick="speakWord('くらべる')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 動II</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">比較。必考型：AはBに比べて（比起B，A…）。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">なんとなく</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[副詞]</span>
-              </div>
-              <button onclick="speakWord('なんとなく')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 副詞</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">不知怎地、總覺得（沒有明確原因理由）。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">真っ白・真っ黒</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[促音變化]</span>
-              </div>
-              <button onclick="speakWord('まっしろ、まっくろ、まっか、まっさお')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 強調色</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">純白(まっしろ)、烏黑(まっくろ)、通紅(まっか)、慘白鐵青(まっさお)。</p>
-          </div>
-        </div>
-
-        <!-- 第2課單字 -->
-        <div class="vocab-card l2 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">鬼ごっこ</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[おにごっこ]</span>
-              </div>
-              <button onclick="speakWord('おにごっこ')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded font-bold mt-1">第2課 名詞</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">鬼抓人、追逐抓人遊戲。輸的人當鬼（鬼になる）。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l2 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">そっくり</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[な形/副]</span>
-              </div>
-              <button onclick="speakWord('そっくり')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded font-bold mt-1">第2課 形容詞</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">一模一樣。例：お母さんと目がそっくりだ。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l2 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">くちばし・金づち</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[名詞]</span>
-              </div>
-              <button onclick="speakWord('くちばし、かなづち、ぬの')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded font-bold mt-1">第2課 名詞</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">鳥嘴(くちばし)、鐵鎚(かなづち)、布(ぬの)。各國猜拳變形。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l2 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">親指・人差し指</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[身體部位]</span>
-              </div>
-              <button onclick="speakWord('おやゆび、ひとさしゆび、こゆび、ゆびさき')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded font-bold mt-1">第2課 身體名稱</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">大拇指(親指)、食指(人差し指)、小指(小指)、指尖(指先)。</p>
-          </div>
-        </div>
-
-        <!-- 第3課單字 -->
-        <div class="vocab-card l3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">思いつく</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[おもいつく]</span>
-              </div>
-              <button onclick="speakWord('おもいつく')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded font-bold mt-1">第3課 動I</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">靈機一動想出。例：アイディアを思いつきました。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">つらい（辛い）</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[い形容詞]</span>
-              </div>
-              <button onclick="speakWord('つらい')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded font-bold mt-1">第3課 形容詞</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">痛苦吃力的。例：階段で上り下りするのはけっこうつらい。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">今では vs 今でも</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[副詞對比]</span>
-              </div>
-              <button onclick="speakWord('いまでは、いまでも')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded font-bold mt-1">第3課 副詞</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">今では（現今已變，強調與過去不同）；今でも（至今仍保持舊樣）。</p>
-          </div>
-        </div>
-
-        <div class="vocab-card l3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
-          <div>
-            <div class="flex justify-between items-start">
-              <div>
-                <span class="text-lg font-bold text-slate-900">満車 ⇔ 空車</span>
-                <span class="text-xs text-blue-600 font-semibold ml-1.5">[まんしゃ/くうしゃ]</span>
-              </div>
-              <button onclick="speakWord('まんしゃ、くうしゃ、まんしつ、くうしつ')" class="text-slate-400 hover:text-blue-600 p-1"><i class="fa-solid fa-volume-high"></i></button>
-            </div>
-            <span class="inline-block text-[11px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded font-bold mt-1">第3課 名詞</span>
-            <p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">滿車 ⇔ 空車（停車場）；滿室(まんしつ) ⇔ 空室(くうしつ)（旅館）。</p>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- ==============================================================
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+<div class="bg-white p-3 rounded-xl border border-amber-200/70 shadow-2xs">
+<div class="font-bold text-slate-800 text-base mb-1">渇く vs 乾く／乾かす</div>
+<p class="text-xs text-slate-600 mb-1"><strong>のどが渇く</strong>【自I】：喉嚨乾渴 (想喝飲料)</p>
+<p class="text-xs text-slate-600 mb-1"><strong>洗濯物が乾く</strong>【自I】：衣服變乾了</p>
+<p class="text-xs text-slate-600"><strong>服を乾かす</strong>【他I】：烘乾／吹乾衣服</p>
+</div>
+<div class="bg-white p-3 rounded-xl border border-amber-200/70 shadow-2xs">
+<div class="font-bold text-slate-800 text-base mb-1">通る vs 通す</div>
+<p class="text-xs text-slate-600 mb-1"><strong>道・人が通る</strong>【自I】：通過、經過</p>
+<p class="text-xs text-slate-600"><strong>客を居間に通す</strong>【他I】：引領、讓客人通過</p>
+</div>
+<div class="bg-white p-3 rounded-xl border border-amber-200/70 shadow-2xs">
+<div class="font-bold text-slate-800 text-base mb-1">倒れる vs 倒す</div>
+<p class="text-xs text-slate-600 mb-1"><strong>木・人が倒れる</strong>【自II】：倒下、摔倒</p>
+<p class="text-xs text-slate-600"><strong>相手・敵を倒す</strong>【他I】：打倒、擊敗對方</p>
+</div>
+<div class="bg-white p-3 rounded-xl border border-amber-200/70 shadow-2xs">
+<div class="font-bold text-slate-800 text-base mb-1">決まる vs 決める</div>
+<p class="text-xs text-slate-600 mb-1"><strong>予定が決まる</strong>【自I】：事情/規則決定了</p>
+<p class="text-xs text-slate-600"><strong>リーダーを決める</strong>【他II】：決定某人、選出</p>
+</div>
+</div>
+</div>
+<!-- 生詞列表 (網格卡片) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="vocabGrid">
+<!-- 第1課單字 -->
+<div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">性格</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[せいかく]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('性格')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 名詞</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">個性、性格。例：性格が明るい、性格が合う。</p>
+</div>
+</div>
+<div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">連想（する）</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[れんそう]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('連想する')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 動III</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">聯想。句型：AからBを連想する (從A聯想到B)。</p>
+</div>
+</div>
+<div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">尋ねる</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[たずねる]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('たずねる')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 動II</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">詢問、打聽（＝聞く）。注意同音「訪ねる」為拜訪。</p>
+</div>
+</div>
+<div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">比べる</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[くらべる]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('くらべる')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 動II</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">比較。必考型：AはBに比べて（比起B，A…）。</p>
+</div>
+</div>
+<div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">なんとなく</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[副詞]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('なんとなく')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 副詞</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">不知怎地、總覺得（沒有明確原因理由）。</p>
+</div>
+</div>
+<div class="vocab-card l1 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">真っ白・真っ黒</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[促音變化]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('まっしろ、まっくろ、まっか、まっさお')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded font-bold mt-1">第1課 強調色</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">純白(まっしろ)、烏黑(まっくろ)、通紅(まっか)、慘白鐵青(まっさお)。</p>
+</div>
+</div>
+<!-- 第2課單字 -->
+<div class="vocab-card l2 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">鬼ごっこ</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[おにごっこ]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('おにごっこ')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded font-bold mt-1">第2課 名詞</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">鬼抓人、追逐抓人遊戲。輸的人當鬼（鬼になる）。</p>
+</div>
+</div>
+<div class="vocab-card l2 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">そっくり</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[な形/副]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('そっくり')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded font-bold mt-1">第2課 形容詞</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">一模一樣。例：お母さんと目がそっくりだ。</p>
+</div>
+</div>
+<div class="vocab-card l2 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">くちばし・金づち</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[名詞]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('くちばし、かなづち、ぬの')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded font-bold mt-1">第2課 名詞</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">鳥嘴(くちばし)、鐵鎚(かなづち)、布(ぬの)。各國猜拳變形。</p>
+</div>
+</div>
+<div class="vocab-card l2 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">親指・人差し指</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[身體部位]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('おやゆび、ひとさしゆび、こゆび、ゆびさき')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-indigo-50 text-indigo-600 px-2 py-0.5 rounded font-bold mt-1">第2課 身體名稱</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">大拇指(親指)、食指(人差し指)、小指(小指)、指尖(指先)。</p>
+</div>
+</div>
+<!-- 第3課單字 -->
+<div class="vocab-card l3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">思いつく</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[おもいつく]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('おもいつく')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded font-bold mt-1">第3課 動I</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">靈機一動想出。例：アイディアを思いつきました。</p>
+</div>
+</div>
+<div class="vocab-card l3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">つらい（辛い）</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[い形容詞]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('つらい')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded font-bold mt-1">第3課 形容詞</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">痛苦吃力的。例：階段で上り下りするのはけっこうつらい。</p>
+</div>
+</div>
+<div class="vocab-card l3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">今では vs 今でも</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[副詞對比]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('いまでは、いまでも')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded font-bold mt-1">第3課 副詞</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">今では（現今已變，強調與過去不同）；今でも（至今仍保持舊樣）。</p>
+</div>
+</div>
+<div class="vocab-card l3 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<span class="text-lg font-bold text-slate-900">満車 ⇔ 空車</span>
+<span class="text-xs text-blue-600 font-semibold ml-1.5">[まんしゃ/くうしゃ]</span>
+</div>
+<button class="text-slate-400 hover:text-blue-600 p-1" onclick="speakWord('まんしゃ、くうしゃ、まんしつ、くうしつ')"><i class="fa-solid fa-volume-high"></i></button>
+</div>
+<span class="inline-block text-[11px] bg-emerald-50 text-emerald-600 px-2 py-0.5 rounded font-bold mt-1">第3課 名詞</span>
+<p class="text-xs text-slate-600 mt-2 bg-slate-50 p-2 rounded-md">滿車 ⇔ 空車（停車場）；滿室(まんしつ) ⇔ 空室(くうしつ)（旅館）。</p>
+</div>
+</div>
+</div>
+<article class="vocab-card l1 bg-white border border-slate-200 rounded-xl p-4 shadow-sm mt-4"><h3 class="font-bold text-base mb-1">第 1 課｜顏色與詞彙（課本對照字表）</h3><p class="text-xs text-slate-500 mb-3">由此次上傳教材的本文、本文新出語及「関連語の学習」整理，原有 14 張重點字卡保留。</p><div class="overflow-x-auto"><table class="w-full min-w-[410px] text-sm"><thead><tr class="bg-slate-100"><th class="text-left p-2">單字</th><th class="text-left p-2">讀音</th><th class="text-left p-2">中文</th></tr></thead><tbody><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">性格</td><td class="p-2 text-blue-700 text-xs" lang="ja">せいかく</td><td class="p-2 text-slate-600">性格</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">イメージ</td><td class="p-2 text-blue-700 text-xs" lang="ja">イメージ</td><td class="p-2 text-slate-600">印象；形象</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">連想する</td><td class="p-2 text-blue-700 text-xs" lang="ja">れんそうする</td><td class="p-2 text-slate-600">聯想</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">中華料理</td><td class="p-2 text-blue-700 text-xs" lang="ja">ちゅうかりょうり</td><td class="p-2 text-slate-600">中式料理</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">カウンター</td><td class="p-2 text-blue-700 text-xs" lang="ja">カウンター</td><td class="p-2 text-slate-600">櫃檯、吧台</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">別</td><td class="p-2 text-blue-700 text-xs" lang="ja">べつ</td><td class="p-2 text-slate-600">另外；不同</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">感じる</td><td class="p-2 text-blue-700 text-xs" lang="ja">かんじる</td><td class="p-2 text-slate-600">感覺</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">尋ねる</td><td class="p-2 text-blue-700 text-xs" lang="ja">たずねる</td><td class="p-2 text-slate-600">詢問</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">本当は</td><td class="p-2 text-blue-700 text-xs" lang="ja">ほんとうは</td><td class="p-2 text-slate-600">其實</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">比べる</td><td class="p-2 text-blue-700 text-xs" lang="ja">くらべる</td><td class="p-2 text-slate-600">比較</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">なんとなく</td><td class="p-2 text-blue-700 text-xs" lang="ja">なんとなく</td><td class="p-2 text-slate-600">不知怎地</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">乾かす</td><td class="p-2 text-blue-700 text-xs" lang="ja">かわかす</td><td class="p-2 text-slate-600">弄乾、使乾燥</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">通す</td><td class="p-2 text-blue-700 text-xs" lang="ja">とおす</td><td class="p-2 text-slate-600">使通過、引入</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">居間</td><td class="p-2 text-blue-700 text-xs" lang="ja">いま</td><td class="p-2 text-slate-600">客廳</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">そば</td><td class="p-2 text-blue-700 text-xs" lang="ja">そば</td><td class="p-2 text-slate-600">附近、身旁</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">赤・赤い</td><td class="p-2 text-blue-700 text-xs" lang="ja">あか・あかい</td><td class="p-2 text-slate-600">紅色／紅色的</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">白・白い</td><td class="p-2 text-blue-700 text-xs" lang="ja">しろ・しろい</td><td class="p-2 text-slate-600">白色／白色的</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">黒・黒い</td><td class="p-2 text-blue-700 text-xs" lang="ja">くろ・くろい</td><td class="p-2 text-slate-600">黑色／黑色的</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">青・青い</td><td class="p-2 text-blue-700 text-xs" lang="ja">あお・あおい</td><td class="p-2 text-slate-600">藍色／藍色的</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">黄色・黄色い</td><td class="p-2 text-blue-700 text-xs" lang="ja">きいろ・きいろい</td><td class="p-2 text-slate-600">黃色</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">茶色</td><td class="p-2 text-blue-700 text-xs" lang="ja">ちゃいろ</td><td class="p-2 text-slate-600">茶色、棕色</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">緑・灰色・桃色</td><td class="p-2 text-blue-700 text-xs" lang="ja">みどり・はいいろ・ももいろ</td><td class="p-2 text-slate-600">綠、灰、桃紅</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">金色・銀色</td><td class="p-2 text-blue-700 text-xs" lang="ja">きんいろ・ぎんいろ</td><td class="p-2 text-slate-600">金、銀色</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">真っ白・真っ黒</td><td class="p-2 text-blue-700 text-xs" lang="ja">まっしろ・まっくろ</td><td class="p-2 text-slate-600">純白、漆黑</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">真っ赤・真っ青</td><td class="p-2 text-blue-700 text-xs" lang="ja">まっか・まっさお</td><td class="p-2 text-slate-600">通紅；深藍或臉色蒼白（依語境）</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">色の外来語</td><td class="p-2 text-blue-700 text-xs" lang="ja">レッド・ホワイト・ブラック・ブルー・イエロー・ブラウン・グリーン・グレー・ピンク・オレンジ・ゴールド・シルバー</td><td class="p-2 text-slate-600">教材 p.7 所列十二種外來語色名</td></tr></tbody></table></div></article><article class="vocab-card l2 bg-white border border-slate-200 rounded-xl p-4 shadow-sm mt-4"><h3 class="font-bold text-base mb-1">第 2 課｜猜拳、身體、動物（課本對照字表）</h3><p class="text-xs text-slate-500 mb-3">由此次上傳教材的本文、本文新出語及「関連語の学習」整理，原有 14 張重點字卡保留。</p><div class="overflow-x-auto"><table class="w-full min-w-[410px] text-sm"><thead><tr class="bg-slate-100"><th class="text-left p-2">單字</th><th class="text-left p-2">讀音</th><th class="text-left p-2">中文</th></tr></thead><tbody><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">遊び</td><td class="p-2 text-blue-700 text-xs" lang="ja">あそび</td><td class="p-2 text-slate-600">遊戲</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">鬼ごっこ</td><td class="p-2 text-blue-700 text-xs" lang="ja">おにごっこ</td><td class="p-2 text-slate-600">鬼抓人</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">鬼</td><td class="p-2 text-blue-700 text-xs" lang="ja">おに</td><td class="p-2 text-slate-600">抓人的人；鬼</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">じゃんけん</td><td class="p-2 text-blue-700 text-xs" lang="ja">じゃんけん</td><td class="p-2 text-slate-600">猜拳</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">グー・チョキ・パー</td><td class="p-2 text-blue-700 text-xs" lang="ja">グー・チョキ・パー</td><td class="p-2 text-slate-600">石頭、剪刀、布</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">各地</td><td class="p-2 text-blue-700 text-xs" lang="ja">かくち</td><td class="p-2 text-slate-600">各地</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">似る</td><td class="p-2 text-blue-700 text-xs" lang="ja">にる</td><td class="p-2 text-slate-600">相似</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">握る</td><td class="p-2 text-blue-700 text-xs" lang="ja">にぎる</td><td class="p-2 text-slate-600">握住</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">指</td><td class="p-2 text-blue-700 text-xs" lang="ja">ゆび</td><td class="p-2 text-slate-600">手指</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">表す</td><td class="p-2 text-blue-700 text-xs" lang="ja">あらわす</td><td class="p-2 text-slate-600">表示、象徵</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">勝負</td><td class="p-2 text-blue-700 text-xs" lang="ja">しょうぶ</td><td class="p-2 text-slate-600">勝負、比賽</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">金づち・布</td><td class="p-2 text-blue-700 text-xs" lang="ja">かなづち・ぬの</td><td class="p-2 text-slate-600">鐵鎚、布料</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">そっくり</td><td class="p-2 text-blue-700 text-xs" lang="ja">そっくり</td><td class="p-2 text-slate-600">一模一樣</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">合わせる</td><td class="p-2 text-blue-700 text-xs" lang="ja">あわせる</td><td class="p-2 text-slate-600">使合在一起</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">くちばし</td><td class="p-2 text-blue-700 text-xs" lang="ja">くちばし</td><td class="p-2 text-slate-600">鳥喙</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">握りこぶし</td><td class="p-2 text-blue-700 text-xs" lang="ja">にぎりこぶし</td><td class="p-2 text-slate-600">拳頭</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">親指</td><td class="p-2 text-blue-700 text-xs" lang="ja">おやゆび</td><td class="p-2 text-slate-600">拇指</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">人差し指</td><td class="p-2 text-blue-700 text-xs" lang="ja">ひとさしゆび</td><td class="p-2 text-slate-600">食指</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">小指</td><td class="p-2 text-blue-700 text-xs" lang="ja">こゆび</td><td class="p-2 text-slate-600">小指</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">指先</td><td class="p-2 text-blue-700 text-xs" lang="ja">ゆびさき</td><td class="p-2 text-slate-600">指尖</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">倒す</td><td class="p-2 text-blue-700 text-xs" lang="ja">たおす</td><td class="p-2 text-slate-600">弄倒、打倒</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">ところ</td><td class="p-2 text-blue-700 text-xs" lang="ja">ところ</td><td class="p-2 text-slate-600">地方；某一點、特徵</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">首・肩・背中・胸</td><td class="p-2 text-blue-700 text-xs" lang="ja">くび・かた・せなか・むね</td><td class="p-2 text-slate-600">脖子、肩、背、胸</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">おなか・腰・お尻</td><td class="p-2 text-blue-700 text-xs" lang="ja">おなか・こし・おしり</td><td class="p-2 text-slate-600">腹部、腰、屁股</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">腕・手首・肘</td><td class="p-2 text-blue-700 text-xs" lang="ja">うで・てくび・ひじ</td><td class="p-2 text-slate-600">手臂、手腕、手肘</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">足・足首・かかと</td><td class="p-2 text-blue-700 text-xs" lang="ja">あし・あしくび・かかと</td><td class="p-2 text-slate-600">腳、腳踝、腳跟</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">つま先・爪・膝</td><td class="p-2 text-blue-700 text-xs" lang="ja">つまさき・つめ・ひざ</td><td class="p-2 text-slate-600">腳尖、指甲、膝蓋</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">顔・額・頬・顎</td><td class="p-2 text-blue-700 text-xs" lang="ja">かお・ひたい・ほお・あご</td><td class="p-2 text-slate-600">臉、額頭、臉頰、下巴</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">頭・目・口・鼻・耳</td><td class="p-2 text-blue-700 text-xs" lang="ja">あたま・め・くち・はな・みみ</td><td class="p-2 text-slate-600">頭、眼、口、鼻、耳</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">歯・首・喉・唇</td><td class="p-2 text-blue-700 text-xs" lang="ja">は・くび・のど・くちびる</td><td class="p-2 text-slate-600">牙齒、脖子、喉嚨、嘴唇</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">大型動物：〜頭</td><td class="p-2 text-blue-700 text-xs" lang="ja">とう</td><td class="p-2 text-slate-600">牛、豚、馬、象、虎、獅子、熊貓</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">小型動物：〜匹</td><td class="p-2 text-blue-700 text-xs" lang="ja">ひき</td><td class="p-2 text-slate-600">狗、貓、狐狸、老鼠、蟲、螞蟻</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">鳥：〜羽</td><td class="p-2 text-blue-700 text-xs" lang="ja">わ</td><td class="p-2 text-slate-600">鳥、鴿子、麻雀、烏鴉</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">世界中・日本中</td><td class="p-2 text-blue-700 text-xs" lang="ja">せかいじゅう・にほんじゅう</td><td class="p-2 text-slate-600">全世界、全日本</td></tr></tbody></table></div></article><article class="vocab-card l3 bg-white border border-slate-200 rounded-xl p-4 shadow-sm mt-4"><h3 class="font-bold text-base mb-1">第 3 課｜程度、場所、費用（課本對照字表）</h3><p class="text-xs text-slate-500 mb-3">由此次上傳教材的本文、本文新出語及「関連語の学習」整理，原有 14 張重點字卡保留。</p><div class="overflow-x-auto"><table class="w-full min-w-[410px] text-sm"><thead><tr class="bg-slate-100"><th class="text-left p-2">單字</th><th class="text-left p-2">讀音</th><th class="text-left p-2">中文</th></tr></thead><tbody><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">料金</td><td class="p-2 text-blue-700 text-xs" lang="ja">りょうきん</td><td class="p-2 text-slate-600">費用</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">経営者</td><td class="p-2 text-blue-700 text-xs" lang="ja">けいえいしゃ</td><td class="p-2 text-slate-600">經營者</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">アイディア</td><td class="p-2 text-blue-700 text-xs" lang="ja">アイディア</td><td class="p-2 text-slate-600">點子</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">大成功</td><td class="p-2 text-blue-700 text-xs" lang="ja">だいせいこう</td><td class="p-2 text-slate-600">大成功</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">満車</td><td class="p-2 text-blue-700 text-xs" lang="ja">まんしゃ</td><td class="p-2 text-slate-600">停車位已滿</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">表示する</td><td class="p-2 text-blue-700 text-xs" lang="ja">ひょうじする</td><td class="p-2 text-slate-600">顯示</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">上る</td><td class="p-2 text-blue-700 text-xs" lang="ja">のぼる</td><td class="p-2 text-slate-600">向上爬、上去</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">思いつく</td><td class="p-2 text-blue-700 text-xs" lang="ja">おもいつく</td><td class="p-2 text-slate-600">突然想到</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">すぐ（近く）</td><td class="p-2 text-blue-700 text-xs" lang="ja">すぐ（ちかく）</td><td class="p-2 text-slate-600">就在附近</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">やや</td><td class="p-2 text-blue-700 text-xs" lang="ja">やや</td><td class="p-2 text-slate-600">稍微</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">いっぱい</td><td class="p-2 text-blue-700 text-xs" lang="ja">いっぱい</td><td class="p-2 text-slate-600">滿；很多</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">さっそく</td><td class="p-2 text-blue-700 text-xs" lang="ja">さっそく</td><td class="p-2 text-slate-600">立刻、馬上</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">さらに</td><td class="p-2 text-blue-700 text-xs" lang="ja">さらに</td><td class="p-2 text-slate-600">更加、進一步</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">今では</td><td class="p-2 text-blue-700 text-xs" lang="ja">いまでは</td><td class="p-2 text-slate-600">如今（與以前不同）</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">まあまあ</td><td class="p-2 text-blue-700 text-xs" lang="ja">まあまあ</td><td class="p-2 text-slate-600">還算可以</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">けっこう</td><td class="p-2 text-blue-700 text-xs" lang="ja">けっこう</td><td class="p-2 text-slate-600">相當</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">つらい</td><td class="p-2 text-blue-700 text-xs" lang="ja">つらい</td><td class="p-2 text-slate-600">辛苦、難受</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">満車／空車</td><td class="p-2 text-blue-700 text-xs" lang="ja">まんしゃ／くうしゃ</td><td class="p-2 text-slate-600">停車場滿位／空位</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">満室／空室</td><td class="p-2 text-blue-700 text-xs" lang="ja">まんしつ／くうしつ</td><td class="p-2 text-slate-600">滿房／空房</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">駐車場・運動場・競技場</td><td class="p-2 text-blue-700 text-xs" lang="ja">ちゅうしゃじょう・うんどうじょう・きょうぎじょう</td><td class="p-2 text-slate-600">停車場、運動場、競技場</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">野球場・劇場・展示場</td><td class="p-2 text-blue-700 text-xs" lang="ja">やきゅうじょう・げきじょう・てんじじょう</td><td class="p-2 text-slate-600">棒球場、劇場、展覽場</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">運賃・家賃</td><td class="p-2 text-blue-700 text-xs" lang="ja">うんちん・やちん</td><td class="p-2 text-slate-600">交通票價；房租</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">入場料・授業料・手数料</td><td class="p-2 text-blue-700 text-xs" lang="ja">にゅうじょうりょう・じゅぎょうりょう・てすうりょう</td><td class="p-2 text-slate-600">門票、學費、手續費</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">電車代・部屋代・食事代</td><td class="p-2 text-blue-700 text-xs" lang="ja">でんしゃだい・へやだい・しょくじだい</td><td class="p-2 text-slate-600">電車費、房間費、餐費</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">交通費・光熱費</td><td class="p-2 text-blue-700 text-xs" lang="ja">こうつうひ・こうねつひ</td><td class="p-2 text-slate-600">交通總支出；水電燃料費</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">学費・食費・生活費</td><td class="p-2 text-blue-700 text-xs" lang="ja">がくひ・しょくひ・せいかつひ</td><td class="p-2 text-slate-600">學費、伙食支出、生活費</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">手数料・送料・レンタル料</td><td class="p-2 text-blue-700 text-xs" lang="ja">てすうりょう・そうりょう・レンタルりょう</td><td class="p-2 text-slate-600">手續、寄送、租借費</td></tr><tr class="border-t border-slate-100"><td class="p-2 font-semibold" lang="ja">給料・時給・月給</td><td class="p-2 text-blue-700 text-xs" lang="ja">きゅうりょう・じきゅう・げっきゅう</td><td class="p-2 text-slate-600">薪水、時薪、月薪</td></tr></tbody></table></div></article></section>
+<!-- ==============================================================
          TAB 3: 核心文型與表格歸納 (天梯圖 / 費用表 / 量詞表)
          ============================================================== -->
-    <section id="tab-grammar" class="tab-content hidden space-y-6">
-
-      <!-- 0. 第1課句型 -->
-      <div class="grammar-card l1 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm">
-        <h3 class="text-base font-bold text-slate-900 mb-3"><i class="fa-solid fa-scale-balanced text-blue-600"></i> 【第1課】比較、因人而異與疑問嵌入</h3>
-        <div class="space-y-3 text-sm text-slate-700">
-          <div class="bg-blue-50/70 border-l-4 border-blue-500 p-3 rounded-lg"><strong>〜に比べて</strong>：與……相比。<p class="mt-1">明るい色に比べて、暗い色はなんとなく重く感じるようです。</p><p class="text-slate-500 text-xs mt-1">與亮色相比，暗色總讓人覺得比較沉重。</p></div>
-          <div class="bg-blue-50/70 border-l-4 border-blue-500 p-3 rounded-lg"><strong>〜によって</strong>：因……而異、依據……。<p class="mt-1">好きな色は人によって違います。</p><p class="text-slate-500 text-xs mt-1">喜歡的顏色因人而異。</p></div>
-          <div class="bg-blue-50/70 border-l-4 border-blue-500 p-3 rounded-lg"><strong>〜かどうか</strong>：是否……。<p class="mt-1">色と性格に関係があるかどうかは分かりません。</p><p class="text-slate-500 text-xs mt-1">不知道顏色與性格是否有關係。</p></div>
-        </div>
-      </div>
-
-      <!-- 1. 程度副詞天梯圖 (第3課重點) -->
-      <div class="grammar-card l3 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm">
-        <h3 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
-          <i class="fa-solid fa-stairs text-blue-600"></i> 【第3課】程度副詞強度天梯圖（0% ~ 100%）
+<section class="tab-content hidden space-y-6" id="tab-grammar"><article class="grammar-card l3 bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5 mb-4"><h3 class="font-bold text-base mb-2 text-emerald-800">第 3 課｜程度・変化・其他文型（教材對照）</h3><p class="text-xs text-slate-500 mb-3">依此次提供的教材照片整理；頁碼標示為課本頁數。這裡是複習摘要，保留原本的文法重點卡作為補充。</p><div class="overflow-x-auto"><table class="w-full text-sm min-w-[490px]"><thead class="bg-slate-50 text-slate-600"><tr><th class="p-2 text-left">頁碼</th><th class="p-2 text-left">文型</th><th class="p-2 text-left">教材例句</th></tr></thead><tbody><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.20</td><td class="p-2 font-semibold text-slate-900">どれくらい／どのくらい<div class="text-xs font-normal text-slate-500 mt-1">詢問時間、距離、程度、數量等</div></td><td class="p-2 text-slate-700"><span lang="ja">ここから駅までどれくらいかかりますか。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.20</td><td class="p-2 font-semibold text-slate-900">どれだけ／どの程度<div class="text-xs font-normal text-slate-500 mt-1">詢問多少、何種程度</div></td><td class="p-2 text-slate-700"><span lang="ja">そのダイエットでどれだけやせたんですか。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.20</td><td class="p-2 font-semibold text-slate-900">〜よりどのくらい／どれだけ／どの程度〜<div class="text-xs font-normal text-slate-500 mt-1">以一方為基準追問差距</div></td><td class="p-2 text-slate-700"><span lang="ja">上級クラスは、このクラスよりどの程度難しいですか。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.20</td><td class="p-2 font-semibold text-slate-900">〜より＋程度副詞<div class="text-xs font-normal text-slate-500 mt-1">與基準比較，再加強程度</div></td><td class="p-2 text-slate-700"><span lang="ja">この仕事はいままでの仕事よりかなり大変です。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.20</td><td class="p-2 font-semibold text-slate-900">AはBより／AよりBのほうが＋具體數字<div class="text-xs font-normal text-slate-500 mt-1">用數字具體描述差值</div></td><td class="p-2 text-slate-700"><span lang="ja">こちらのベッドのほうがそれより30センチ長いです。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.20</td><td class="p-2 font-semibold text-slate-900">〜ば〜ほど／〜なら〜ほど<div class="text-xs font-normal text-slate-500 mt-1">越……越……</div></td><td class="p-2 text-slate-700"><span lang="ja">安ければ安いほどたくさん売れます。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.21</td><td class="p-2 font-semibold text-slate-900">〈名詞〉ほど〜<div class="text-xs font-normal text-slate-500 mt-1">表「程度達到……」的比較</div></td><td class="p-2 text-slate-700"><span lang="ja">若い人ほどマナーを知らないとお年寄りは言います。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.21</td><td class="p-2 font-semibold text-slate-900">程度副詞與否定呼應<div class="text-xs font-normal text-slate-500 mt-1">ちっとも・少しも・全然・全く＋否定等</div></td><td class="p-2 text-slate-700"><span lang="ja">全然勉強しなかったので、きょうの試験は全くできませんでした。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.21</td><td class="p-2 font-semibold text-slate-900">今でも／今では<div class="text-xs font-normal text-slate-500 mt-1">今でも＝如今仍然；今では＝如今已經改變</div></td><td class="p-2 text-slate-700"><span lang="ja">昔はここに川が流れていましたが、今では全部道路になってしまいました。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.22</td><td class="p-2 font-semibold text-slate-900">〈名詞〉など<div class="text-xs font-normal text-slate-500 mt-1">舉例「……等等」（較正式）</div></td><td class="p-2 text-slate-700"><span lang="ja">テレビ番組の中では、ドラマや映画などをよく見ます。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.22</td><td class="p-2 font-semibold text-slate-900">〈名詞〉なんて／〈文〉なんて<div class="text-xs font-normal text-slate-500 mt-1">可表輕視或驚訝（依語境）</div></td><td class="p-2 text-slate-700"><span lang="ja">試験なんてないほうがいいです。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.22</td><td class="p-2 font-semibold text-slate-900">〜ことにする／〜ことにした<div class="text-xs font-normal text-slate-500 mt-1">自己作出決定（與「ことになる」區別）</div></td><td class="p-2 text-slate-700"><span lang="ja">来年大学の入学試験を受けることにしました。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.22</td><td class="p-2 font-semibold text-slate-900">それでは／それじゃ<div class="text-xs font-normal text-slate-500 mt-1">承接前話，轉入下一個問題（口語為それじゃ）</div></td><td class="p-2 text-slate-700"><span lang="ja">それじゃ、どうしていつも寝ているんですか。</span></td></tr></tbody></table></div></article><article class="grammar-card l2 bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5 mb-4"><h3 class="font-bold text-base mb-2 text-indigo-800">第 2 課｜様子・類似・其他文型（教材對照）</h3><p class="text-xs text-slate-500 mb-3">依此次提供的教材照片整理；頁碼標示為課本頁數。這裡是複習摘要，保留原本的文法重點卡作為補充。</p><div class="overflow-x-auto"><table class="w-full text-sm min-w-[490px]"><thead class="bg-slate-50 text-slate-600"><tr><th class="p-2 text-left">頁碼</th><th class="p-2 text-left">文型</th><th class="p-2 text-left">教材例句</th></tr></thead><tbody><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.12</td><td class="p-2 font-semibold text-slate-900">Xは（まるで）〜ようだ<div class="text-xs font-normal text-slate-500 mt-1">宛如……</div></td><td class="p-2 text-slate-700"><span lang="ja">大人なのに話し方は子どものようです。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.13</td><td class="p-2 font-semibold text-slate-900">Xは（まるで）〜ような＋名詞<div class="text-xs font-normal text-slate-500 mt-1">像……的名詞</div></td><td class="p-2 text-slate-700"><span lang="ja">太郎君はまるで女の子のような声で話します。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.13</td><td class="p-2 font-semibold text-slate-900">Xは（まるで）〜ように＋形容詞／動詞<div class="text-xs font-normal text-slate-500 mt-1">像……那樣地</div></td><td class="p-2 text-slate-700"><span lang="ja">まるで日本人のように上手に話します。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.13</td><td class="p-2 font-semibold text-slate-900">Xは（まるで）〜みたいだ／みたいに<div class="text-xs font-normal text-slate-500 mt-1">口語的「像……」（名詞不加の）</div></td><td class="p-2 text-slate-700"><span lang="ja">このタワーの上から見ると家や車はみんなおもちゃみたいに見えます。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.13</td><td class="p-2 font-semibold text-slate-900">AはBに／と似ている<div class="text-xs font-normal text-slate-500 mt-1">A 與 B 相似</div></td><td class="p-2 text-slate-700"><span lang="ja">山田さんはお父さんによく似ています。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.13</td><td class="p-2 font-semibold text-slate-900">AはBとそっくりだ<div class="text-xs font-normal text-slate-500 mt-1">A 和 B 幾乎一模一樣</div></td><td class="p-2 text-slate-700"><span lang="ja">加藤さんはお母さんと目がそっくりです。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.13</td><td class="p-2 font-semibold text-slate-900">Xというのはどういう意味ですか<div class="text-xs font-normal text-slate-500 mt-1">詢問語詞的意義／定義</div></td><td class="p-2 text-slate-700"><span lang="ja">「そっくり」というのはどういう意味ですか。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.14</td><td class="p-2 font-semibold text-slate-900">Xというのは何（のこと）ですか<div class="text-xs font-normal text-slate-500 mt-1">詢問所指的事物或概念</div></td><td class="p-2 text-slate-700"><span lang="ja">「２DK」というのは何のことですか。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.14</td><td class="p-2 font-semibold text-slate-900">Aが……、Bが……（省略重複述語）<div class="text-xs font-normal text-slate-500 mt-1">並列兩個主題</div></td><td class="p-2 text-slate-700"><span lang="ja">山田先生が初級クラスを、森先生が中級クラスを教えている。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.14</td><td class="p-2 font-semibold text-slate-900">ところ（抽象的的點／特徵）<div class="text-xs font-normal text-slate-500 mt-1">不一定指地點，也可指優點或部分</div></td><td class="p-2 text-slate-700"><span lang="ja">このロボットは人と会話できるところがすごいです。</span></td></tr></tbody></table></div></article><article class="grammar-card l1 bg-white rounded-2xl border border-slate-200 shadow-sm p-4 sm:p-5 mb-4"><h3 class="font-bold text-base mb-2 text-rose-800">第 1 課｜比較・其他文型（教材對照）</h3><p class="text-xs text-slate-500 mb-3">依此次提供的教材照片整理；頁碼標示為課本頁數。這裡是複習摘要，保留原本的文法重點卡作為補充。</p><div class="overflow-x-auto"><table class="w-full text-sm min-w-[490px]"><thead class="bg-slate-50 text-slate-600"><tr><th class="p-2 text-left">頁碼</th><th class="p-2 text-left">文型</th><th class="p-2 text-left">教材例句</th></tr></thead><tbody><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.4</td><td class="p-2 font-semibold text-slate-900">AはBより〜<div class="text-xs font-normal text-slate-500 mt-1">A 比 B 更……</div></td><td class="p-2 text-slate-700"><span lang="ja">この教室はとなりの教室より広いです。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.4</td><td class="p-2 font-semibold text-slate-900">AとBとどちら／どっちが〜<div class="text-xs font-normal text-slate-500 mt-1">兩者選一比較</div></td><td class="p-2 text-slate-700"><span lang="ja">きのうのテストときょうのテストとどちらが難しかったですか。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.4</td><td class="p-2 font-semibold text-slate-900">（Aより）Bのほうが〜<div class="text-xs font-normal text-slate-500 mt-1">相較 A，B 更……</div></td><td class="p-2 text-slate-700"><span lang="ja">その映画よりこの映画のほうがおもしろいです。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.4</td><td class="p-2 font-semibold text-slate-900">AはBほど〜ない<div class="text-xs font-normal text-slate-500 mt-1">不如 B 那麼……（搭配否定）</div></td><td class="p-2 text-slate-700"><span lang="ja">今週は先週ほど暑くありません。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.4</td><td class="p-2 font-semibold text-slate-900">Xの中で何／誰／どこ／いつが一番〜<div class="text-xs font-normal text-slate-500 mt-1">集合中選出第一</div></td><td class="p-2 text-slate-700"><span lang="ja">日本料理で何が一番好きですか。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.4</td><td class="p-2 font-semibold text-slate-900">Xの中で〜が一番〜<div class="text-xs font-normal text-slate-500 mt-1">指名群組中的第一</div></td><td class="p-2 text-slate-700"><span lang="ja">今まで旅行した国の中でインドがいちばん楽しかったです。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.4</td><td class="p-2 font-semibold text-slate-900">AとBとCの中でどれ／誰／どこ／いつが一番〜<div class="text-xs font-normal text-slate-500 mt-1">三個以上選一比較</div></td><td class="p-2 text-slate-700"><span lang="ja">金曜と土曜と日曜の中でいつが一番都合がいいですか。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.4</td><td class="p-2 font-semibold text-slate-900">AはBに／と比べて〜<div class="text-xs font-normal text-slate-500 mt-1">與 B 相比（に比べて、 と比べて）</div></td><td class="p-2 text-slate-700"><span lang="ja">この町はほかの町と比べて外国人が多いです。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.5</td><td class="p-2 font-semibold text-slate-900">AはBに／と比べると〜<div class="text-xs font-normal text-slate-500 mt-1">做比較之後……</div></td><td class="p-2 text-slate-700"><span lang="ja">去年に比べると、成績はずいぶん上がりました。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.5</td><td class="p-2 font-semibold text-slate-900">〈い形容詞〉く感じる<div class="text-xs font-normal text-slate-500 mt-1">感到……</div></td><td class="p-2 text-slate-700"><span lang="ja">風が吹くと、気温よりも寒く感じます。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.5</td><td class="p-2 font-semibold text-slate-900">なんとなく<div class="text-xs font-normal text-slate-500 mt-1">沒有清楚原因地、總覺得</div></td><td class="p-2 text-slate-700"><span lang="ja">なんとなく友だちに電話したくなりました。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.5</td><td class="p-2 font-semibold text-slate-900">〈副詞〉の〈名詞〉<div class="text-xs font-normal text-slate-500 mt-1">用副詞修飾名詞</div></td><td class="p-2 text-slate-700"><span lang="ja">ほとんどの人がその話を信じませんでした。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.5</td><td class="p-2 font-semibold text-slate-900">〜によって違う／いろいろだ<div class="text-xs font-normal text-slate-500 mt-1">依據不同對象而異</div></td><td class="p-2 text-slate-700"><span lang="ja">考え方は人によって違います。</span></td></tr><tr class="border-t border-slate-100"><td class="p-2 text-xs text-slate-500 whitespace-nowrap">p.5</td><td class="p-2 font-semibold text-slate-900">〜のではないでしょうか<div class="text-xs font-normal text-slate-500 mt-1">委婉提出推測或意見</div></td><td class="p-2 text-slate-700"><span lang="ja">それよりこちらのやり方のほうがいいのではないでしょうか。</span></td></tr></tbody></table></div></article>
+<!-- 0. 第1課句型 -->
+<div class="grammar-card l1 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm">
+<h3 class="text-base font-bold text-slate-900 mb-3"><i class="fa-solid fa-scale-balanced text-blue-600"></i> 【第1課】比較、因人而異與疑問嵌入</h3>
+<div class="space-y-3 text-sm text-slate-700">
+<div class="bg-blue-50/70 border-l-4 border-blue-500 p-3 rounded-lg"><strong>〜に比べて</strong>：與……相比。<p class="mt-1">明るい色に比べて、暗い色はなんとなく重く感じるようです。</p><p class="text-slate-500 text-xs mt-1">與亮色相比，暗色總讓人覺得比較沉重。</p></div>
+<div class="bg-blue-50/70 border-l-4 border-blue-500 p-3 rounded-lg"><strong>〜によって</strong>：因……而異、依據……。<p class="mt-1">好きな色は人によって違います。</p><p class="text-slate-500 text-xs mt-1">喜歡的顏色因人而異。</p></div>
+<div class="bg-blue-50/70 border-l-4 border-blue-500 p-3 rounded-lg"><strong>〜かどうか</strong>：是否……。<p class="mt-1">色と性格が関係があるかどうかは分かりません。</p><p class="text-slate-500 text-xs mt-1">不知道顏色與性格是否有關係。</p></div>
+</div>
+</div>
+<!-- 1. 程度副詞天梯圖 (第3課重點) -->
+<div class="grammar-card l3 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm">
+<h3 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+<i class="fa-solid fa-stairs text-blue-600"></i> 【第3課】程度副詞強度天梯圖（0% ~ 100%）
         </h3>
-        <p class="text-xs text-slate-500 mb-4">考試經常以否定呼應「〜ない」或肯定程度進行挖空出題：</p>
-        
-        <div class="space-y-2">
-          <!-- 0% -->
-          <div class="flex items-center gap-2 text-xs sm:text-sm">
-            <span class="w-16 font-bold text-center py-1 bg-slate-200 text-slate-700 rounded-md flex-shrink-0">0% 否定</span>
-            <div class="flex-1 bg-slate-100 p-2.5 rounded-lg border-l-4 border-slate-400">
-              <strong class="text-slate-800">ちっとも、少しも、全然、全く</strong> + <span class="text-rose-600 font-bold">〜ない</span>
-              <p class="text-slate-500 text-xs mt-0.5">例：試験は全く／少しもできませんでした (完全不會)。</p>
-            </div>
-          </div>
-          <!-- 20% -->
-          <div class="flex items-center gap-2 text-xs sm:text-sm">
-            <span class="w-16 font-bold text-center py-1 bg-amber-100 text-amber-800 rounded-md flex-shrink-0">20% 微弱</span>
-            <div class="flex-1 bg-amber-50/60 p-2.5 rounded-lg border-l-4 border-amber-400">
-              <strong class="text-slate-800">あまり、そんなに</strong> + <span class="text-rose-600 font-bold">〜ない</span> ｜ <strong class="text-slate-800">少し、ちょっと、やや、ほんの(少し)</strong>
-              <p class="text-slate-500 text-xs mt-0.5">例：駅からやや遠い (稍微有點遠)；ほんの少ししか聞こえない。</p>
-            </div>
-          </div>
-          <!-- 50% -->
-          <div class="flex items-center gap-2 text-xs sm:text-sm">
-            <span class="w-16 font-bold text-center py-1 bg-blue-100 text-blue-800 rounded-md flex-shrink-0">50% 中等</span>
-            <div class="flex-1 bg-blue-50/60 p-2.5 rounded-lg border-l-4 border-blue-400">
-              <strong class="text-slate-800">まあまあ</strong>
-              <p class="text-slate-500 text-xs mt-0.5">例：2階もまあまあ利用がある (還算過得去、尚可)。</p>
-            </div>
-          </div>
-          <!-- 80% -->
-          <div class="flex items-center gap-2 text-xs sm:text-sm">
-            <span class="w-16 font-bold text-center py-1 bg-indigo-100 text-indigo-800 rounded-md flex-shrink-0">80% 相當</span>
-            <div class="flex-1 bg-indigo-50/60 p-2.5 rounded-lg border-l-4 border-indigo-400">
-              <strong class="text-slate-800">けっこう、かなり、ずいぶん、だいぶ、相当、非常に、すごく</strong>
-              <p class="text-slate-500 text-xs mt-0.5">例：けっこうつらい (相當吃力)；かなり影響を与えた。</p>
-            </div>
-          </div>
-          <!-- 100% -->
-          <div class="flex items-center gap-2 text-xs sm:text-sm">
-            <span class="w-16 font-bold text-center py-1 bg-purple-100 text-purple-800 rounded-md flex-shrink-0">100% 極致</span>
-            <div class="flex-1 bg-purple-50/60 p-2.5 rounded-lg border-l-4 border-purple-500">
-              <strong class="text-slate-800">最も（もっとも）、一番（いちばん）</strong>
-              <p class="text-slate-500 text-xs mt-0.5">例：世界で最も形がきれいな山 (最美麗的)。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. 費用接尾詞分類對照表 (〜賃、〜料、〜代、〜費) -->
-      <div class="grammar-card l3 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm">
-        <h3 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
-          <i class="fa-solid fa-coins text-yellow-500"></i> 【第3課】「金錢費用」必考分類矩陣
+<p class="text-xs text-slate-500 mb-4">考試經常以否定呼應「〜ない」或肯定程度進行挖空出題：</p>
+<div class="space-y-2">
+<!-- 0% -->
+<div class="flex items-center gap-2 text-xs sm:text-sm">
+<span class="w-16 font-bold text-center py-1 bg-slate-200 text-slate-700 rounded-md flex-shrink-0">0% 否定</span>
+<div class="flex-1 bg-slate-100 p-2.5 rounded-lg border-l-4 border-slate-400">
+<strong class="text-slate-800">ちっとも、少しも、全然、全く</strong> + <span class="text-rose-600 font-bold">〜ない</span>
+<p class="text-slate-500 text-xs mt-0.5">例：試験は全く／少しもできませんでした (完全不會)。</p>
+</div>
+</div>
+<!-- 20% -->
+<div class="flex items-center gap-2 text-xs sm:text-sm">
+<span class="w-16 font-bold text-center py-1 bg-amber-100 text-amber-800 rounded-md flex-shrink-0">20% 微弱</span>
+<div class="flex-1 bg-amber-50/60 p-2.5 rounded-lg border-l-4 border-amber-400">
+<strong class="text-slate-800">あまり、そんなに</strong> + <span class="text-rose-600 font-bold">〜ない</span> ｜ <strong class="text-slate-800">少し、ちょっと、やや、ほんの(少し)</strong>
+<p class="text-slate-500 text-xs mt-0.5">例：駅からやや遠い (稍微有點遠)；ほんの少ししか聞こえない。</p>
+</div>
+</div>
+<!-- 50% -->
+<div class="flex items-center gap-2 text-xs sm:text-sm">
+<span class="w-16 font-bold text-center py-1 bg-blue-100 text-blue-800 rounded-md flex-shrink-0">50% 中等</span>
+<div class="flex-1 bg-blue-50/60 p-2.5 rounded-lg border-l-4 border-blue-400">
+<strong class="text-slate-800">まあまあ</strong>
+<p class="text-slate-500 text-xs mt-0.5">例：2階もまあまあ利用がある (還算過得去、尚可)。</p>
+</div>
+</div>
+<!-- 80% -->
+<div class="flex items-center gap-2 text-xs sm:text-sm">
+<span class="w-16 font-bold text-center py-1 bg-indigo-100 text-indigo-800 rounded-md flex-shrink-0">80% 相當</span>
+<div class="flex-1 bg-indigo-50/60 p-2.5 rounded-lg border-l-4 border-indigo-400">
+<strong class="text-slate-800">けっこう、かなり、ずいぶん、だいぶ、相当、非常に、すごく</strong>
+<p class="text-slate-500 text-xs mt-0.5">例：けっこうつらい (相當吃力)；かなり影響を与えた。</p>
+</div>
+</div>
+<!-- 100% -->
+<div class="flex items-center gap-2 text-xs sm:text-sm">
+<span class="w-16 font-bold text-center py-1 bg-purple-100 text-purple-800 rounded-md flex-shrink-0">100% 極致</span>
+<div class="flex-1 bg-purple-50/60 p-2.5 rounded-lg border-l-4 border-purple-500">
+<strong class="text-slate-800">最も（もっとも）、一番（いちばん）</strong>
+<p class="text-slate-500 text-xs mt-0.5">例：世界で最も形がきれいな山 (最美麗的)。</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. 費用接尾詞分類對照表 (〜賃、〜料、〜代、〜費) -->
+<div class="grammar-card l3 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm">
+<h3 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+<i class="fa-solid fa-coins text-yellow-500"></i> 【第3課】「金錢費用」必考分類矩陣
         </h3>
-        <p class="text-xs text-slate-500 mb-3">各類生活花費搭配接尾詞規則：</p>
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs sm:text-sm border-collapse">
-            <thead>
-              <tr class="bg-slate-100 border-b border-slate-200 text-slate-700">
-                <th class="p-2.5 font-bold">分類後綴</th>
-                <th class="p-2.5 font-bold">適用對象核心概念</th>
-                <th class="p-2.5 font-bold">高頻必背詞彙</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 text-slate-700">
-              <tr class="hover:bg-slate-50">
-                <td class="p-2.5 font-bold text-blue-700">〜賃（ちん）</td>
-                <td class="p-2.5">搭車乘車費用、借賃租借酬金</td>
-                <td class="p-2.5"><span class="bg-blue-50 text-blue-800 px-1.5 py-0.5 rounded font-medium">運賃</span>、<span class="bg-blue-50 text-blue-800 px-1.5 py-0.5 rounded font-medium">家賃</span></td>
-              </tr>
-              <tr class="hover:bg-slate-50">
-                <td class="p-2.5 font-bold text-emerald-700">〜料（りょう）</td>
-                <td class="p-2.5">享受機構服務、使用公有設施手續費</td>
-                <td class="p-2.5"><span class="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-medium">料金</span>、<span class="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-medium">入場料</span>、<span class="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-medium">授業料</span>、<span class="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-medium">手数料</span>、送料</td>
-              </tr>
-              <tr class="hover:bg-slate-50">
-                <td class="p-2.5 font-bold text-amber-700">〜代（だい）</td>
-                <td class="p-2.5">換取日常消耗品、飲食、水電代金</td>
-                <td class="p-2.5"><span class="bg-amber-50 text-amber-800 px-1.5 py-0.5 rounded font-medium">電車代</span>、<span class="bg-amber-50 text-amber-800 px-1.5 py-0.5 rounded font-medium">食事代</span>、<span class="bg-amber-50 text-amber-800 px-1.5 py-0.5 rounded font-medium">部屋代</span>、電話代、洋服代</td>
-              </tr>
-              <tr class="hover:bg-slate-50">
-                <td class="p-2.5 font-bold text-purple-700">〜費（ひ）</td>
-                <td class="p-2.5">綜合性項目預算、整體維持總支出</td>
-                <td class="p-2.5"><span class="bg-purple-50 text-purple-800 px-1.5 py-0.5 rounded font-medium">交通費</span>、<span class="bg-purple-50 text-purple-800 px-1.5 py-0.5 rounded font-medium">光熱費</span>、<span class="bg-purple-50 text-purple-800 px-1.5 py-0.5 rounded font-medium">学費</span>、食費、生活費</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- 3. 動物計量詞與身體部位 (第2課重點) -->
-      <div class="grammar-card l2 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm">
-        <h3 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
-          <i class="fa-solid fa-paw text-amber-600"></i> 【第2課】動物計量詞（助數詞）與手部部位
+<p class="text-xs text-slate-500 mb-3">各類生活花費搭配接尾詞規則：</p>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-xs sm:text-sm border-collapse">
+<thead>
+<tr class="bg-slate-100 border-b border-slate-200 text-slate-700">
+<th class="p-2.5 font-bold">分類後綴</th>
+<th class="p-2.5 font-bold">適用對象核心概念</th>
+<th class="p-2.5 font-bold">高頻必背詞彙</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 text-slate-700">
+<tr class="hover:bg-slate-50">
+<td class="p-2.5 font-bold text-blue-700">〜賃（ちん）</td>
+<td class="p-2.5">搭車乘車費用、借賃租借酬金</td>
+<td class="p-2.5"><span class="bg-blue-50 text-blue-800 px-1.5 py-0.5 rounded font-medium">運賃</span>、<span class="bg-blue-50 text-blue-800 px-1.5 py-0.5 rounded font-medium">家賃</span></td>
+</tr>
+<tr class="hover:bg-slate-50">
+<td class="p-2.5 font-bold text-emerald-700">〜料（りょう）</td>
+<td class="p-2.5">享受機構服務、使用公有設施手續費</td>
+<td class="p-2.5"><span class="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-medium">料金</span>、<span class="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-medium">入場料</span>、<span class="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-medium">授業料</span>、<span class="bg-emerald-50 text-emerald-800 px-1.5 py-0.5 rounded font-medium">手数料</span>、送料</td>
+</tr>
+<tr class="hover:bg-slate-50">
+<td class="p-2.5 font-bold text-amber-700">〜代（だい）</td>
+<td class="p-2.5">換取日常消耗品、飲食、水電代金</td>
+<td class="p-2.5"><span class="bg-amber-50 text-amber-800 px-1.5 py-0.5 rounded font-medium">電車代</span>、<span class="bg-amber-50 text-amber-800 px-1.5 py-0.5 rounded font-medium">食事代</span>、<span class="bg-amber-50 text-amber-800 px-1.5 py-0.5 rounded font-medium">部屋代</span>、電話代、洋服代</td>
+</tr>
+<tr class="hover:bg-slate-50">
+<td class="p-2.5 font-bold text-purple-700">〜費（ひ）</td>
+<td class="p-2.5">綜合性項目預算、整體維持總支出</td>
+<td class="p-2.5"><span class="bg-purple-50 text-purple-800 px-1.5 py-0.5 rounded font-medium">交通費</span>、<span class="bg-purple-50 text-purple-800 px-1.5 py-0.5 rounded font-medium">光熱費</span>、<span class="bg-purple-50 text-purple-800 px-1.5 py-0.5 rounded font-medium">学費</span>、食費、生活費</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 3. 動物計量詞與身體部位 (第2課重點) -->
+<div class="grammar-card l2 bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-sm">
+<h3 class="text-base font-bold text-slate-900 flex items-center gap-2 mb-2">
+<i class="fa-solid fa-paw text-amber-600"></i> 【第2課】動物計量詞（助數詞）與手部部位
         </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm mt-3">
-          <div class="p-3 bg-red-50/60 rounded-xl border border-red-200">
-            <div class="font-bold text-red-800 text-sm mb-1">頭（とう） 大型動物</div>
-            <p class="text-slate-600">牛、豚、馬、象、トラ（虎）、ライオン、パンダ</p>
-          </div>
-          <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-200">
-            <div class="font-bold text-amber-800 text-sm mb-1">匹（ひき） 中小型與昆蟲</div>
-            <p class="text-slate-600">犬、猫、きつね、ねずみ、虫、アリ（蟻）</p>
-          </div>
-          <div class="p-3 bg-sky-50/60 rounded-xl border border-sky-200">
-            <div class="font-bold text-sky-800 text-sm mb-1">羽（わ） 飛禽鳥類</div>
-            <p class="text-slate-600">鳥、はと（鳩）、すずめ、カラス</p>
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ==============================================================
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm mt-3">
+<div class="p-3 bg-red-50/60 rounded-xl border border-red-200">
+<div class="font-bold text-red-800 text-sm mb-1">頭（とう） 大型動物</div>
+<p class="text-slate-600">牛、豚、馬、象、トラ（虎）、ライオン、パンダ</p>
+</div>
+<div class="p-3 bg-amber-50/60 rounded-xl border border-amber-200">
+<div class="font-bold text-amber-800 text-sm mb-1">匹（ひき） 中小型與昆蟲</div>
+<p class="text-slate-600">犬、猫、きつね、ねずみ、虫、アリ（蟻）</p>
+</div>
+<div class="p-3 bg-sky-50/60 rounded-xl border border-sky-200">
+<div class="font-bold text-sky-800 text-sm mb-1">羽（わ） 飛禽鳥類</div>
+<p class="text-slate-600">鳥、はと（鳩）、すずめ、カラス</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ==============================================================
          TAB 4: 克漏字實戰測驗 (即時答題 + 計分)
          ============================================================== -->
-    <section id="tab-cloze" class="tab-content hidden space-y-4">
-      
-      <!-- 成績條 -->
-      <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-2xl p-4 shadow-sm flex items-center justify-between">
-        <div>
-          <span class="text-xs text-blue-200 block">克漏字測驗進度</span>
-          <span class="text-xl sm:text-2xl font-black text-yellow-300" id="clozeScoreDisplay" aria-live="polite">0 / 8 題 · 已作答 0 題</span>
-        </div>
-        <button onclick="resetQuizSection('cloze')" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-lg active:scale-95 transition flex items-center gap-1">
-          <i class="fa-solid fa-rotate-left"></i> 重新作答
+<section class="tab-content hidden space-y-4" id="tab-cloze">
+<!-- 成績條 -->
+<div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-2xl p-4 shadow-sm flex items-center justify-between">
+<div>
+<span class="text-xs text-blue-200 block">克漏字測驗進度</span>
+<span aria-live="polite" class="text-xl sm:text-2xl font-black text-yellow-300" id="clozeScoreDisplay">0 / 26 題 · 已作答 0 題</span>
+</div>
+<button class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-lg active:scale-95 transition flex items-center gap-1" onclick="resetQuizSection('cloze')">
+<i class="fa-solid fa-rotate-left"></i> 重新作答
         </button>
-      </div>
-
-      <div class="h-2 rounded-full bg-slate-200 overflow-hidden" role="progressbar" id="clozeProgress" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" aria-label="cloze 已作答題數"><div class="h-full bg-blue-500 transition-all duration-300" style="width:0%"></div></div>
-      <div class="space-y-3" id="clozeContainer">
-        <!-- 題 1 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="連想する" data-explanation="從紅色「聯想到」危險：AからBを連想する。">
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+</div>
+<div aria-label="cloze 已作答題數" aria-valuemax="26" aria-valuemin="0" aria-valuenow="0" class="h-2 rounded-full bg-slate-200 overflow-hidden" id="clozeProgress" role="progressbar"><div class="h-full bg-blue-500 transition-all duration-300" style="width:0%"></div></div>
+<div class="space-y-3" id="clozeContainer">
+<!-- 題 1 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="連想する" data-explanation="從紅色「聯想到」危險：AからBを連想する。">
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             1. だいたいどこの国でも赤から「危険」を <span class="px-2 py-0.5 border-b-2 border-blue-600 text-blue-600 font-bold">（　？　）</span> のではないでしょうか。（第1課課文）
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="連想する" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. 連想する</button>
-            <button data-answer="尋ねる" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. 尋ねる</button>
-            <button data-answer="比べる" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 比べる</button>
-            <button data-answer="渇く" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. 渇く</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 題 2 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="なんとなく" data-explanation="なんとなく表示沒有明確理由，總覺得如此。">
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="連想する">A. 連想する</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="尋ねる">B. 尋ねる</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="比べる">C. 比べる</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="渇く">D. 渇く</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 題 2 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="なんとなく" data-explanation="なんとなく表示沒有明確理由，總覺得如此。">
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             2. 明るい色に比べて、暗い色は <span class="px-2 py-0.5 border-b-2 border-blue-600 text-blue-600 font-bold">（　？　）</span> 重く感じるようです。（第1課課文）
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="さっそく" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. さっそく</button>
-            <button data-answer="なんとなく" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. なんとなく</button>
-            <button data-answer="非常に" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 非常に</button>
-            <button data-answer="ほとんど" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. ほとんど</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 題 3 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="尋ねました" data-explanation="尋ねる（たずねる）是詢問；訪ねる（たずねる）是拜訪。">
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="さっそく">A. さっそく</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="なんとなく">B. なんとなく</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="非常に">C. 非常に</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="ほとんど">D. ほとんど</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 題 3 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="尋ねました" data-explanation="尋ねる（たずねる）是詢問；訪ねる（たずねる）是拜訪。">
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             3. 場所がわからなかったので、そばにいる人に <span class="px-2 py-0.5 border-b-2 border-blue-600 text-blue-600 font-bold">（　？　）</span>。（第1課課後確認題）
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="尋ねました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. 尋ねました</button>
-            <button data-answer="通しました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. 通しました</button>
-            <button data-answer="比べました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 比べました</button>
-            <button data-answer="倒しました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. 倒しました</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 題 4 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="そっくり" data-explanation="そっくり（です）表示非常相似，常用 AはBとそっくりだ。">
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="尋ねました">A. 尋ねました</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="通しました">B. 通しました</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="比べました">C. 比べました</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="倒しました">D. 倒しました</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 題 4 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="そっくり" data-explanation="そっくり（です）表示非常相似，常用 AはBとそっくりだ。">
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             4. マレーシアのグーとパーの形は日本と <span class="px-2 py-0.5 border-b-2 border-blue-600 text-blue-600 font-bold">（　？　）</span> です。（第2課課文）
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="そっくり" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. そっくり</button>
-            <button data-answer="みたい" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. みたい</button>
-            <button data-answer="似て" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 似て</button>
-            <button data-answer="同じく" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. 同じく</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 題 5 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="くちばし" data-explanation="まるで〜のような＋名詞：像……一樣的形狀。">
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="そっくり">A. そっくり</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="みたい">B. みたい</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="似て">C. 似て</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="同じく">D. 同じく</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 題 5 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="くちばし" data-explanation="まるで〜のような＋名詞：像……一樣的形狀。">
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             5. チョキは指先を全部合わせて前に出して、まるで鳥の <span class="px-2 py-0.5 border-b-2 border-blue-600 text-blue-600 font-bold">（　？　）</span> のような形を作ります。（第2課課文）
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="つめ" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. つめ</button>
-            <button data-answer="くちびる" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. くちびる</button>
-            <button data-answer="くちばし" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. くちばし</button>
-            <button data-answer="あご" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. あご</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 題 6 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="近ければ近いほど" data-explanation="い形容詞的「〜ければ〜いほど」，表示越……越……。">
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="つめ">A. つめ</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="くちびる">B. くちびる</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="くちばし">C. くちばし</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="あご">D. あご</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 題 6 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="近ければ近いほど" data-explanation="い形容詞的「〜ければ〜いほど」，表示越……越……。">
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             6. アパートの家賃もそうですが、駅に <span class="px-2 py-0.5 border-b-2 border-blue-600 text-blue-600 font-bold">（　？　）</span> 高くなるのが普通です。（第3課課文）
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="近ければ近いほど" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. 近ければ近いほど</button>
-            <button data-answer="近くても近いほど" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. 近くても近いほど</button>
-            <button data-answer="近いなら近くて" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 近いなら近くて</button>
-            <button data-answer="近いより近く" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. 近いより近く</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 題 7 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="思いつきました" data-explanation="思いつく表示想到好點子；思い出す是回想起原本知道的事。">
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="近ければ近いほど">A. 近ければ近いほど</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="近くても近いほど">B. 近くても近いほど</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="近いなら近くて">C. 近いなら近くて</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="近いより近く">D. 近いより近く</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 題 7 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="思いつきました" data-explanation="思いつく表示想到好點子；思い出す是回想起原本知道的事。">
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             7. 困った経営者は何かいい方法はないか考えて、１つのアイディアを <span class="px-2 py-0.5 border-b-2 border-blue-600 text-blue-600 font-bold">（　？　）</span>。（第3課課文）
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="思いつきました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. 思いつきました</button>
-            <button data-answer="思い出しました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. 思い出しました</button>
-            <button data-answer="考えました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 考えました</button>
-            <button data-answer="通しました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. 通しました</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 題 8 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="今では" data-explanation="今では表示「到了現在／如今」，與過去情況形成對比。">
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="思いつきました">A. 思いつきました</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="思い出しました">B. 思い出しました</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="考えました">C. 考えました</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="通しました">D. 通しました</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 題 8 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="今では" data-explanation="今では表示「到了現在／如今」，與過去情況形成對比。">
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             8. <span class="px-2 py-0.5 border-b-2 border-blue-600 text-blue-600 font-bold">（　？　）</span> 上のほうほど早くいっぱいになって、1階から3階までいつも「満車」の表示が出ています。（第3課課文）
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="今でも" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. 今でも</button>
-            <button data-answer="今では" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. 今では</button>
-            <button data-answer="今から" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 今から</button>
-            <button data-answer="今まで" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. 今まで</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ==============================================================
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="今でも">A. 今でも</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="今では">B. 今では</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="今から">C. 今から</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="今まで">D. 今まで</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="尋ねました" data-explanation="尋ねる → 尋ねました，向附近的人詢問。"><p class="text-xs font-semibold text-blue-700">教材原題｜第1課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">9. 場所がわからなかったので、そばにいる人に（　）。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="尋ねました">A. 尋ねました</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="連想しました">B. 連想しました</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="比べました">C. 比べました</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="感じました">D. 感じました</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="連想します" data-explanation="連想する → 連想します。"><p class="text-xs font-semibold text-blue-700">教材原題｜第1課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">10. 私は青から海を（　）。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="連想します">A. 連想します</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="尋ねます">B. 尋ねます</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="乾かします">C. 乾かします</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="比べます">D. 比べます</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="性格" data-explanation="性格が合う＝個性合得來。"><p class="text-xs font-semibold text-blue-700">教材原題｜第1課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">11. 私とあの人は（　）が合わないようです。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="性格">A. 性格</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="別">B. 別</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="料金">C. 料金</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="カウンター">D. カウンター</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="本当は" data-explanation="本当は＝其實。"><p class="text-xs font-semibold text-blue-700">教材原題｜第1課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">12. （　）食べたくなかったんですが、全部食べました。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="本当は">A. 本当は</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="別の">B. 別の</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="性格">C. 性格</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="連想">D. 連想</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="カウンター" data-explanation="カウンターしかない＝只有吧台。"><p class="text-xs font-semibold text-blue-700">教材原題｜第1課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">13. そこは（　）しかない小さな店でした。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="カウンター">A. カウンター</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="本当は">B. 本当は</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="別の">C. 別の</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="尋ねる">D. 尋ねる</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="別の" data-explanation="別の＋名詞＝另外一家……。"><p class="text-xs font-semibold text-blue-700">教材原題｜第1課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">14. そこはとても込んでいたので、（　）店に行きました。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="別の">A. 別の</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="本当は">B. 本当は</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="性格">C. 性格</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="カウンター">D. カウンター</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="合わせて" data-explanation="合わせる → 合わせて。"><p class="text-xs font-semibold text-blue-700">教材原題｜第2課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">15. タイのあいさつは、両手を（　）、おじぎをします。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="合わせて">A. 合わせて</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="握って">B. 握って</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="倒して">C. 倒して</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="出して">D. 出して</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="出し" data-explanation="出す → 出したら（選填「出し」）。"><p class="text-xs font-semibold text-blue-700">教材原題｜第2課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">16. 二人とも同じ「グー」を（　）たら、もう一度「じゃんけん」をします。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="出し">A. 出し</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="握っ">B. 握っ</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="倒し">C. 倒し</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="表し">D. 表し</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="布" data-explanation="布（ぬの）で包む。"><p class="text-xs font-semibold text-blue-700">教材原題｜第2課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">17. 大切な物をきれいな（　）で包みました。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="布">A. 布</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="指">B. 指</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="象">C. 象</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="勝負">D. 勝負</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="倒して" data-explanation="倒す → 倒して。"><p class="text-xs font-semibold text-blue-700">教材原題｜第2課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">18. 象にはすごい力があります。木を（　）、それを鼻を使って運びます。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="倒して">A. 倒して</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="握って">B. 握って</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="合わせて">C. 合わせて</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="出して">D. 出して</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="表して" data-explanation="表す → 表しています，代表。"><p class="text-xs font-semibold text-blue-700">教材原題｜第2課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">19. 地図の「〒」のマークは郵便局を（　）います。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="表して">A. 表して</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="合わせて">B. 合わせて</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="握って">C. 握って</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="倒して">D. 倒して</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="握っ" data-explanation="握る → 握ったら（選填「握っ」）。"><p class="text-xs font-semibold text-blue-700">教材原題｜第2課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">20. 山田さんはカラオケが大好きで、マイクを（　）たらなかなか放しません。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="握っ">A. 握っ</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="表し">B. 表し</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="出し">C. 出し</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="合わせ">D. 合わせ</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="思いつき" data-explanation="思いつく → 思いつきました。"><p class="text-xs font-semibold text-blue-700">教材原題｜第3課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">21. いい方法を（　）ました。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="思いつき">A. 思いつき</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="さっそく">B. さっそく</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="上り">C. 上り</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="いっぱい">D. いっぱい</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="さっそく" data-explanation="さっそく＝立刻。"><p class="text-xs font-semibold text-blue-700">教材原題｜第3課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">22. 友だちからおいしいレストランを教えてもらったので、（　）行ってみました。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="さっそく">A. さっそく</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="いっぱい">B. いっぱい</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="つらい">C. つらい</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="建て">D. 建て</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="上る" data-explanation="上る（のぼる）＝登上。"><p class="text-xs font-semibold text-blue-700">教材原題｜第3課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">23. 自転車でこの坂を（　）のは大変です。バイクなら楽です。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="上る">A. 上る</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="思いつく">B. 思いつく</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="いっぱい">C. いっぱい</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="建て">D. 建て</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="いっぱい" data-explanation="おなかがいっぱい＝吃飽了。"><p class="text-xs font-semibold text-blue-700">教材原題｜第3課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">24. もうおなかが（　）です。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="いっぱい">A. いっぱい</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="つらい">B. つらい</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="建て">C. 建て</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="さっそく">D. さっそく</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="建て" data-explanation="9階建て＝九層樓建築。"><p class="text-xs font-semibold text-blue-700">教材原題｜第3課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">25. 友だちは9階（　）のマンションの8階に住んでいます。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="建て">A. 建て</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="上る">B. 上る</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="いっぱい">C. いっぱい</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="さっそく">D. さっそく</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div><div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-2.5" data-correct="つらい" data-explanation="つらい＝很辛苦。"><p class="text-xs font-semibold text-blue-700">教材原題｜第3課（單語の意味の確認）</p><p class="text-sm sm:text-base font-semibold text-slate-800" lang="ja">26. 練習が（　）ので、もうやめようと思っている。</p><div class="grid grid-cols-2 gap-2 text-xs sm:text-sm"><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="つらい">A. つらい</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="いっぱい">B. いっぱい</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="建て">C. 建て</button><button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="さっそく">D. さっそく</button></div><div class="explain-box hidden text-xs p-2.5 rounded-lg"></div></div></div>
+</section>
+<!-- ==============================================================
          TAB 5: 考前綜合模擬考 (讀音/語意/量詞/文法 全面衝刺)
          ============================================================== -->
-    <section id="tab-mock" class="tab-content hidden space-y-4">
-      
-      <div class="bg-gradient-to-r from-emerald-800 to-teal-900 text-white rounded-2xl p-4 shadow-sm flex items-center justify-between">
-        <div>
-          <span class="text-xs text-emerald-200 block">綜合模擬考得分</span>
-          <span class="text-xl sm:text-2xl font-black text-amber-300" id="mockScoreDisplay" aria-live="polite">0 / 6 題 · 已作答 0 題</span>
-        </div>
-        <button onclick="resetQuizSection('mock')" class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-lg active:scale-95 transition flex items-center gap-1">
-          <i class="fa-solid fa-rotate-left"></i> 重新模擬考
+<section class="tab-content hidden space-y-4" id="tab-mock">
+<div class="bg-gradient-to-r from-emerald-800 to-teal-900 text-white rounded-2xl p-4 shadow-sm flex items-center justify-between">
+<div>
+<span class="text-xs text-emerald-200 block">綜合模擬考得分</span>
+<span aria-live="polite" class="text-xl sm:text-2xl font-black text-amber-300" id="mockScoreDisplay">0 / 6 題 · 已作答 0 題</span>
+</div>
+<button class="text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-1.5 rounded-lg active:scale-95 transition flex items-center gap-1" onclick="resetQuizSection('mock')">
+<i class="fa-solid fa-rotate-left"></i> 重新模擬考
         </button>
-      </div>
-
-      <div class="h-2 rounded-full bg-slate-200 overflow-hidden" role="progressbar" id="mockProgress" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" aria-label="mock 已作答題數"><div class="h-full bg-blue-500 transition-all duration-300" style="width:0%"></div></div>
-      <div class="space-y-3" id="mockContainer">
-        <!-- 模擬考 1: 漢字讀音 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="たずねました" data-explanation="尋ねる讀作「たずねる」，過去敬體是「尋ねました」。">
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded">讀音題</span>
-            <span class="text-xs text-slate-500">選出正確漢字發音</span>
-          </div>
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+</div>
+<div aria-label="mock 已作答題數" aria-valuemax="6" aria-valuemin="0" aria-valuenow="0" class="h-2 rounded-full bg-slate-200 overflow-hidden" id="mockProgress" role="progressbar"><div class="h-full bg-blue-500 transition-all duration-300" style="width:0%"></div></div>
+<div class="space-y-3" id="mockContainer">
+<!-- 模擬考 1: 漢字讀音 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="たずねました" data-explanation="尋ねる讀作「たずねる」，過去敬體是「尋ねました」。">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded">讀音題</span>
+<span class="text-xs text-slate-500">選出正確漢字發音</span>
+</div>
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             Q1. 「どちらの箱が重いか<u class="text-blue-600 font-bold">尋ねました</u>。」
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="たずねました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. たずねました</button>
-            <button data-answer="たのみました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. たのみました</button>
-            <button data-answer="こたえました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. こたえました</button>
-            <button data-answer="くらべました" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. くらべました</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 模擬考 2: 動物量詞 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="頭" data-explanation="象、虎、パンダ等大型動物通常用「頭（とう）」計數。">
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded">助數詞</span>
-            <span class="text-xs text-slate-500">動物量詞計算</span>
-          </div>
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="たずねました">A. たずねました</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="たのみました">B. たのみました</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="こたえました">C. こたえました</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="くらべました">D. くらべました</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 模擬考 2: 動物量詞 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="頭" data-explanation="象、虎、パンダ等大型動物通常用「頭（とう）」計數。">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded">助數詞</span>
+<span class="text-xs text-slate-500">動物量詞計算</span>
+</div>
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             Q2. 「象、虎（トラ）、パンダ」などの大型動物を数える正しい単位はどれですか。
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="匹" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. 匹（ひき）</button>
-            <button data-answer="羽" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. 羽（わ）</button>
-            <button data-answer="頭" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 頭（とう）</button>
-            <button data-answer="本" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. 本（ほん）</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 模擬考 3: 自他動詞 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="乾かして" data-explanation="服を乾かす是他動詞；服が乾く是自動詞；渇く常用於喉嚨乾渴。">
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-bold bg-rose-100 text-rose-700 px-2 py-0.5 rounded">動詞語意</span>
-            <span class="text-xs text-slate-500">自他動詞的正確選擇</span>
-          </div>
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="匹">A. 匹（ひき）</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="羽">B. 羽（わ）</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="頭">C. 頭（とう）</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="本">D. 本（ほん）</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 模擬考 3: 自他動詞 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="乾かして" data-explanation="服を乾かす是他動詞；服が乾く是自動詞；渇く常用於喉嚨乾渴。">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold bg-rose-100 text-rose-700 px-2 py-0.5 rounded">動詞語意</span>
+<span class="text-xs text-slate-500">自他動詞的正確選擇</span>
+</div>
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             Q3. 「雨でぬれた服をドライヤーで（　　）から出かけます。」
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="渇いて" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. 渇いて</button>
-            <button data-answer="乾いて" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. 乾いて</button>
-            <button data-answer="乾かして" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 乾かして</button>
-            <button data-answer="通して" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. 通して</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 模擬考 4: 費用區分 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="運賃" data-explanation="運賃表示搭車的票價；家賃是房租，授業料是學費。">
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-bold bg-purple-100 text-purple-700 px-2 py-0.5 rounded">費用名詞</span>
-            <span class="text-xs text-slate-500">金錢後綴詞辨析</span>
-          </div>
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="渇いて">A. 渇いて</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="乾いて">B. 乾いて</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="乾かして">C. 乾かして</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="通して">D. 通して</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 模擬考 4: 費用區分 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="運賃" data-explanation="運賃表示搭車的票價；家賃是房租，授業料是學費。">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold bg-purple-100 text-purple-700 px-2 py-0.5 rounded">費用名詞</span>
+<span class="text-xs text-slate-500">金錢後綴詞辨析</span>
+</div>
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             Q4. 電車やバスに乗るために支払う「乗車料金」を表す言葉はどれですか。
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="家賃" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. 家賃（やちん）</button>
-            <button data-answer="運賃" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. 運賃（うんちん）</button>
-            <button data-answer="授業料" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 授業料（じゅぎょうりょう）</button>
-            <button data-answer="光熱費" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. 光熱費（こうねつひ）</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 模擬考 5: 比況文法 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="おもちゃみたいに" data-explanation="みたいに＋動詞（見える），ように也可接動詞，但選項 A 缺少「に」。">
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">比況文型</span>
-            <span class="text-xs text-slate-500">まるで〜ようだ／みたいだ</span>
-          </div>
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="家賃">A. 家賃（やちん）</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="運賃">B. 運賃（うんちん）</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="授業料">C. 授業料（じゅぎょうりょう）</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="光熱費">D. 光熱費（こうねつひ）</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 模擬考 5: 比況文法 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="おもちゃみたいに" data-explanation="みたいに＋動詞（見える），ように也可接動詞，但選項 A 缺少「に」。">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded">比況文型</span>
+<span class="text-xs text-slate-500">まるで〜ようだ／みたいだ</span>
+</div>
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             Q5. 「このタワーの上から見ると、家や車はみんな（　　）見えます。」
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="おもちゃのよう" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. おもちゃのよう</button>
-            <button data-answer="おもちゃみたいに" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. おもちゃみたいに</button>
-            <button data-answer="おもちゃみたいの" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. おもちゃみたいの</button>
-            <button data-answer="おもちゃそっくりで" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. おもちゃそっくりで</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-
-        <!-- 模擬考 6: 程度副詞呼應 -->
-        <div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="全く" data-explanation="全く〜ない表示完全不……；「全然」也常搭配否定。">
-          <div class="flex items-center gap-2">
-            <span class="text-xs font-bold bg-teal-100 text-teal-700 px-2 py-0.5 rounded">副詞呼應</span>
-            <span class="text-xs text-slate-500">否定搭配用法</span>
-          </div>
-          <p class="text-sm sm:text-base font-semibold text-slate-800">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="おもちゃのよう">A. おもちゃのよう</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="おもちゃみたいに">B. おもちゃみたいに</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="おもちゃみたいの">C. おもちゃみたいの</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="おもちゃそっくりで">D. おもちゃそっくりで</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+<!-- 模擬考 6: 程度副詞呼應 -->
+<div class="quiz-card bg-white p-4 rounded-xl border border-slate-200 shadow-2xs space-y-2.5" data-correct="全く" data-explanation="全く〜ない表示完全不……；「全然」也常搭配否定。">
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold bg-teal-100 text-teal-700 px-2 py-0.5 rounded">副詞呼應</span>
+<span class="text-xs text-slate-500">否定搭配用法</span>
+</div>
+<p class="text-sm sm:text-base font-semibold text-slate-800">
             Q6. 「全然勉強しなかったので、きょうの試験は（　　）できませんでした。」
           </p>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
-            <button data-answer="全く" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">A. 全く（まったく）</button>
-            <button data-answer="けっこう" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">B. けっこう</button>
-            <button data-answer="非常に" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">C. 非常に</button>
-            <button data-answer="最も" class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left">D. 最も</button>
-          </div>
-          <div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
-        </div>
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- 播放提示浮動小通知 (取代原生 alert) -->
-  <div id="toastMessage" role="status" aria-live="polite" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/90 text-white text-xs sm:text-sm py-2 px-4 rounded-full shadow-lg z-50 pointer-events-none opacity-0 transition-opacity duration-300">
+<div class="grid grid-cols-2 gap-2 text-xs sm:text-sm">
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="全く">A. 全く（まったく）</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="けっこう">B. けっこう</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="非常に">C. 非常に</button>
+<button class="opt-btn py-2 px-3 bg-slate-50 hover:bg-blue-50 border border-slate-200 rounded-lg text-slate-700 text-left" data-answer="最も">D. 最も</button>
+</div>
+<div class="explain-box hidden text-xs p-2.5 rounded-lg"></div>
+</div>
+</div>
+</section><section class="tab-content hidden space-y-5" id="tab-workbook"><h2 class="font-bold text-xl">教材原題・本文設問對照</h2><div class="bg-amber-50 border border-amber-200 p-3 mb-5 rounded-xl text-sm"><strong>比對範圍：</strong>本頁只以此次上傳的 17 張教材照片為準。未提供的頁面不能推定已完整涵蓋；教材的「聴解ミニテスト」需要原始音檔，不能從題目頁推導聽力答案。本文設問的回答為參考作答，遇到可自由發揮的問題請自行練習。</div><article class="workbook-block l1 mb-7"><h3 class="text-lg font-bold mb-3">第1課 p.3｜色のイメージ</h3><details class="border border-slate-200 rounded-xl bg-white p-3 mb-3"><summary class="cursor-pointer font-medium"><span lang="ja">1. 赤から連想することは何ですか。</span></summary><div class="bg-blue-50 text-sm p-3 mt-2 rounded-lg"><b>參考回答：</b><span lang="ja">「危険」などを連想します。</span></div></details><details class="border border-slate-200 rounded-xl bg-white p-3 mb-3"><summary class="cursor-pointer font-medium"><span lang="ja">2. 青から連想することは何ですか。</span></summary><div class="bg-blue-50 text-sm p-3 mt-2 rounded-lg"><b>參考回答：</b><span lang="ja">涼しさなどを連想します。</span></div></details><details class="border border-slate-200 rounded-xl bg-white p-3 mb-3"><summary class="cursor-pointer font-medium"><span lang="ja">3. 色によって重く感じたり軽く感じたりしますか。どんな色が軽く感じますか。</span></summary><div class="bg-blue-50 text-sm p-3 mt-2 rounded-lg"><b>參考回答：</b><span lang="ja">はい。明るい色のほうが軽く感じるようです。</span></div></details></article><article class="workbook-block l2 mb-7"><h3 class="text-lg font-bold mb-3">第2課 p.11｜世界のじゃんけん</h3><details class="border border-slate-200 rounded-xl bg-white p-3 mb-3"><summary class="cursor-pointer font-medium"><span lang="ja">1. 「鬼ごっこ」ではどうやって鬼を決めますか。</span></summary><div class="bg-blue-50 text-sm p-3 mt-2 rounded-lg"><b>參考回答：</b><span lang="ja">日本ではじゃんけんで決めるのが普通です。</span></div></details><details class="border border-slate-200 rounded-xl bg-white p-3 mb-3"><summary class="cursor-pointer font-medium"><span lang="ja">2. 日本の「グー、チョキ、パー」はそれぞれ何を表していますか。それはあなたの国と同じですか、違いますか。</span></summary><div class="bg-blue-50 text-sm p-3 mt-2 rounded-lg"><b>參考回答：</b><span lang="ja">石、はさみ、紙を表します。自分の国との違いは自分で答えてください。</span></div></details><details class="border border-slate-200 rounded-xl bg-white p-3 mb-3"><summary class="cursor-pointer font-medium"><span lang="ja">3. マレーシアの「チョキ」の形を写真の中から選んでください。</span></summary><div class="bg-blue-50 text-sm p-3 mt-2 rounded-lg"><b>參考回答：</b><span lang="ja">教材の写真では、指先を全部合わせて鳥のくちばしの形にするものを選びます（写真 B）。</span></div></details></article><article class="workbook-block l3 mb-7"><h3 class="text-lg font-bold mb-3">第3課 p.19｜不便な駐車場</h3><details class="border border-slate-200 rounded-xl bg-white p-3 mb-3"><summary class="cursor-pointer font-medium"><span lang="ja">1. この駐車場はなぜ初めは利用する人があまりいなかったのですか。</span></summary><div class="bg-blue-50 text-sm p-3 mt-2 rounded-lg"><b>參考回答：</b><span lang="ja">エレベーターがなく、上の階まで階段で上り下りしなければならなかったからです。</span></div></details><details class="border border-slate-200 rounded-xl bg-white p-3 mb-3"><summary class="cursor-pointer font-medium"><span lang="ja">2. この駐車場の3階の料金は前はいくらで、今はいくらですか。</span></summary><div class="bg-blue-50 text-sm p-3 mt-2 rounded-lg"><b>參考回答：</b><span lang="ja">前は1時間300円で、今は1時間150円です。</span></div></details><details class="border border-slate-200 rounded-xl bg-white p-3 mb-3"><summary class="cursor-pointer font-medium"><span lang="ja">3. この駐車場は今はなぜ上のほうほど早く満車になるのですか。</span></summary><div class="bg-blue-50 text-sm p-3 mt-2 rounded-lg"><b>參考回答：</b><span lang="ja">上の階ほど料金が安くなったからです。</span></div></details></article><article class="bg-white border border-slate-200 rounded-2xl p-4"><h3 class="font-bold mb-2">教材中的「單語の意味の確認」</h3><p class="text-sm text-slate-700">三課各 6 題，合計 18 題已加入 <b>克漏字測驗</b>，按上方第 4 個標籤即可點選作答。已依原題保留「必要なら形を変えなさい」的活用型態。</p></article><article class="bg-white border border-slate-200 rounded-2xl p-4"><h3 class="font-bold mb-2">作業與延伸學習</h3><p class="text-sm">第 1 課 p.7：使用「私の好きな色」「いろいろな場合」「日本の家／アパート」等作文題練習；第 2 課：練習說明各國猜拳、以及「よう／みたい」和「というの」等文型；第 3 課 p.24：用程度副詞或具體數字比較自己住的地方，並以「ことにする」書寫接下來半年的計畫。</p><p class="mt-2 text-xs text-slate-500">聽力練習只保留題型與教材頁碼；未提供音檔，沒有自行編造正解。</p></article></section>
+</main>
+<!-- 播放提示浮動小通知 (取代原生 alert) -->
+<div aria-live="polite" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/90 text-white text-xs sm:text-sm py-2 px-4 rounded-full shadow-lg z-50 pointer-events-none opacity-0 transition-opacity duration-300" id="toastMessage" role="status">
     提示訊息
   </div>
-
-  <script>
+<script>
     "use strict";
-    const STORAGE_KEY = 'jp-review-l1-l3-v2';
+    const STORAGE_KEY = 'jp-review-l1-l3-v3-textbook';
     const QUIZ_SECTIONS = ['cloze', 'mock'];
     let isFuriVisible = true;
     let toastTimer;
@@ -1003,7 +937,7 @@
         btn.setAttribute('aria-pressed', String(active));
       });
       document.querySelectorAll('.tab-content').forEach(section => section.classList.toggle('hidden', section !== target));
-      document.getElementById('lessonFilterBar').classList.toggle('hidden', ['tab-cloze','tab-mock'].includes(tabId));
+      document.getElementById('lessonFilterBar').classList.toggle('hidden', ['tab-cloze','tab-mock','tab-workbook'].includes(tabId));
       document.getElementById('toggleFuriganaBtn').disabled = false;
       writeSaved({tab:tabId});
       window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
