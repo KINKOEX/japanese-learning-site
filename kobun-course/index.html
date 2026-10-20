@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>古文狐小文的文語文法教室｜日文古文文法入門</title>
+<style>
+:root{
+  --bg:#fff8e8; --ink:#3a2e28; --card:#ffffff; --line:#f0e0c8;
+  --orange:#f59f3a; --red:#ff6b6b; --blue:#4dabf7; --green:#40c057; --purple:#9775fa; --pink:#f06595; --teal:#20c997; --yellow:#ffd43b;
+  --mz:#ff6b6b; --ry:#ff922b; --sh:#40c057; --rt:#339af0; --iz:#845ef7; --mr:#f06595;
+}
+*{box-sizing:border-box}
+html{font-size:19px}
+@media (max-width:600px){html{font-size:17px}}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans CJK TC","PingFang TC","Microsoft JhengHei","Heiti TC",sans-serif;line-height:1.75;
+  background-image:radial-gradient(circle at 10% 10%,#ffe8cc 0,transparent 30%),radial-gradient(circle at 90% 30%,#e7f5ff 0,transparent 30%),radial-gradient(circle at 30% 90%,#ebfbee 0,transparent 30%);background-attachment:fixed}
+[lang=ja],.jp{font-family:"Noto Sans CJK JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif}
+ruby rt{font-size:.5em;color:#d9480f;font-weight:500;letter-spacing:0}
+a{color:#1971c2}
+header{position:sticky;top:0;z-index:20;background:rgba(255,248,232,.95);backdrop-filter:blur(6px);border-bottom:3px dashed #ffd8a8;display:flex;align-items:center;gap:.6rem;padding:.4rem .8rem}
+header .logo{display:flex;align-items:center;gap:.4rem;font-weight:900;font-size:1.05rem;cursor:pointer;flex:1;min-width:0}
+header .logo span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+header svg{width:42px;height:42px;flex:none}
+.navbtn{border:none;background:#fff;border:2px solid #ffc078;border-radius:999px;padding:.3rem .8rem;font-size:.85rem;font-weight:700;cursor:pointer;color:#d9480f;font-family:inherit;white-space:nowrap}
+.navbtn:hover{background:#fff4e6}
+main{max-width:880px;margin:0 auto;padding:1rem .8rem 4rem}
+h1{font-size:1.7rem;margin:.2rem 0 .6rem;line-height:1.35}
+h2{font-size:1.45rem;margin:.2rem 0 .7rem;line-height:1.4;color:#c2410c}
+h3{font-size:1.15rem;margin:1rem 0 .4rem;color:#5f3dc4}
+.card{background:var(--card);border-radius:24px;padding:1.2rem 1.3rem;box-shadow:0 6px 0 #f3d9b1,0 10px 30px rgba(180,120,40,.12);border:3px solid #ffe3bf;margin-bottom:1rem}
+.hero{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.hero svg{width:130px;height:130px;flex:none;animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero .txt{flex:1;min-width:240px}
+.progress{height:22px;background:#fff0db;border-radius:999px;overflow:hidden;border:2px solid #ffd8a8}
+.progress>div{height:100%;background:linear-gradient(90deg,#ffa94d,#ff6b6b,#f06595);border-radius:999px;transition:width .6s}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.9rem}
+.lcard{background:#fff;border-radius:20px;padding:.9rem 1rem;border:3px solid var(--c,#ffd8a8);cursor:pointer;position:relative;transition:transform .15s, box-shadow .15s;box-shadow:0 5px 0 var(--c,#ffd8a8)}
+.lcard:hover{transform:translateY(-3px)}
+.lcard .em{font-size:2rem;line-height:1}
+.lcard .no{font-size:.8rem;font-weight:800;color:#868e96}
+.lcard .t{font-weight:900;font-size:1.05rem;line-height:1.4;margin:.15rem 0}
+.lcard .s{font-size:.85rem;color:#666}
+.badge{position:absolute;top:.6rem;right:.7rem;font-size:.8rem;font-weight:800;border-radius:999px;padding:.05rem .55rem;background:#f1f3f5;color:#868e96}
+.badge.done{background:#d3f9d8;color:#2b8a3e}
+.badge.part{background:#fff3bf;color:#e67700}
+/* lesson */
+.lessonbar{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:.6rem}
+.lessonbar .lt{font-weight:900;font-size:1.05rem;flex:1}
+.dots{display:flex;gap:6px;flex-wrap:wrap;margin:.2rem 0 .8rem}
+.dots i{width:14px;height:14px;border-radius:50%;background:#ffe8cc;display:block;cursor:pointer;border:2px solid #ffc078}
+.dots i.on{background:#ff922b;transform:scale(1.25)}
+.dots i.seen{background:#ffc078}
+.dots i.q{border-radius:4px;background:#d0bfff;border-color:#9775fa}
+.screen{animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.pager{display:flex;justify-content:space-between;gap:.6rem;margin-top:1rem}
+.btn{font-family:inherit;font-size:1.05rem;font-weight:800;border:none;border-radius:999px;padding:.65rem 1.3rem;cursor:pointer;background:#ff922b;color:#fff;box-shadow:0 4px 0 #d9480f;transition:transform .1s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #d9480f}
+.btn.gray{background:#e9ecef;color:#495057;box-shadow:0 4px 0 #adb5bd}
+.btn.purple{background:#845ef7;box-shadow:0 4px 0 #5f3dc4}
+.btn.green{background:#40c057;box-shadow:0 4px 0 #2b8a3e}
+.btn:disabled{opacity:.35;cursor:default}
+/* teaching blocks */
+.say{display:flex;gap:.7rem;align-items:flex-start;margin:.4rem 0 .9rem}
+.say svg{width:62px;height:62px;flex:none}
+.bubble{background:#fff4e6;border:2px solid #ffc078;border-radius:18px;padding:.6rem .9rem;position:relative;flex:1}
+.bubble:before{content:"";position:absolute;left:-11px;top:18px;border:9px solid transparent;border-right-color:#ffc078;border-left:0}
+.ex{background:#f8f9ff;border-left:7px solid #748ffc;border-radius:14px;padding:.6rem .9rem;margin:.6rem 0}
+.ex .jp{font-size:1.45rem;line-height:2.2;font-weight:700}
+.ex .zh{color:#495057}
+.ex .zh:before{content:"🇹🇼 "}
+.ex .note{font-size:.9rem;color:#7048e8;margin-top:.2rem}
+.bigidea{font-size:1.25rem;font-weight:900;background:linear-gradient(120deg,#fff3bf,#ffe8cc);border-radius:16px;padding:.7rem 1rem;margin:.6rem 0;text-align:center;line-height:1.6}
+.tip{background:#e6fcf5;border:2px dashed #20c997;border-radius:14px;padding:.55rem .85rem;margin:.6rem 0}
+.warn{background:#fff5f5;border:2px dashed #ff8787;border-radius:14px;padding:.55rem .85rem;margin:.6rem 0}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:.5rem 0}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:.95rem;background:#fff;border-radius:14px;overflow:hidden;border:2px solid #e9ecef}
+th,td{padding:.4rem .5rem;border-bottom:1px solid #f1f3f5;text-align:center;vertical-align:middle}
+th{background:#f8f9fa;font-weight:800;white-space:nowrap}
+td.l,th.l{text-align:left;min-width:11em}
+td.f1,td.f2,td.f3,td.f4,td.f5,td.f6{white-space:nowrap}
+table.wide{min-width:1000px}
+td.kid{min-width:9em;text-align:left}
+tr:last-child td{border-bottom:none}
+td .jp,td[lang=ja]{font-size:1.08rem}
+.f1{--fc:var(--mz)} .f2{--fc:var(--ry)} .f3{--fc:var(--sh)} .f4{--fc:var(--rt)} .f5{--fc:var(--iz)} .f6{--fc:var(--mr)}
+th.f1,th.f2,th.f3,th.f4,th.f5,th.f6{background:var(--fc);color:#fff}
+td.f1,td.f2,td.f3,td.f4,td.f5,td.f6{background:color-mix(in srgb,var(--fc) 10%,white);color:color-mix(in srgb,var(--fc) 70%,black);font-weight:700}
+.fz{display:inline-block;border-radius:8px;padding:0 .4rem;color:#fff;background:var(--fc);font-weight:800;font-size:.9em;margin:0 .1rem}
+.vs{display:grid;grid-template-columns:1fr auto 1fr;gap:.4rem .6rem;align-items:center;margin:.6rem 0}
+.vs .h{font-weight:900;text-align:center;border-radius:12px;padding:.2rem;color:#fff}
+.vs .h.m{background:#4dabf7}.vs .h.k{background:#f76707}
+.vs .c{background:#f8f9fa;border-radius:12px;padding:.35rem .6rem;font-size:1.15rem;text-align:center}
+.vs .c.k{background:#fff4e6;font-weight:700}
+.vs .ar{font-size:1.2rem;color:#adb5bd}
+.vs .z{grid-column:1/-1;font-size:.88rem;color:#666;text-align:center;margin:-.2rem 0 .3rem}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:.4rem 0 .2rem;align-items:flex-start}
+.chip{display:flex;flex-direction:column;align-items:center;border-radius:12px;padding:.15rem .45rem .2rem;border:2px solid var(--cc);background:color-mix(in srgb,var(--cc) 10%,white);min-width:2.4rem}
+.chip b{font-size:1.3rem;font-family:"Noto Sans CJK JP",sans-serif;line-height:2}
+.chip small{font-size:.68rem;color:color-mix(in srgb,var(--cc) 75%,black);font-weight:700;line-height:1.3;text-align:center;max-width:9rem}
+.c-n{--cc:#adb5bd}.c-v{--cc:#339af0}.c-j{--cc:#40c057}.c-k{--cc:#12b886}.c-a{--cc:#f03e3e}.c-p{--cc:#9c36b5}
+.legend{display:flex;flex-wrap:wrap;gap:.4rem;font-size:.8rem;margin:.3rem 0}
+.legend span{border-radius:999px;padding:0 .5rem;border:2px solid var(--cc);background:color-mix(in srgb,var(--cc) 12%,white)}
+.list{padding-left:1.2rem;margin:.3rem 0}
+.list li{margin:.2rem 0}
+.formcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.6rem;margin:.6rem 0}
+.formcard{border-radius:16px;padding:.6rem .8rem;border:3px solid var(--fc);background:color-mix(in srgb,var(--fc) 8%,white)}
+.formcard .n{font-weight:900;color:var(--fc);font-size:1.1rem}
+.formcard .w{font-size:1.3rem;font-weight:700}
+.song{background:linear-gradient(135deg,#e7f5ff,#f3f0ff);border-radius:16px;padding:.5rem .9rem;margin:.5rem 0;border:2px solid #bac8ff}
+.line{border-bottom:2px dotted #dee2e6;padding:.5rem 0 .6rem}
+.line:last-child{border-bottom:none}
+.line .jp{font-size:1.3rem;font-weight:800;line-height:2.1}
+.line .zh{color:#495057;font-size:.95rem}
+.line .g{font-size:.88rem;color:#5f3dc4}
+.yt{display:inline-flex;align-items:center;gap:.3rem;background:#ff0000;color:#fff !important;text-decoration:none;font-weight:800;border-radius:999px;padding:.2rem .8rem;font-size:.9rem;margin:.2rem 0}
+.flow{display:flex;flex-direction:column;gap:.5rem;margin:.5rem 0}
+.flow .step{border-radius:14px;padding:.5rem .8rem;background:#f3f0ff;border-left:7px solid #845ef7}
+.machine{background:#fff9db;border:3px solid #fcc419;border-radius:18px;padding:.8rem}
+.machine select{font-family:inherit;font-size:1rem;padding:.3rem .5rem;border-radius:10px;border:2px solid #fcc419}
+.machine .fbtns{display:flex;flex-wrap:wrap;gap:.35rem;margin:.6rem 0}
+.machine .fbtns button{font-family:inherit;font-weight:800;border:none;border-radius:999px;padding:.35rem .8rem;color:#fff;background:var(--fc);cursor:pointer;font-size:.95rem;opacity:.75}
+.machine .fbtns button.on{opacity:1;outline:3px solid #212529}
+.machine .out{background:#fff;border-radius:14px;padding:.6rem;text-align:center;min-height:4.5rem}
+.machine .out .w{font-size:2rem;font-weight:900}
+.machine .out .w em{font-style:normal;color:#adb5bd}
+.switch{display:flex;gap:.5rem;flex-wrap:wrap;margin:.5rem 0}
+.switch button{font-family:inherit;font-size:1rem;font-weight:800;border:2px solid #9775fa;background:#fff;color:#5f3dc4;border-radius:999px;padding:.3rem .9rem;cursor:pointer}
+.switch button.on{background:#9775fa;color:#fff}
+.kout{font-size:1.6rem;font-weight:900;text-align:center;background:#f8f0fc;border-radius:16px;padding:.6rem;line-height:2.2}
+.kout .hl{background:#ffe066;border-radius:8px;padding:0 .2rem}
+/* quiz */
+.qhead{display:flex;justify-content:space-between;align-items:center;font-weight:800;color:#7048e8;margin-bottom:.4rem}
+.qtext{font-size:1.25rem;font-weight:800;margin:.3rem 0 .8rem;line-height:1.9}
+.opts{display:grid;gap:.55rem}
+.opt{font-family:inherit;text-align:left;font-size:1.1rem;font-weight:700;border:3px solid #dee2e6;background:#fff;border-radius:16px;padding:.6rem .9rem;cursor:pointer;transition:transform .1s;color:var(--ink);line-height:1.8}
+.opt:hover:not(:disabled){border-color:#9775fa;transform:translateX(3px)}
+.opt.correct{border-color:#40c057;background:#ebfbee}
+.opt.correct:after{content:" ✅"}
+.opt.wrong{border-color:#fa5252;background:#fff5f5;animation:shake .4s}
+.opt.wrong:after{content:" ❌"}
+.opt:disabled{cursor:default}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{margin-top:.8rem;border-radius:16px;padding:.7rem .9rem;font-size:1rem}
+.fb.ok{background:#ebfbee;border:2px solid #69db7c}
+.fb.ng{background:#fff9db;border:2px solid #ffd43b}
+.fb .m{font-weight:900;font-size:1.1rem}
+.result{text-align:center}
+.stars{font-size:2.8rem;letter-spacing:.3rem}
+.confetti{position:fixed;top:-20px;font-size:1.6rem;pointer-events:none;animation:fall 2.2s linear forwards;z-index:99}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg);opacity:.6}}
+/* reference */
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem}
+.tabs button{font-family:inherit;font-weight:800;font-size:.92rem;border:2px solid #74c0fc;background:#fff;color:#1864ab;border-radius:999px;padding:.3rem .8rem;cursor:pointer}
+.tabs button.on{background:#339af0;color:#fff}
+.grp{display:inline-block;border-radius:8px;padding:0 .45rem;color:#fff;font-weight:800;font-size:.85rem}
+.small{font-size:.85rem;color:#666}
+.foot{text-align:center;font-size:.8rem;color:#999;margin-top:2rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo" onclick="go('#/')" id="logo"></div>
+  <button class="navbtn" onclick="go('#/')">🏠 首頁</button>
+  <button class="navbtn" onclick="go('#/ref')">📚 速查表</button>
+</header>
+<main id="app"></main>
+<script>
+"use strict";
+/* ===== 小幫手函式 ===== */
+const R = s => String(s).replace(/\{([^{}|]+)\|([^{}]+)\}/g,'<ruby>$1<rt>$2</rt></ruby>');
+const FOX = (id)=>`<svg viewBox="0 0 120 120" aria-label="古文狐小文"><path d="M20 54 L28 8 L56 38 Z" fill="#f08a24"/><path d="M27 46 L31 20 L47 38Z" fill="#ffd9b0"/><path d="M100 54 L92 8 L64 38 Z" fill="#f08a24"/><path d="M93 46 L89 20 L73 38Z" fill="#ffd9b0"/><ellipse cx="60" cy="66" rx="43" ry="39" fill="#f6a03c"/><path d="M17 68 Q60 122 103 68 Q92 106 60 107 Q28 106 17 68Z" fill="#fff6ea"/><ellipse cx="43" cy="62" rx="5.5" ry="7.5" fill="#3b2a20"/><ellipse cx="77" cy="62" rx="5.5" ry="7.5" fill="#3b2a20"/><circle cx="45" cy="59" r="2" fill="#fff"/><circle cx="79" cy="59" r="2" fill="#fff"/><ellipse cx="60" cy="80" rx="6.5" ry="4.8" fill="#3b2a20"/><path d="M51 88 Q60 96 69 88" stroke="#3b2a20" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="31" cy="78" r="6" fill="#ff8fab" opacity=".55"/><circle cx="89" cy="78" r="6" fill="#ff8fab" opacity=".55"/><circle cx="60" cy="34" r="11" fill="#e8590c" stroke="#fff" stroke-width="2.5"/><text x="60" y="39.5" font-size="14" text-anchor="middle" fill="#fff" font-weight="900" font-family="Noto Sans CJK JP,sans-serif">古</text></svg>`;
+const say = t => `<div class="say">${FOX()}<div class="bubble">${t}</div></div>`;
+const ex = (jp, zh, note) => `<div class="ex"><div class="jp" lang="ja">${jp}</div><div class="zh">${zh}</div>${note?`<div class="note">👉 ${note}</div>`:''}</div>`;
+const big = t => `<div class="bigidea">${t}</div>`;
+const tip = t => `<div class="tip">💡 ${t}</div>`;
+const warn = t => `<div class="warn">⚠️ ${t}</div>`;
+const T = (h, rows, cls) => `<div class="tw"><table class="${cls||''}"><thead><tr>${h.map(x=>typeof x==='string'?`<th>${x}</th>`:`<th class="${x.c}">${x.t}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(x=>typeof x==='string'?`<td>${x}</td>`:`<td class="${x.c||''}" ${x.ja?'lang="ja"':''}>${x.t}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+const FORMS = ['未然形','連用形','終止形','連体形','已然形','命令形'];
+const FH = () => FORMS.map((f,i)=>({t:f,c:'f'+(i+1)}));
+const FC = (arr) => arr.map((x,i)=>({t:x.replace(/・/g,'<br>'),c:'f'+(i+1),ja:1}));
+const fz = (i, t) => `<span class="fz f${i}">${t||FORMS[i-1]}</span>`;
+/* vs: 現代語 ↔ 古語 */
+const vs = rows => `<div class="vs"><div class="h m">現代語</div><div></div><div class="h k">古語</div>${rows.map(r=>`<div class="c" lang="ja">${r[0]}</div><div class="ar">⇄</div><div class="c k" lang="ja">${r[1]}</div>${r[2]?`<div class="z">${r[2]}</div>`:''}`).join('')}</div>`;
+/* chips：把一句話拆成小積木。類型 n=名詞等, v=動詞, j=形容詞, k=形容動詞, a=助動詞, p=助詞 */
+const B = parts => `<div class="chips" lang="ja">${parts.map(p=>`<div class="chip c-${p[1]}"><b>${p[0]}</b>${p[2]?`<small lang="zh-Hant-TW">${p[2]}</small>`:''}</div>`).join('')}</div>`;
+const LEGEND = `<div class="legend"><span class="c-v">動詞</span><span class="c-j">形容詞</span><span class="c-k">形容動詞</span><span class="c-a">助動詞</span><span class="c-p">助詞</span><span class="c-n">名詞・其他</span></div>`;
+const line = (jp, zh, parts, g) => `<div class="line"><div class="jp" lang="ja">${jp}</div><div class="zh">🇹🇼 ${zh}</div>${parts?B(parts):''}${g?`<div class="g">🦊 ${g}</div>`:''}</div>`;
+const yt = (url, name) => `<a class="yt" href="${url}" target="_blank" rel="noopener">▶ YouTube 聽〈${name}〉</a>`;
+const SONGS = {
+  nobara:{name:'野ばら',url:'https://www.youtube.com/watch?v=3bLFgapvm7g'},
+  furusato:{name:'ふるさと',url:'https://www.youtube.com/watch?v=p1eZ8sIDF1A'},
+  umi:{name:'われは海の子',url:'https://www.youtube.com/watch?v=6-oj3fHoYbo'},
+  aogeba:{name:'仰げば尊し',url:'https://www.youtube.com/watch?v=ERuAlRzITX0'}
+};
+/* ===== 依據「文語動詞活用表」 ===== */
+const VERBS = [
+ {k:'yodan', type:'四段活用', ex:'{思|おも}ふ', stem:'おも', gyo:'ハ行', f:['は','ひ','ふ','ふ','へ','へ'], snd:['a','i','u','u','e','e'],
+  full:['{思|おも}は','{思|おも}ひ','{思|おも}ふ','{思|おも}ふ','{思|おも}へ','{思|おも}へ'], modern:'五段活用（思う）', zh:'想'},
+ {k:'kami1', type:'上一段活用', ex:'{見|み}る', stem:'（み）', gyo:'マ行', f:['み','み','みる','みる','みれ','みよ'], snd:['i','i','iる','iる','iれ','iよ'],
+  full:['{見|み}','{見|み}','{見|み}る','{見|み}る','{見|み}れ','{見|み}よ'], modern:'上一段活用（見る）', zh:'看'},
+ {k:'shimo1', type:'下一段活用', ex:'{蹴|け}る', stem:'（け）', gyo:'カ行', f:['け','け','ける','ける','けれ','けよ'], snd:['e','e','eる','eる','eれ','eよ'],
+  full:['{蹴|け}','{蹴|け}','{蹴|け}る','{蹴|け}る','{蹴|け}れ','{蹴|け}よ'], modern:'五段活用（蹴る）', zh:'踢'},
+ {k:'kami2', type:'上二段活用', ex:'{過|す}ぐ', stem:'す', gyo:'ガ行', f:['ぎ','ぎ','ぐ','ぐる','ぐれ','ぎよ'], snd:['i','i','u','uる','uれ','iよ'],
+  full:['{過|す}ぎ','{過|す}ぎ','{過|す}ぐ','{過|す}ぐる','{過|す}ぐれ','{過|す}ぎよ'], modern:'上一段活用（過ぎる）', zh:'經過'},
+ {k:'shimo2', type:'下二段活用', ex:'{尋|たづ}ぬ', stem:'たづ', gyo:'ナ行', f:['ね','ね','ぬ','ぬる','ぬれ','ねよ'], snd:['e','e','u','uる','uれ','eよ'],
+  full:['{尋|たづ}ね','{尋|たづ}ね','{尋|たづ}ぬ','{尋|たづ}ぬる','{尋|たづ}ぬれ','{尋|たづ}ねよ'], modern:'下一段活用（尋ねる）', zh:'尋找、詢問'},
+ {k:'ka', type:'カ行変格活用', ex:'{来|く}', stem:'（く）', gyo:'カ行', f:['こ','き','く','くる','くれ','こ・こよ'], snd:['o','i','u','uる','uれ','o(よ)'],
+  full:['{来|こ}','{来|き}','{来|く}','{来|く}る','{来|く}れ','{来|こ}・{来|こ}よ'], modern:'カ行変格活用（来る）', zh:'來'},
+ {k:'sa', type:'サ行変格活用', ex:'{為|す}', stem:'（す）', gyo:'サ行', f:['せ','し','す','する','すれ','せよ'], snd:['e','i','u','uる','uれ','eよ'],
+  full:['せ','し','す','する','すれ','せよ'], modern:'サ行変格活用（する）', zh:'做'},
+ {k:'na', type:'ナ行変格活用', ex:'{死|し}ぬ', stem:'し', gyo:'ナ行', f:['な','に','ぬ','ぬる','ぬれ','ね'], snd:['a','i','u','uる','uれ','e'],
+  full:['{死|し}な','{死|し}に','{死|し}ぬ','{死|し}ぬる','{死|し}ぬれ','{死|し}ね'], modern:'五段活用（死ぬ）', zh:'死'},
+ {k:'ra', type:'ラ行変格活用', ex:'あり', stem:'あ', gyo:'ラ行', f:['ら','り','り','る','れ','れ'], snd:['a','i','i ❗','u','e','e'],
+  full:['あら','あり','あり','ある','あれ','あれ'], modern:'五段活用（ある）', zh:'有、在'}
+];
+/* 變身機用的「後面的朋友」 */
+const FOLLOW = [
+ {w:'ず', zh:'不～（否定）'}, {w:'て', zh:'～然後……'}, {w:'。', zh:'～。（句子結束）'},
+ {w:'とき', zh:'～的時候（後面接名詞）'}, {w:'ば', zh:'因為～／一～就（已經發生）'}, {w:'！', zh:'給我～！（命令）'}
+];
+/* ===== 文語形容詞・形容動詞活用表 ===== */
+const ADJ = [
+ {type:'ク活用', ex:'なし', stem:'な', main:['（く）','く','し','き','けれ','○'], sub:['から','かり','○','かる','○','かれ']},
+ {type:'シク活用', ex:'{美|うつく}し', stem:'うつく', main:['（しく）','しく','し','しき','しけれ','○'], sub:['しから','しかり','○','しかる','○','しかれ']}
+];
+const ADJV = [
+ {type:'ナリ活用', ex:'{静|しづ}かなり', stem:'{静|しづ}か', f:['なら','なり・に','なり','なる','なれ','（なれ）']},
+ {type:'タリ活用', ex:'{堂々|だうだう}たり', stem:'{堂々|だうだう}', f:['（たら）','たり・と','たり','たる','（たれ）','（たれ）']}
+];
+/* ===== 文語助動詞活用表（依接續分組） ===== */
+const AUXG = [
+ {g:'接 未然形', c:'var(--mz)', items:[
+  {w:'る', m:'受身・尊敬・可能・自発', kid:'被～／（尊敬）／能～／不由得～', f:['れ','れ','る','るる','るれ','れよ'], t:'下二段型', s:'四段・ナ変・ラ変の未然形'},
+  {w:'らる', m:'受身・尊敬・可能・自発', kid:'同上', f:['られ','られ','らる','らるる','らるれ','られよ'], t:'下二段型', s:'上記以外の動詞の未然形'},
+  {w:'す', m:'使役・尊敬', kid:'讓（叫）人～／（尊敬）', f:['せ','せ','す','する','すれ','せよ'], t:'下二段型', s:'四段・ナ変・ラ変の未然形'},
+  {w:'さす', m:'使役・尊敬', kid:'同上', f:['させ','させ','さす','さする','さすれ','させよ'], t:'下二段型', s:'上記以外の動詞の未然形'},
+  {w:'しむ', m:'使役・尊敬', kid:'讓（叫）人～', f:['しめ','しめ','しむ','しむる','しむれ','しめよ'], t:'下二段型', s:'用言の未然形'},
+  {w:'ず', m:'打消', kid:'不～', f:['（ず）・ざら','ず・ざり','ず','ぬ・ざる','ね・ざれ','○・ざれ'], t:'特殊型', s:'活用語の未然形'},
+  {w:'じ', m:'打消推量・打消意志', kid:'大概不～吧／不打算～', f:['○','○','じ','（じ）','（じ）','○'], t:'特殊型', s:'活用語の未然形'},
+  {w:'む（ん）', m:'推量・意志・適当・勧誘・仮定・婉曲', kid:'大概～吧／我要～／～吧', f:['（ま）','○','む','む','め','○'], t:'四段型', s:'活用語の未然形'},
+  {w:'むず（んず）', m:'推量・意志・適当・勧誘・仮定・婉曲', kid:'同「む」', f:['○','○','むず','むずる','むずれ','○'], t:'サ変型', s:'活用語の未然形'},
+  {w:'まし', m:'反実仮想・ためらいを含んだ意志・希望・推量', kid:'如果～的話就好了（其實不是）', f:['（ましか）・ませ','○','まし','まし','ましか','○'], t:'特殊型', s:'活用語の未然形'},
+  {w:'まほし', m:'願望', kid:'想要～', f:['まほしく・まほしから','まほしく・まほしかり','まほし','まほしき・まほしかる','まほしけれ','○'], t:'形容詞型', s:'動詞と助動詞（す・さす・ぬ）の未然形'}
+ ]},
+ {g:'接 連用形', c:'var(--ry)', items:[
+  {w:'き', m:'過去', kid:'（自己經歷的）曾經～', f:['（せ）','○','き','し','しか','○'], t:'特殊型', s:'活用語の連用形（カ変・サ変には未然形にもつく）'},
+  {w:'けり', m:'過去・詠嘆', kid:'（聽說）～了／原來～啊', f:['（けら）','○','けり','ける','けれ','○'], t:'ラ変型', s:'活用語の連用形'},
+  {w:'つ', m:'完了・強意・並列', kid:'～了／一定～／又～又～', f:['て','て','つ','つる','つれ','てよ'], t:'下二段型', s:'活用語の連用形'},
+  {w:'ぬ', m:'完了・強意・並列', kid:'～了／一定～／又～又～', f:['な','に','ぬ','ぬる','ぬれ','ね'], t:'ナ変型', s:'活用語の連用形'},
+  {w:'たり', m:'完了・存続', kid:'～了／～著', f:['たら','たり','たり','たる','たれ','（たれ）'], t:'ラ変型', s:'活用語の連用形'},
+  {w:'けむ（けん）', m:'過去推量・過去の原因推量・過去の伝聞・婉曲', kid:'（以前）大概～了吧', f:['○','○','けむ','けむ','けめ','○'], t:'四段型', s:'活用語の連用形'},
+  {w:'たし', m:'願望', kid:'想要～', f:['たく・たから','たく・たかり','たし','たき・たかる','たけれ','○'], t:'形容詞型', s:'動詞と助動詞（る・らる・す・さす）の連用形'}
+ ]},
+ {g:'接 終止形（ラ変型には連体形）', c:'var(--sh)', items:[
+  {w:'べし', m:'推量・意志・可能・当然・命令・適当', kid:'應該～／一定～／能～', f:['べく・べから','べく・べかり','べし','べき・べかる','べけれ','○'], t:'形容詞型', s:'活用語の終止形'},
+  {w:'らむ（らん）', m:'現在推量・現在の原因推量・現在の伝聞・婉曲', kid:'（現在）大概正在～吧', f:['○','○','らむ','らむ','らめ','○'], t:'四段型', s:'活用語の終止形'},
+  {w:'らし', m:'推定', kid:'好像～（有根據）', f:['○','○','らし','らし（らしき）','らし','○'], t:'特殊型', s:'活用語の終止形'},
+  {w:'めり', m:'推量・婉曲', kid:'看起來好像～', f:['○','（めり）','めり','める','めれ','○'], t:'ラ変型', s:'活用語の終止形'},
+  {w:'まじ', m:'打消推量・打消意志・打消当然・禁止・不可能推量', kid:'大概不～／不應該～／不能～', f:['まじく・まじから','まじく・まじかり','まじ','まじき・まじかる','まじけれ','○'], t:'形容詞型', s:'活用語の終止形'},
+  {w:'なり', m:'伝聞・推定', kid:'聽說～／聽起來好像～', f:['○','なり','なり','なる','なれ','○'], t:'ラ変型', s:'活用語の終止形'}
+ ]},
+ {g:'接 體言・連体形 等', c:'var(--rt)', items:[
+  {w:'なり', m:'断定・存在', kid:'是～／在～', f:['なら','なり・に','なり','なる','なれ','（なれ）'], t:'形容動詞型', s:'体言と活用語の連体形'},
+  {w:'たり', m:'断定', kid:'是～', f:['たら','たり・と','たり','たる','たれ','（たれ）'], t:'形容動詞型', s:'体言'},
+  {w:'ごとし', m:'比況・例示', kid:'像～一樣／例如～', f:['ごとく','ごとく','ごとし','ごとき','○','○'], t:'形容詞型', s:'体言・用言の連体形・助詞（が・の）'}
+ ]},
+ {g:'特別：接 サ變未然形・四段已然形', c:'var(--iz)', items:[
+  {w:'り', m:'完了・存続', kid:'～了／～著', f:['ら','り','り','る','れ','（れ）'], t:'ラ変型', s:'サ変の未然形・四段の已然形（＊命令形とする説もある）'}
+ ]}
+];
+const JODAI_AUX = [
+  {w:'ゆ', m:'受身・可能・自発', f:['え','え','ゆ','ゆる','○','○'], t:'下二段型', s:'四段・ナ変・ラ変の未然形'},
+  {w:'らゆ', m:'受身・可能・自発', f:['らえ','○','○','○','○','○'], t:'下二段型', s:'「寝（ぬ）」（一語だけ）の未然形'},
+  {w:'す', m:'尊敬', f:['さ','し','す','す','せ','せ'], t:'四段型', s:'四段・サ変の未然形'},
+  {w:'ふ', m:'反復・継続', f:['は','ひ','ふ','ふ','へ','へ'], t:'四段型', s:'四段の未然形'}
+];
+/* ===== 文語助詞の主な意味・用法・接続 ===== */
+const PARTS = [
+ {g:'格助詞', c:'#1c7ed6', d:'貼在名詞後面，說明「這個名詞在句子裡當什麼角色」。', items:[
+  ['が','主格（～が）・連体修飾格（～の）・同格（～で）・体言の代用（～のもの）','体言・連体形'],
+  ['の','主格（～が）・連体修飾格（～の）・同格・体言の代用・比喩（～のように）','体言・連体形'],
+  ['を','動作の対象（～を）・経過する場所（～を通って）・動作の起点（～を／～から）','体言・連体形'],
+  ['に','時間・場所・帰着点・動作の目的・変化の結果・原因・受身/使役の対象','体言・連体形'],
+  ['へ','方向（～へ）','体言'],
+  ['と','動作をともにする相手・引用・変化の結果・並列・比較の基準','体言・引用句'],
+  ['より','動作の起点（～から）・比較の基準（～より）・経由（～を通って）・手段/方法（～で）・即時（～するとすぐに）','体言・連体形'],
+  ['にて','場所・時間（～で）・手段/材料（～で）・原因/理由（～によって）','体言・連体形'],
+  ['して','手段・方法（～で）・動作をともにする相手（～と）・使役の相手（～に命じて）','体言・連体形']]},
+ {g:'接続助詞', c:'#e8590c', d:'把兩句話接起來：「如果」「因為」「雖然」「然後」……', items:[
+  ['ば','【未然形＋ば】順接の仮定条件（もし～ならば）<br>【已然形＋ば】順接の確定条件（原因・理由～ので／偶然～すると／恒時～するといつも）','未然形・已然形'],
+  ['とも','逆接の仮定条件（たとえ～としても）','終止形'],
+  ['ど・ども','逆接の確定条件（～けれども・～のに）','已然形'],
+  ['が・に・を','単純接続（～と・～ところ）・順接（～ので）・逆接（～のに・～けれども）','連体形'],
+  ['て','単純接続（～て）・原因/理由（～ので）・逆接（～のに）','連用形'],
+  ['して','単純接続（～て・～で）','連用形'],
+  ['で','打消接続（～ないで）','未然形'],
+  ['つつ','動作の繰り返し・継続（～しては・～し続けて）・二つの動作の同時進行（～ながら）','連用形'],
+  ['ながら','二つの動作・状態の並行（～ながら）・逆接の確定条件（～のに）','連用形 等'],
+  ['ものの・ものを・ものから','逆接の確定条件（～のに・～けれども）','連体形']]},
+ {g:'副助詞', c:'#2b8a3e', d:'給前面的詞「加一點味道」：只、連、甚至、大約……', items:[
+  ['だに','程度の軽いものを示して重いものを類推させる（～さえ）・最小限の限定（せめて～だけでも）','種々の語'],
+  ['すら','一つのものを示して、それ以外のものを類推させる（～さえ）','種々の語'],
+  ['さへ','添加（～までも）','種々の語'],
+  ['のみ','限定（～だけ）・強意（特に～）','種々の語'],
+  ['ばかり','限定（～だけ）・おおよその程度（～くらい・～ほど）','種々の語'],
+  ['まで','動作や物事の限界（～まで）・程度（～ほど）','種々の語'],
+  ['など（なんど）','一例をあげて同様のものが他にあることを示す（～など）・引用（～などと）・婉曲','種々の語'],
+  ['し','強意・語調を整える（訳さなくてよい）','種々の語']]},
+ {g:'係助詞', c:'#862e9c', d:'「魔法開關」：用了它，句尾的形狀可能要跟著變（係り結び）。', items:[
+  ['は','ある事柄を取り上げて、他と区別する（～は）','種々の語'],
+  ['も','同じおもむきの事柄を並列（～も）・強意（～も）','種々の語'],
+  ['ぞ・なむ','強意 → 文末は【連体形】','種々の語'],
+  ['こそ','強意 → 文末は【已然形】','種々の語'],
+  ['や（やは）・か（かは）','疑問（～か）・反語（～だろうか、いや～ない）→ 文末は【連体形】','種々の語']]},
+ {g:'終助詞', c:'#c2255c', d:'放在句子最後面，表現心情：不要～！好想～！真是～啊！', items:[
+  ['な','禁止（～するな）','終止形（ラ変型には連体形）'],
+  ['な～そ','禁止（どうか～しないでくれ）','連用形（カ変・サ変には未然形）'],
+  ['ばや','自己の願望（～したい）','未然形'],
+  ['なむ','他に対する願望（～してほしい）','未然形'],
+  ['もがな（がな・もが）','願望（～があればなあ・～であればいいなあ）','種々の語'],
+  ['てしが（な）・にしが（な）','自己の願望（～したいものだ）','連用形'],
+  ['か・かな','詠嘆（～だなあ）','体言・連体形'],
+  ['は','詠嘆（～よ・～なあ）','文末'],
+  ['よ','呼びかけ（～よ）','文末'],
+  ['かし','念を押す（～よ）','文末'],
+  ['ぞ','念を押す（～ぞ）','文末']]},
+ {g:'間投助詞', c:'#495057', d:'放在句中或句尾，調整語氣。', items:[
+  ['や','詠嘆（～よ・～なあ）・呼びかけ','文中・文末'],
+  ['を','整調・詠嘆','文中・文末']]},
+ {g:'上代の助詞', c:'#868e96', d:'奈良時代（《萬葉集》等）才常見的助詞。', items:[
+  ['つ（格助詞）','連体修飾格（～の）','体言'],
+  ['ゆ・よ（格助詞）','時間・場所の起点（～から）・経由する場所（～を通って）','体言'],
+  ['な（終助詞）','意志（～しよう）・勧誘（～しようよ）・願望','未然形'],
+  ['なも・ね（終助詞）','他に対する願望（～してほしい）','未然形'],
+  ['も・かも（終助詞）','詠嘆（～なあ・～よ）','文末・体言・連体形']]}
+];
+/* ===== 課程內容 ===== */
+const LESSONS = [];
+/* ---------- 第0課 ---------- */
+LESSONS.push({id:'L0', emoji:'🎒', color:'#ffa94d', title:'歡迎！古文就藏在你身邊', sub:'你其實早就看過古文了', screens:[
+`<h2>👋 你好！我是古文狐「小文」</h2>
+${say('我是住在千年古書裡的狐狸 🦊。今天開始，我要帶你學<b>日文的古文文法（文語文法）</b>！')}
+${big('古文＝以前的人「寫文章」用的日語')}
+<p>大約一千年前（平安時代）的日語，後來變成寫文章的固定格式，叫做<b>「文語」</b>，日本人一直用到大約八十年前。現在說話用的叫<b>「口語（現代語）」</b>。</p>
+${tip('就像中文的「文言文」和「白話文」：「吾愛汝」和「我愛你」意思一樣，只是寫法比較老。')}`,
+
+`<h2>😲 你其實早就會一點古文了！</h2>
+${say('日本人到現在，寫文章還是常常用到古文喔。看看左右兩邊：')}
+${vs([
+ ['～しなければならない','～せねばならぬ','一定要～'],
+ ['～しないで','～せずに','不～就……'],
+ ['～してはいけない','～す（る）べからず','不可以～'],
+ ['{遥|はる}かな{国|くに}','{遥|はる}かなる{国|くに}','遙遠的國度'],
+ ['～ではないだろう','～ではあるまい','大概不是～吧'],
+ ['{懐|なつ}かしい{日々|ひび}','{懐|なつ}かしき{日々|ひび}','令人懷念的日子']])}
+${tip('發現了嗎？古文常常是「最後一個字長得不一樣」：<b>な→なる</b>、<b>い→き</b>、<b>ない→ず／ぬ</b>。這就是我們要學的祕密！')}`,
+
+`<h2>📜 諺語（ことわざ）裡的古文</h2>
+${say('日本的諺語幾乎都是古文寫的！先讀讀看，後面的課會一個一個拆給你看。')}
+${ex('{時|とき}は{金|かね}なり','時間就是金錢。','「なり」＝現代的「だ／である」（是～）')}
+${ex('{急|いそ}がば{回|まわ}れ','如果急的話，就繞遠路吧。（欲速則不達）','「急がば」＝「急ぐなら」')}
+${ex('{青|あお}は{藍|あい}より{出|い}でて{藍|あい}よりも{青|あお}し','青色從藍草中提煉出來，卻比藍草更青。（青出於藍）','「青し」＝「青い」')}
+${ex('{一寸|いっすん}の{光陰|こういん}{軽|かろ}んずべからず','一寸光陰（一點點時間）也不可以輕視。','「べからず」＝不可以')}
+${ex('{驕|おご}る{者|もの}{久|ひさ}しからず','驕傲的人（好日子）不會長久。','「久しからず」＝「久しくない」')}
+${ex('{好|す}きこそ{物|もの}の{上手|じょうず}なれ','正因為喜歡，才能變成高手。','「こそ～なれ」是有名的「係り結び」')}`,
+
+`<h2>🎵 歌裡也藏著古文</h2>
+${say('日本小朋友從小唱的童謠・唱歌，很多都是古文寫的。我們會在最後一課用學到的文法把它們「重新聽懂」！')}
+<div class="song"><b>🌹 野ばら</b>（野玫瑰）<br>${yt(SONGS.nobara.url,'野ばら')}</div>
+<div class="song"><b>🏞 ふるさと</b>（故鄉）<br>${yt(SONGS.furusato.url,'ふるさと')}</div>
+<div class="song"><b>🌊 われは海の子</b>（我是大海的孩子）<br>${yt(SONGS.umi.url,'われは海の子')}</div>
+<div class="song"><b>🎓 仰げば尊し</b>（仰望師恩）<br>${yt(SONGS.aogeba.url,'仰げば尊し')}</div>`,
+
+`<h2>🐰 有名的誤會：兔子好吃？</h2>
+${ex('{兎|うさぎ}{追|お}いし　かの{山|やま}','曾經追過兔子的那座山。','〈ふるさと〉第一句')}
+${say('很多日本小孩以為「追いし」是「おいしい（好吃）」，以為歌詞在說「兔子很好吃的山」😂')}
+${B([['{兎|うさぎ}','n','兔子'],['{追|お}い','v','追（追ふ）'],['し','a','過去「き」＝曾經'],['かの','n','那個'],['{山|やま}','n','山']])}
+${big('「し」是古文的「過去」小幫手 → 「曾經～的」')}
+${tip('學會文法，就不會誤會了！這就是學古文文法的樂趣。')}`,
+
+`<h2>🗺 我們的冒險地圖</h2>
+${say('一步一步來，每一課最後都有小測驗，答完就能收集星星 ⭐！')}
+<ol class="list">
+<li>📖 <b>讀音魔法</b>：古文假名怎麼念（いろは歌）</li>
+<li>👕 <b>六套衣服</b>：活用形是什麼</li>
+<li>🏃 <b>動詞</b>：九種變身方式（兩課）</li>
+<li>🌸 <b>形容詞・形容動詞</b></li>
+<li>⏰ <b>助動詞</b>：時光機、說「不」、被動使役（三課）</li>
+<li>🔗 <b>助詞與係り結び</b></li>
+<li>🎤 <b>總複習</b>：用文法重新唱歌！</li>
+</ol>
+${tip('隨時可以按上面的「📚 速查表」，查看整理好的彩色文法表。')}`
+],
+quiz:[
+ {q:'「{兎|うさぎ}{追|お}いし　かの{山|やま}」是什麼意思？', o:['兔子很好吃的那座山','曾經追過兔子的那座山','兔子正在追的那座山'], a:1, why:'「追い＋し」：「し」是過去助動詞「き」的連体形，意思是「曾經～的」，不是「おいしい」。'},
+ {q:'「{懐|なつ}かしき{日々|ひび}」用現代日語怎麼說？', o:['懐かしい日々','懐かしくない日々','懐かしかった日々'], a:0, why:'古文形容詞「懐かし」接名詞時變成「懐かしき」，等於現代的「懐かしい」。'},
+ {q:'「{時|とき}は{金|かね}なり」的「なり」，相當於現代日語的哪一個？', o:['なる（變成）','だ／である（是）','ない（沒有）'], a:1, why:'這個「なり」是表示「斷定」的助動詞，＝「だ／である」。'},
+ {q:'「～す（る）べからず」是什麼意思？', o:['應該～','不可以～','想要～'], a:1, why:'「べから＋ず」：「べし（應該）」＋「ず（不）」→ 不可以、不應該。'}
+]});
+
+/* ---------- 第1課 ---------- */
+LESSONS.push({id:'L1', emoji:'📖', color:'#74c0fc', title:'讀音魔法：歷史假名遣', sub:'寫「けふ」卻要念「きょう」？', screens:[
+`<h2>📖 寫法和念法不一樣？</h2>
+${say('古文是用<b>「歷史的仮名遣い（舊假名）」</b>寫的。有些字<b>寫的跟念的不一樣</b>！')}
+${tip('就像英文 <b>k</b>night 的 k 不發音一樣：寫還是照舊寫，念的時候要「翻譯」成現在的讀音。')}
+${vs([['きょう（今日）','けふ','今天'],['におう（匂う）','にほふ','散發光彩、香氣'],['ちょうちょう（蝶々）','てふてふ','蝴蝶']])}
+${big('看到舊假名 → 用「讀音魔法」念成現代讀音')}`,
+
+`<h2>🎶 いろは歌：一首用光所有假名的歌</h2>
+${say('「いろは歌」把47個假名<b>每個只用一次</b>，以前的小孩用它學寫字，就像我們的注音符號歌！')}
+<div class="tw"><table><thead><tr><th>舊假名（原本的寫法）</th><th>加上漢字・濁音</th></tr></thead><tbody>
+<tr><td lang="ja">いろはにほへと</td><td lang="ja">{色|いろ}は{匂|にお}えど</td></tr>
+<tr><td lang="ja">ちりぬるを</td><td lang="ja">{散|ち}りぬるを</td></tr>
+<tr><td lang="ja">わかよたれそ</td><td lang="ja">{我|わ}が{世|よ}{誰|たれ}ぞ</td></tr>
+<tr><td lang="ja">つねならむ</td><td lang="ja">{常|つね}ならん</td></tr>
+<tr><td lang="ja">うゐのおくやま</td><td lang="ja">{有為|うい}の{奥山|おくやま}</td></tr>
+<tr><td lang="ja">けふこえて</td><td lang="ja">{今日|きょう}{越|こ}えて</td></tr>
+<tr><td lang="ja">あさきゆめみし</td><td lang="ja">{浅|あさ}き{夢|ゆめ}{見|み}じ</td></tr>
+<tr><td lang="ja">ゑひもせす</td><td lang="ja">{酔|え}いもせず</td></tr></tbody></table></div>
+<p class="small">🇹🇼 花再香豔終會凋零，這世上誰能永恆不變？今天越過無常的深山，不再做淺薄的夢，也不再沉醉。</p>
+${tip('以前常常<b>不寫濁點</b>：「たれそ」＝「誰ぞ」、「みし」＝「見じ」、「せす」＝「せず」。')}`,
+
+`<h2>✨ 魔法①：字中間的「は行」→「わ行」</h2>
+${say('最重要的一條！<b>不在字頭</b>的「は・ひ・ふ・へ・ほ」，念成「わ・い・う・え・お」。')}
+${T(['寫成','は','ひ','ふ','へ','ほ'],[['念成',{t:'わ',c:'f1'},{t:'い',c:'f2'},{t:'う',c:'f3'},{t:'え',c:'f4'},{t:'お',c:'f5'}]])}
+${vs([['におう','にほふ','散發光彩'],['おもう','おもふ（思ふ）','想'],['いわく','いはく（曰く）','說'],['まえ','まへ（前）','前面'],['こおり','こほり（氷）','冰']])}
+${warn('字頭不變！「はな（花）」還是念「はな」，「ひと（人）」還是「ひと」。')}`,
+
+`<h2>✨ 魔法②：ゐ・ゑ・を → い・え・お</h2>
+${say('「ゐ（wi）」「ゑ（we）」是現在不用的假名，念成「い」「え」。字中間的「を」念成「お」。')}
+${vs([['くれない（紅）','くれなゐ','鮮紅色'],['こえ（声）','こゑ','聲音'],['えい（酔ひ）','ゑひ','喝醉'],['おとこ（男）','をとこ','男子']])}
+${tip('助詞的「を」（ご飯<b>を</b>食べる）現在也還寫「を」喔，不用改。')}`,
+
+`<h2>✨ 魔法③：ぢ・づ → じ・ず</h2>
+${vs([['いず（出づ）','いづ','出來'],['おもいいずる','おもひいづる（思ひ出づる）','想起的'],['はじ（恥）','はぢ','羞恥']])}
+${say('〈ふるさと〉的歌詞「思い出ずる」，原本就寫成「思ひ出づる」喔！')}`,
+
+`<h2>✨ 魔法④：兩個母音黏在一起 → 長音</h2>
+${say('有點難，慢慢看。「〇う」或「〇ふ」連在一起時，會變成長音：')}
+${T(['寫法','念法','例子'],[
+ [{t:'ア段＋う（ふ）',ja:1},{t:'オー',c:'f1'},{t:'やうやう → ようよう<br>あふぎ（扇）→ おうぎ',ja:1}],
+ [{t:'イ段＋う（ふ）',ja:1},{t:'ユー',c:'f2'},{t:'うつくしう → うつくしゅう<br>きうり → きゅうり',ja:1}],
+ [{t:'エ段＋う（ふ）',ja:1},{t:'ヨー',c:'f4'},{t:'けふ → きょう（今日）<br>てふてふ → ちょうちょう',ja:1}]])}
+${tip('「けふ」的變法：けふ →（魔法①）けう →（魔法④）きょう。兩個魔法連續用！')}`,
+
+`<h2>✨ 魔法⑤：む → ん、くわ → か</h2>
+${vs([['つねならん','つねならむ（常ならむ）','怎能永恆'],['ゆかん','ゆかむ（行かむ）','我要去'],['かし（菓子）','くわし','點心'],['かじ（火事）','くわじ','火災']])}
+${big('🎉 五個讀音魔法都學會了！')}
+${tip('〈野ばら〉的「手折りて行かん」、〈ふるさと〉的「帰らん」，原本都是「～む」。')}`
+],
+quiz:[
+ {q:'「けふ」要怎麼念？', o:['けふ','けう','きょう'], a:2, why:'けふ → けう（は行→わ行）→ きょう（エ段＋う＝ヨー）。'},
+ {q:'「にほふ」要怎麼念？', o:['におう','にほう','にふう'], a:0, why:'字中間的「ほ」→「お」、「ふ」→「う」，所以是「におう」。'},
+ {q:'「くれなゐ（紅）」要怎麼念？', o:['くれなうぃ','くれない','くれなえ'], a:1, why:'「ゐ」念成「い」。'},
+ {q:'「てふてふ」是什麼？', o:['ちょうちょう（蝴蝶）','てうてう','てふてふ（不用改）'], a:0, why:'ふ→う，「てう」是エ段＋う → ちょう。所以是ちょうちょう（蝴蝶）！'},
+ {q:'哪一個字的「は」<b>不</b>用變成「わ」？', o:['いはく（曰く）の「は」','はな（花）の「は」','かは（川）の「は」'], a:1, why:'在字頭的「は」不變。「はな」還是念「はな」。'},
+ {q:'「つねならむ」要怎麼念？', o:['つねならむ','つねならん','つねならぬ'], a:1, why:'助動詞「む」念成「ん」：つねならん。'}
+]});
+
+/* ---------- 第2課 ---------- */
+LESSONS.push({id:'L2', emoji:'👕', color:'#ff8787', title:'六套衣服：活用形', sub:'字尾跟著「後面的朋友」換衣服', screens:[
+`<h2>👕 什麼是「活用」？</h2>
+${say('你在家穿睡衣、上學穿制服、游泳穿泳衣——<b>人還是你，只有衣服換了</b>。日語的動詞也是這樣！')}
+${big('字的「頭」不變（語幹），字的「尾巴」會變（活用語尾）')}
+${B([['{書|か}','n','語幹（不變）'],['か／き／く／け','a','活用語尾（會變）']])}
+<p>字尾要穿哪一套衣服，是看<b>後面接什麼字</b>來決定的。這樣的變化叫做<b>「活用」</b>，每一套衣服叫做一個<b>「活用形」</b>。</p>`,
+
+`<h2>🌈 古文的六套衣服</h2>
+${say('古文剛好有<b>六種活用形</b>。用「{書|か}く」（寫）來看看！每種顏色要記住喔，整個課程都會用同樣的顏色。')}
+<div class="formcards">
+<div class="formcard f1"><div class="n">① 未然形</div><div class="w" lang="ja">{書|か}か＋ず</div>「還沒發生」：接「ず（不）」「む（要～）」「ば（如果）」</div>
+<div class="formcard f2"><div class="n">② 連用形</div><div class="w" lang="ja">{書|か}き＋て</div>「連接用言」：接「て」「たり」「き・けり」等</div>
+<div class="formcard f3"><div class="n">③ 終止形</div><div class="w" lang="ja">{書|か}く。</div>「句子結束」：字典裡的樣子</div>
+<div class="formcard f4"><div class="n">④ 連体形</div><div class="w" lang="ja">{書|か}く＋とき</div>「連接體言（名詞）」：後面接名詞</div>
+<div class="formcard f5"><div class="n">⑤ 已然形</div><div class="w" lang="ja">{書|か}け＋ば／ども</div>「已經發生」：接「ば（因為）」「ど・ども（雖然）」</div>
+<div class="formcard f6"><div class="n">⑥ 命令形</div><div class="w" lang="ja">{書|か}け！</div>「命令」：給我寫！</div>
+</div>
+${tip('口訣：<b>みぜん・れんよう・しゅうし・れんたい・いぜん・めいれい</b>，念三遍！')}`,
+
+`<h2>⚖️ 現代語和古語，哪裡不一樣？</h2>
+<div class="tw"><table><thead><tr><th style="background:#4dabf7;color:#fff">現代語（7種）</th><th style="background:#f76707;color:#fff">古語（6種）</th></tr></thead><tbody>
+<tr><td>未然形</td><td class="f1">未然形</td></tr>
+<tr><td>連用形</td><td class="f2">連用形</td></tr>
+<tr><td>終止形</td><td class="f3">終止形</td></tr>
+<tr><td>連体形（大多和終止形<b>一樣</b>）</td><td class="f4">連体形（常常和終止形<b>不一樣</b>！）</td></tr>
+<tr><td>仮定形</td><td class="f5">已然形</td></tr>
+<tr><td>命令形</td><td class="f6">命令形</td></tr>
+<tr><td>意志形</td><td>（沒有，用助動詞「む」）</td></tr></tbody></table></div>
+${say('最大的兩個不同：<b>連体形</b>常常長得跟終止形不一樣；還有「<b>仮定形</b>」在古文裡是「<b>已然形</b>」。')}
+${vs([['{忘|わす}れる（終止）＝{忘|わす}れる（連体）','{忘|わす}る（終止）≠ {忘|わす}るる（連体）','古文：連体形多了「る」']])}`,
+
+`<h2>🔑 超重要：「ば」前面是哪套衣服？</h2>
+${say('同樣是「～ば」，穿的衣服不同，意思就完全不一樣！')}
+<div class="formcards">
+<div class="formcard f1"><div class="n">未然形＋ば ＝「如果～」</div><div class="w" lang="ja">{急|いそ}が＋ば　{回|まわ}れ</div>如果急的話，就繞遠路。（還沒急→假設）</div>
+<div class="formcard f5"><div class="n">已然形＋ば ＝「因為～／一～就」</div><div class="w" lang="ja">{仰|あお}げ＋ば　{尊|とうと}し</div>每當仰望，就覺得（師恩）崇高。（已經在仰望）</div>
+</div>
+${tip('「未然」＝還沒有發生；「已然」＝已經是這樣了。名字就是提示！')}
+${warn('現代語的「急げば（如果急）」用的是「仮定形」；古文要用「未然形」說「急がば」。')}`,
+
+`<h2>💙 連体形：後面要接名詞</h2>
+${say('記得第0課「懐かしき日々」嗎？「き」就是形容詞穿上了<b>連体形</b>的衣服，因為後面要接名詞「日々」。')}
+${ex('{懐|なつ}かしき　{日々|ひび}','令人懷念的日子','懐かし → 懐かしき（連体形）＋名詞')}
+${ex('{遥|はる}かなる　{国|くに}','遙遠的國度','遥かなり → 遥かなる（連体形）＋名詞')}
+${ex('{別|わか}るる　{後|のち}にも','分別之後也……（〈仰げば尊し〉）','別る → 別るる（連体形）＋名詞「後」')}
+${big('看到名詞前面怪怪的「～る」「～き」「～なる」→ 八成是連体形！')}`
+],
+quiz:[
+ {q:'「ず（不）」前面要接哪一種活用形？', o:['未然形','連用形','已然形'], a:0, why:'「ず」接未然形：書か＋ず＝不寫。'},
+ {q:'「{急|いそ}がば{回|まわ}れ」的「急が」是哪一種活用形？意思是？', o:['已然形，因為急','未然形，如果急','命令形，快點急'], a:1, why:'未然形＋ば＝假設「如果～的話」。'},
+ {q:'「{仰|あお}げば{尊|とうと}し」的「仰げば」是什麼意思？', o:['如果仰望的話','每當仰望／一仰望就','不要仰望'], a:1, why:'「仰げ」是已然形，已然形＋ば＝確定條件「因為～／一～就」。'},
+ {q:'後面要接名詞（例如「とき」「日々」）時，用哪一種活用形？', o:['終止形','連体形','連用形'], a:1, why:'連体形＝連接體言（名詞）。'},
+ {q:'現代語的「仮定形」，在古文裡對應哪一種？', o:['已然形','意志形','連体形'], a:0, why:'古文沒有仮定形，那個位置是「已然形」。'},
+ {q:'「ど・ども（雖然）」前面接哪一種活用形？', o:['未然形','已然形','終止形'], a:1, why:'ど・ども接已然形，例如いろは歌「色は匂へど」。'}
+]});
+const VT = (keys) => T(['種類','例','語幹',...FH()], VERBS.filter(v=>keys.includes(v.k)).map(v=>[{t:v.type},{t:v.ex,ja:1},{t:v.stem,ja:1},...FC(v.f)]));
+/* ---------- 第3課 ---------- */
+LESSONS.push({id:'L3', emoji:'🏃', color:'#4dabf7', title:'動詞①：四段・上一段・下一段', sub:'九種變身法的前三種', screens:[
+`<h2>🏃 古文動詞有 9 種變身方式</h2>
+${say('現代語的動詞只有 4 種活用，古文卻有 <b>9 種</b>！別怕，其中很多種只有幾個字而已。')}
+<div class="tw"><table><thead><tr><th style="background:#4dabf7;color:#fff">現代語（4種）</th><th style="background:#f76707;color:#fff">古語（9種）</th></tr></thead><tbody>
+<tr><td>五段活用</td><td>四段活用</td></tr>
+<tr><td rowspan="2">上一段／下一段活用（みる）</td><td>上一段／下一段活用（みる）</td></tr>
+<tr><td>上二段／下二段活用（すぐ）</td></tr>
+<tr><td>カ行変格活用（くる）</td><td>カ行変格活用（く）</td></tr>
+<tr><td>サ行変格活用（する）</td><td>サ行変格活用（す）</td></tr>
+<tr><td>—</td><td>ナ行変格活用（しぬ）</td></tr>
+<tr><td>—</td><td>ラ行変格活用（あり）</td></tr></tbody></table></div>
+${tip('「〇段」的意思：字尾會用到五十音表裡的「幾個段（a・i・u・e・o 哪幾排）」。')}`,
+
+`<h2>4️⃣ 四段活用：最多、最常見</h2>
+${say('字尾在 <b>a・i・u・e</b> 四個段之間變來變去，所以叫「四段」。')}
+${VT(['yodan'])}
+${T(['','未然','連用','終止','連体','已然','命令'],[['母音',...FC(['a','i','u','u','e','e'])]])}
+${vs([['{思|おも}わない・{思|おも}おう','{思|おも}はず・{思|おも}はむ','現代是「五段」，多了 o 段（思おう）']])}
+${ex('{飽|あ}かず{眺|なが}む','看不膩地凝望著。（〈野ばら〉）','飽く → 飽か（未然形）＋ず')}
+${ex('{驕|おご}る{者|もの}{久|ひさ}しからず','驕傲的人不會長久。','驕る（連体形）＋名詞「者」')}`,
+
+`<h2>🔼 上一段活用：全部都是 i 段</h2>
+${say('字尾一直停在 <b>i 段</b>（上面那一段），再加「る・れ・よ」。')}
+${VT(['kami1'])}
+${big('上一段的字很少，用口訣背：<br><span lang="ja">ひ・い・き・に・み・ゐ・る</span>')}
+${T(['口訣','ひ','い','き','に','み','ゐ'],[['動詞',{t:'{干|ひ}る',ja:1},{t:'{射|い}る・{鋳|い}る',ja:1},{t:'{着|き}る',ja:1},{t:'{似|に}る・{煮|に}る',ja:1},{t:'{見|み}る',ja:1},{t:'{居|ゐ}る・{率|ゐ}る',ja:1}]])}
+${ex('{童|わらべ}は{見|み}たり','少年看見了。（〈野ばら〉）','見る → 見（連用形）＋たり')}
+${ex('{浅|あさ}き{夢|ゆめ}{見|み}じ','不再做淺薄的夢。（いろは歌）','見る → 見（未然形）＋じ（不打算）')}`,
+
+`<h2>🔽 下一段活用：只有一個字！</h2>
+${say('下一段活用的動詞，古文裡<b>只有「{蹴|け}る」（踢）一個</b>！超好記。')}
+${VT(['shimo1'])}
+${tip('現代的「蹴る」變成五段活用（蹴らない）了，古文是「蹴ず」。')}
+${big('四段：最多　上一段：ひいきにみゐる　下一段：蹴る')}`
+],
+quiz:[
+ {q:'「{飽|あ}かず」的「飽く」是哪一種活用？', o:['四段活用','上一段活用','下二段活用'], a:0, why:'接「ず」時變成「飽か」（a 段），所以是四段活用。'},
+ {q:'古文的下一段活用動詞只有哪一個？', o:['見る','蹴る','寝る'], a:1, why:'下一段只有「蹴る」一個字。'},
+ {q:'「{思|おも}ふ」的已然形是？', o:['思は','思ふ','思へ'], a:2, why:'四段：は・ひ・ふ・ふ・へ・へ。已然形是「思へ」。'},
+ {q:'下面哪一個是上一段活用？', o:['着る','書く','過ぐ'], a:0, why:'ひいきにみゐる的「き」＝着る。'},
+ {q:'「{見|み}る」的命令形是？', o:['見れ','見よ','見ろ'], a:1, why:'上一段：み・み・みる・みる・みれ・みよ。古文命令形是「見よ」。'}
+]});
+
+/* ---------- 第4課 ---------- */
+LESSONS.push({id:'L4', emoji:'🦸', color:'#845ef7', title:'動詞②：二段・變格與分辨法', sub:'上二段、下二段、カ・サ・ナ・ラ變', screens:[
+`<h2>🪜 上二段活用：i 段和 u 段兩段</h2>
+${say('字尾用到 <b>i 段和 u 段</b>兩個段，所以叫「上二段」。')}
+${VT(['kami2'])}
+${vs([['{過|す}ぎる（上一段）','{過|す}ぐ（上二段）','現代「過ぎる」→ 古文「過ぐ」'],['{過|す}ぎる{時|とき}','{過|す}ぐる{時|とき}','連体形加「る」']])}`,
+
+`<h2>🪜 下二段活用：e 段和 u 段兩段</h2>
+${say('字尾用到 <b>e 段和 u 段</b>。很多現代的「～える／～れる」動詞，古文都是下二段！')}
+${VT(['shimo2'])}
+${vs([['{尋|たず}ねる','{尋|たづ}ぬ',''],['{忘|わす}れる','{忘|わす}る',''],['{別|わか}れる','{別|わか}る',''],['{出|で}る','{出|い}づ','']])}
+${ex('{別|わか}るる{後|のち}にも　やよ{忘|わす}るな','分別以後，千萬別忘記喔。（〈仰げば尊し〉）','別る→別るる（連体形）、忘る（終止形）＋な')}
+${ex('{飽|あ}かず{眺|なが}む','看不膩地凝望。（〈野ばら〉）','眺む（下二段・終止形）＝現代「眺める」')}`,
+
+`<h2>🚪 カ行變格活用：「{来|く}」</h2>
+${say('「變格」＝不照規則走的「怪咖」。カ變只有<b>「{来|く}」（來）</b>一個字（包含「出で来」等合成字）。')}
+${VT(['ka'])}
+${ex('{千里|せんり}{寄|よ}せくる　{海|うみ}の{気|き}を','從千里外湧來的海洋氣息（〈われは海の子〉）','くる＝「来」的連体形，後面接名詞「海の気」')}
+${tip('古文的終止形是「く」，不是「くる」喔！')}`,
+
+`<h2>🛠 サ行變格活用：「す」</h2>
+${say('サ變是<b>「す」（做）</b>和<b>「おはす」</b>（在、來的尊敬語），還有很多「名詞＋す」的合成字。')}
+${VT(['sa'])}
+${ex('～せねばならぬ','一定要做～','せ（未然形）＋ね＋ば＋ならぬ')}
+${ex('～せずに','不做～就……','せ（未然形）＋ず＋に')}
+${ex('{一寸|いっすん}の{光陰|こういん}{軽|かろ}んずべからず','一寸光陰也不可輕視','軽んず＝「軽ん＋す」變濁音的サ變動詞（終止形）')}`,
+
+`<h2>💀 ナ變與 🏠 ラ變</h2>
+${say('ナ變只有<b>「{死|し}ぬ」「{往|い}ぬ（去ぬ）」</b>兩個。ラ變是<b>「あり・をり・はべり・いまそかり」</b>四個。')}
+${VT(['na','ra'])}
+${warn('ラ變的<b>終止形是「あり」（i 段）</b>！其他動詞的終止形都是 u 段，只有ラ變是怪咖。')}
+${ex('～ではあるまい','大概不是～吧','ある＝「あり」的連体形')}`,
+
+`<h2>🔍 偵探時間：怎麼分辨 9 種？</h2>
+<div class="flow">
+<div class="step"><b>步驟1：先背「少數派」</b><br>カ變：来｜サ變：す・おはす｜ナ變：死ぬ・往ぬ｜ラ變：あり・をり・はべり・いまそかり｜上一段：ひいきにみゐる｜下一段：蹴る</div>
+<div class="step"><b>步驟2：其他的，後面加「ず」</b>，看「ず」前面的音：</div>
+</div>
+${T(['加「ず」','前面是','種類'],[
+ [{t:'{書|か}か＋ず',ja:1},{t:'a 段',c:'f1'},'四段活用'],
+ [{t:'{過|す}ぎ＋ず',ja:1},{t:'i 段',c:'f2'},'上二段活用'],
+ [{t:'{尋|たづ}ね＋ず',ja:1},{t:'e 段',c:'f4'},'下二段活用']])}
+${say('因為「ず」要接<b>未然形</b>，未然形的音就會露出秘密！')}
+${ex('{出|い}づ → {出|い}でず','e 段 → 下二段活用','「青は藍より出でて」的「出で」是連用形')}`,
+
+`<h2>🎰 動詞變身機</h2>
+${say('選一個動詞，再按一套衣服，看看它怎麼變身！')}
+<div id="verb-machine"></div>`
+],
+quiz:[
+ {q:'「{過|す}ぎず」→「過ぐ」是哪一種活用？', o:['四段活用','上二段活用','下二段活用'], a:1, why:'「ず」前面是「ぎ」（i 段），而且不是上一段的成員 → 上二段。'},
+ {q:'「{別|わか}るる」的終止形是？', o:['別る','別るる','別れる'], a:0, why:'下二段：れ・れ・る・るる・るれ・れよ。終止形是「別る」。'},
+ {q:'ラ變「あり」的終止形是？', o:['ある','あり','あれ'], a:1, why:'ラ變的終止形是 i 段的「あり」，很特別！'},
+ {q:'カ變「{来|く}」的連体形是？', o:['く','くる','こ'], a:1, why:'こ・き・く・くる・くれ・こ（こよ），連体形是「くる」。'},
+ {q:'「{死|し}ぬ」是哪一種活用？', o:['四段活用','ナ行變格活用','下二段活用'], a:1, why:'死ぬ・往ぬ是ナ變的兩個成員。'},
+ {q:'「{出|い}づ」加「ず」是「出でず」，所以是？', o:['上二段活用','下二段活用','四段活用'], a:1, why:'「で」是 e 段 → 下二段活用。'}
+]});
+
+/* ---------- 第5課 ---------- */
+const AT = () => T(['種類','例','語幹','',...FH()], ADJ.flatMap(a=>[[{t:a.type},{t:a.ex,ja:1},{t:a.stem,ja:1},'本活用',...FC(a.main)],['','','','補助活用<br><span class="small">（カリ活用）</span>',...FC(a.sub)]]));
+const AVT = () => T(['種類','例','語幹',...FH()], ADJV.map(a=>[{t:a.type},{t:a.ex,ja:1},{t:a.stem,ja:1},...FC(a.f)]));
+LESSONS.push({id:'L5', emoji:'🌸', color:'#69db7c', title:'形容詞與形容動詞', sub:'「美しい」變成「美し」', screens:[
+`<h2>🌸 形容詞：「い」變成「し」</h2>
+${say('現代的形容詞用「～い」結尾，古文用<b>「～し」</b>結尾！')}
+${vs([['よい','よし','好'],['{美|うつく}しい','{美|うつく}し','美'],['{青|あお}い','{青|あを}し','青、藍'],['{尊|とうと}い','{尊|たふと}し','崇高、尊貴']])}
+${ex('{青|あお}は{藍|あい}より{出|い}でて{藍|あい}よりも{青|あお}し','青出於藍而勝於藍','「青し」＝「青い」（終止形）')}
+${tip('形容詞分兩種：<b>ク活用</b>（よし、なし）和 <b>シク活用</b>（美し）。')}`,
+
+`<h2>📋 ク活用和シク活用</h2>
+${AT()}
+${say('每種有兩排：上面是「<b>本活用</b>」，下面是「<b>補助活用</b>」（從「く＋あり」變來的，所以長得像ラ變）。')}
+${big('後面要接<b>助動詞</b>時，通常用下面的補助活用（から・かり・かる・かれ）')}
+${ex('{驕|おご}る{者|もの}{久|ひさ}しからず','驕傲的人不會長久','久し（シク）→ 久しから（補助活用・未然形）＋ず')}`,
+
+`<h2>🔍 ク？シク？怎麼分</h2>
+${say('在後面加上「なる（變成）」試試看！')}
+${T(['加「なる」','聽起來','種類'],[
+ [{t:'なく なる（なし）',ja:1},{t:'～く',c:'f2'},'ク活用'],
+ [{t:'{美|うつく}しく なる（美し）',ja:1},{t:'～しく',c:'f5'},'シク活用']])}
+${ex('{懐|なつ}かしき{日々|ひび}','令人懷念的日子','懐かしく なる → シク活用；懐かしき是連体形')}
+${ex('{浅|あさ}き{夢|ゆめ}','淺薄的夢（いろは歌）','浅く なる → ク活用；浅き是連体形')}
+${ex('{恙|つつが}なしや　{友|とも}がき','朋友們平安無恙嗎？（〈ふるさと〉）','恙なし＝ク活用・終止形')}`,
+
+`<h2>🌊 形容動詞：「だ」變成「なり」</h2>
+${say('現代的「静かだ／静かな」，古文是<b>「静かなり」（ナリ活用）</b>；還有一種<b>「堂々たり」（タリ活用）</b>。')}
+${AVT()}
+${vs([['{静|しず}かだ','{静|しづ}かなり',''],['{遥|はる}かな{国|くに}','{遥|はる}かなる{国|くに}','連体形'],['{堂々|どうどう}とした','{堂々|だうだう}たる','現代也還在用「堂々たる態度」']])}`,
+
+`<h2>🔎 在歌裡找形容動詞</h2>
+${ex('{清|きよ}らに{咲|さ}ける','清麗地盛開著（〈野ばら〉）','清らなり → 清らに（ナリ活用・連用形）')}
+${ex('{我|わ}が{世|よ}{誰|たれ}ぞ{常|つね}ならむ','這世上誰能永恆不變呢（いろは歌）','常なり → 常なら（未然形）＋む')}
+${ex('{遥|はる}かなる{国|くに}','遙遠的國度','遥かなり → 遥かなる（連体形）')}
+${big('～なら・～なり／に・～なり・～なる・～なれ<br>就是 ナリ活用 的五件衣服！')}`
+],
+quiz:[
+ {q:'現代語「{美|うつく}しい」在古文的終止形是？', o:['美しき','美し','美しかり'], a:1, why:'古文形容詞用「し」結尾：美し。'},
+ {q:'「{久|ひさ}しからず」的「久しから」是？', o:['ク活用・連用形','シク活用・補助活用的未然形','形容動詞'], a:1, why:'久しく なる → シク；接「ず」用未然形，補助活用是「しから」。'},
+ {q:'「{浅|あさ}き{夢|ゆめ}」的「浅き」是哪一種活用形？', o:['終止形','連体形','已然形'], a:1, why:'後面接名詞「夢」，所以是連体形。'},
+ {q:'「{遥|はる}かなる{国|くに}」的「遥かなる」原形是？', o:['遥かなり','遥かたり','遥かし'], a:0, why:'ナリ活用形容動詞「遥かなり」的連体形。'},
+ {q:'「なし」加「なる」→「なくなる」，所以「なし」是？', o:['ク活用','シク活用','ナリ活用'], a:0, why:'「～くなる」→ ク活用。'}
+]});
+const AUXROW = (names) => { const out=[]; names.forEach(n=>{ const [w,gsub]=n.split('@'); AUXG.forEach(g=>g.items.forEach(it=>{ if(it.w===w && (!gsub||g.g.includes(gsub))) out.push([{t:`<b>${it.w}</b>`,ja:1},{t:it.kid},...FC(it.f),{t:it.s,ja:1}]); })); }); return T(['助動詞','意思',...FH(),'接續'], out); };
+/* ---------- 第6課 ---------- */
+LESSONS.push({id:'L6', emoji:'⏰', color:'#ffa94d', title:'助動詞①：時光機（過去・完了）', sub:'き・けり・つ・ぬ・たり・り', screens:[
+`<h2>🧱 助動詞是什麼？</h2>
+${say('助動詞是「<b>黏在後面的小積木</b>」，可以替前面的字加上「過去」「不」「想要」等意思。')}
+<div class="tw"><table><thead><tr><th style="background:#4dabf7;color:#fff">現代語：種類少</th><th style="background:#f76707;color:#fff">古語：種類多</th></tr></thead><tbody>
+<tr><td>過去・完了（～た）</td><td lang="ja">き、けり、ぬ、たり（つ、り）</td></tr>
+<tr><td>打消（～ない）</td><td lang="ja">ず</td></tr>
+<tr><td>希望（～たい）</td><td lang="ja">たし</td></tr>
+<tr><td>義務（～べき）</td><td lang="ja">べし（義務・推量・可能）</td></tr>
+<tr><td>意志・推量（～う／よう）</td><td lang="ja">む（ん）、らむ（らん）</td></tr>
+<tr><td>使役（～せる／させる）</td><td lang="ja">す／さす、しむ（使役・尊敬）</td></tr>
+<tr><td>受身・可能・尊敬・自発（～れる／られる）</td><td lang="ja">る／らる</td></tr></tbody></table></div>
+${big('每個助動詞都有規定：前面的字要穿<b>哪一套衣服</b>（＝接續）')}`,
+
+`<h2>⏪ 過去：「き」和「けり」</h2>
+${AUXROW(['き','けり'])}
+${say('「き」是<b>自己親身經歷</b>的過去；「けり」是<b>聽說的過去</b>，或是「<b>原來～啊！</b>」的感嘆（詠嘆）。')}
+${ex('{兎|うさぎ}{追|お}いし　かの{山|やま}','曾經追過兔子的那座山','追ひ（連用形）＋し（「き」的連体形）')}
+${ex('{小鮒|こぶな}{釣|つ}りし　かの{川|かわ}','曾經釣過小鯽魚的那條河','釣り（連用形）＋し（「き」的連体形）')}
+${tip('「し」「しか」長得一點都不像「き」，所以要背：（せ）・○・き・し・しか・○')}`,
+
+`<h2>✅ 完了：「つ」和「ぬ」</h2>
+${AUXROW(['つ','ぬ'])}
+${say('表示「<b>～了</b>」（動作完成），也可以表示「<b>一定～</b>」（強意）。')}
+${ex('その{色|いろ}{愛|め}でつ','（少年）被那顏色迷住了（〈野ばら〉）','愛で（愛づ・連用形）＋つ（終止形）')}
+${ex('{散|ち}りぬるを','（花）雖然已經凋落了（いろは歌）','散り（連用形）＋ぬる（「ぬ」的連体形）')}
+${ex('{童|わらべ}となりにけり','就這樣長成了孩子啊（〈われは海の子〉）','なり＋に（「ぬ」連用形）＋けり（詠嘆）')}`,
+
+`<h2>🌱 完了・存續：「たり」和「り」</h2>
+${AUXROW(['たり@連用','り'])}
+${say('「たり」「り」可以表示「<b>～了</b>」，也常表示「<b>（一直）～著</b>」（存續）。')}
+${ex('{童|わらべ}は{見|み}たり','少年看見了（〈野ばら〉）','見（連用形）＋たり')}
+${ex('{清|きよ}らに{咲|さ}ける','清麗地盛開著（〈野ばら〉）','咲け（四段・已然形）＋る（「り」的連体形）')}
+${tip('「り」很挑剔：只接<b>サ變的未然形</b>和<b>四段的已然形</b>。口訣「<b>さみしい（サ未四已）</b>」！')}`,
+`<h2>🧩 組合技：にけり・にし</h2>
+${say('助動詞可以像積木一樣疊起來！')}
+${B([['なり','v','なる・連用形'],['に','a','完了「ぬ」連用形'],['けり','a','詠嘆「けり」終止形']])}
+<p>→「就這樣變成了～啊！」</p>
+${B([['{馴|なれ}','v','馴る・連用形'],['に','a','完了「ぬ」連用形'],['し','a','過去「き」連体形'],['{学|まな}びの{窓|まど}','n','名詞']])}
+<p>→「早已熟悉了的學窗」（〈仰げば尊し〉）</p>
+${big('ぬ → に（連用形），才能再接「けり」「き」')}`
+],
+quiz:[
+ {q:'「{兎|うさぎ}{追|お}いし」的「し」是什麼？', o:['形容詞的「し」','過去助動詞「き」的連体形','サ變「す」的連用形'], a:1, why:'接在連用形「追ひ」後面、又修飾名詞「山」→ 過去「き」的連体形。'},
+ {q:'「けり」除了過去，還可以表示？', o:['詠嘆（原來～啊）','否定（不～）','命令（給我～）'], a:0, why:'けり＝過去・詠嘆。「なりにけり」就是感嘆的語氣。'},
+ {q:'「{咲|さ}ける」的「る」是哪一個助動詞？', o:['受身「る」','完了・存續「り」的連体形','「ぬ」的連体形'], a:1, why:'「咲け」是四段已然形，後面接的是「り」（サ未四已），連体形是「る」。'},
+ {q:'「{散|ち}りぬる」的「ぬる」是？', o:['完了「ぬ」的連体形','否定「ず」的連体形','動詞「寝る」'], a:0, why:'「散り」是連用形，連用形＋ぬ＝完了。「ぬる」是連体形。'},
+ {q:'過去助動詞「き」的已然形是？', o:['きれ','しか','けれ'], a:1, why:'き：（せ）・○・き・し・しか・○。'}
+]});
+
+/* ---------- 第7課 ---------- */
+LESSONS.push({id:'L7', emoji:'🙅', color:'#ff6b6b', title:'助動詞②：說「不」和猜想', sub:'ず・じ・まじ・む・べし・らむ', screens:[
+`<h2>🙅 否定：「ず」</h2>
+${AUXROW(['ず'])}
+${say('「ず」＝「ない（不）」。它有兩排衣服：上面「ず・ぬ・ね」，下面「ざら・ざり・ざる・ざれ」（接其他助動詞時用）。')}
+${ex('{飽|あ}かず{眺|なが}む','看不膩地凝望','飽か（未然形）＋ず（連用形）')}
+${ex('～せねばならぬ','一定要～（不做不行）','せ＋ね（「ず」已然形）＋ば ／ なら＋ぬ（「ず」連体形）')}
+${ex('{酔|え}いもせず','也不沉醉（いろは歌）','せ（サ變未然形）＋ず')}`,
+
+`<h2>🕵️ 名偵探：兩個「ぬ」！</h2>
+${say('「ぬ」有兩種：<b>否定「ず」的連体形</b>，和<b>完了「ぬ」</b>。看前面穿哪套衣服就分得出來！')}
+<div class="formcards">
+<div class="formcard f1"><div class="n">未然形＋ぬ ＝ 不～（否定）</div><div class="w" lang="ja">ならぬ</div>「なら」是未然形 → 不行</div>
+<div class="formcard f2"><div class="n">連用形＋ぬ ＝ ～了（完了）</div><div class="w" lang="ja">{散|ち}りぬ</div>「散り」是連用形 → 凋落了</div>
+</div>
+${tip('四段動詞最好認：a 段＋ぬ是「不」；i 段＋ぬ是「了」。')}`,
+
+`<h2>🤔 「じ」和「まじ」：不打算、大概不</h2>
+${AUXROW(['じ','まじ'])}
+${ex('{浅|あさ}き{夢|ゆめ}{見|み}じ','不再做淺薄的夢（いろは歌）','見（未然形）＋じ＝不打算（打消意志）')}
+${ex('～ではあるまい','大概不是～吧','現代的「まい」，是從古文「まじ」變來的')}`,
+
+`<h2>💭 「む（ん）」：我要～／大概～吧</h2>
+${AUXROW(['む（ん）'])}
+${say('「む」念「ん」。主語是「我」時多半是<b>意志（我要～）</b>，是別人時多半是<b>推量（大概～吧）</b>。')}
+${ex('{手折|たお}りて{行|ゆ}かん','我要把你折下帶走（〈野ばら〉）','行か（未然形）＋ん＝意志')}
+${ex('{君|きみ}を{刺|さ}さん','我會刺你喔（〈野ばら〉）','刺さ（未然形）＋ん＝意志')}
+${ex('{今|いま}こそ{別|わか}れめ','現在就讓我們分別吧（〈仰げば尊し〉）','別れ（未然形）＋め（「む」的已然形）')}
+${warn('「別れめ」不是「別れ目（分別的時刻）」喔！是「む」的已然形「め」。為什麼是已然形？第9課揭曉！')}`,
+
+`<h2>📏 「べし」：應該、一定、能夠</h2>
+${AUXROW(['べし'])}
+${vs([['～べき（不活用）','べく・べから・べかり・べし・べき・べかる・べけれ','古文的べし變化很多']])}
+${ex('{一寸|いっすん}の{光陰|こういん}{軽|かろ}んずべからず','一寸光陰也不可輕視','軽んず（終止形）＋べから（未然形）＋ず＝不可以')}
+${tip('「べし」接<b>終止形</b>：所以古文正式寫法是「<b>す</b>べからず」；「するべからず」是後來的寫法。')}`,
+
+`<h2>🔭 「らむ（らん）」：現在大概正在～吧</h2>
+${AUXROW(['らむ（らん）'])}
+${say('「らむ」是猜「<b>現在看不到的地方正在發生的事</b>」。')}
+${ex('{憶良|おくら}らは{今|いま}は{罷|まか}らむ　{子|こ}{泣|な}くらむ','我憶良現在要告退了，孩子現在大概正在哭吧。（《萬葉集》山上憶良）','罷ら＋む＝意志；泣く（終止形）＋らむ＝現在推量')}
+${tip('其他猜想家族：けむ（過去大概～）、らし（好像～）、めり（看起來～）、なり（聽說～）、まし（如果～就好了）。都在速查表裡！')}`
+],
+quiz:[
+ {q:'「ならぬ」的「ぬ」是什麼意思？', o:['～了（完了）','不～（否定）','睡覺'], a:1, why:'「なら」是未然形，未然形＋ぬ＝否定「ず」的連体形。'},
+ {q:'「{行|ゆ}かん」的「ん」表示？', o:['意志：我要去','過去：去過了','否定：不去'], a:0, why:'「ん」＝「む」，主語是自己 → 意志。'},
+ {q:'「{今|いま}こそ{別|わか}れめ」的「め」是？', o:['名詞「目」','「む」的已然形','「ぬ」的命令形'], a:1, why:'む：○・○・む・む・め・○。「め」是已然形。'},
+ {q:'「{軽|かろ}んずべからず」的意思是？', o:['應該輕視','不可以輕視','大概會輕視'], a:1, why:'べから（べし未然形）＋ず ＝ 不可以。'},
+ {q:'「{見|み}じ」的「じ」表示？', o:['不打算～（打消意志）','曾經～','想要～'], a:0, why:'じ＝打消推量・打消意志。「浅き夢見じ」＝不再做淺夢。'},
+ {q:'「べし」前面要接哪一種活用形？', o:['未然形','連用形','終止形'], a:2, why:'べし接終止形（ラ變型接連体形）。'}
+]});
+
+/* ---------- 第8課 ---------- */
+LESSONS.push({id:'L8', emoji:'🎭', color:'#20c997', title:'助動詞③：被動・使役・斷定・希望', sub:'る・らる・す・さす・しむ・なり・たし', screens:[
+`<h2>🎭 「る・らる」：被～、能～、不由得～</h2>
+${AUXROW(['る','らる'])}
+${say('一個助動詞有四種意思：<b>受身</b>（被）、<b>尊敬</b>、<b>可能</b>（能）、<b>自發</b>（不由得）。')}
+${ex('{人|ひと}に{笑|わら}はる','被別人笑','笑は（四段未然形）＋る＝受身')}
+${ex('{故郷|ふるさと}の{思|おも}ひ{出|い}でらる','不由得想起故鄉','思ひ出で（下二段未然形）＋らる＝自發')}
+${tip('四段・ナ變・ラ變（未然形是 a 段）接「る」，其他接「らる」。和現代的れる／られる很像！')}`,
+
+`<h2>👉 「す・さす・しむ」：叫別人去做</h2>
+${AUXROW(['す','さす','しむ'])}
+${ex('{子|こ}に{書|か}かす','叫孩子寫','書か（四段未然形）＋す＝使役')}
+${ex('{子|こ}に{見|み}さす','讓孩子看','見（上一段未然形）＋さす＝使役')}
+${tip('「す・さす」的分法和「る・らる」一樣：a 段接「す」，其他接「さす」。「しむ」什麼都能接。')}`,
+
+`<h2>🟰 斷定「なり」「たり」：是～</h2>
+${AUXROW(['なり@體言','たり@體言'])}
+${warn('「たり」有兩個：<b>第6課完了的たり（接連用形）</b>和這裡<b>斷定的たり（接體言）</b>，要看前面是什麼來分辨。')}
+${ex('{時|とき}は{金|かね}なり','時間就是金錢','金（名詞）＋なり（斷定・終止形）')}
+${ex('{苫屋|とまや}こそ　わがなつかしき{住家|すみか}なれ','茅草小屋正是我懷念的家（〈われは海の子〉）','住家（名詞）＋なれ（「なり」的已然形）')}
+${tip('另外還有一個<b>傳聞推定的「なり」</b>（聽說～），它接<b>終止形</b>，和接名詞・連体形的斷定「なり」不一樣。')}`,
+
+`<h2>💖 希望「たし」「まほし」：好想～</h2>
+${AUXROW(['たし','まほし'])}
+${vs([['～たい','～たし',''],['～たかった・～たくない・～たければ','たく・たから・たかり・たし・たき・たけれ','古文的たし變化很多']])}
+${ex('{行|ゆ}きたし','好想去','行き（連用形）＋たし')}
+${ex('{見|み}まほし','好想看','見（未然形）＋まほし')}`,
+
+`<h2>🪞 「ごとし」：像～一樣</h2>
+${AUXROW(['ごとし'])}
+${ex('ただ{春|はる}の{夜|よ}の{夢|ゆめ}のごとし','就像春夜的一場夢一樣（《平家物語》）','夢＋の＋ごとし＝像夢一樣')}
+${big('助動詞三課結束！🎉<br>表格太多記不住？到「📚 速查表」隨時查。')}`
+],
+quiz:[
+ {q:'「{笑|わら}はる」的「る」表示？', o:['被～（受身）','～了（完了）','存續'], a:0, why:'笑は（四段未然形）＋る → 受身「被笑」。'},
+ {q:'「{見|み}る」（上一段）要表示「讓～看」時接哪一個？', o:['す','さす','る'], a:1, why:'四段・ナ變・ラ變以外的動詞接「さす」：見さす。'},
+ {q:'「{時|とき}は{金|かね}なり」的「なり」是？', o:['傳聞「なり」','斷定「なり」','動詞「なる」'], a:1, why:'接在名詞「金」後面，表示「是～」→ 斷定。'},
+ {q:'「～たし」等於現代語的？', o:['～たい','～た','～たり'], a:0, why:'たし＝希望，現代的「～たい」。'},
+ {q:'「{夢|ゆめ}のごとし」的意思是？', o:['像夢一樣','不是夢','想做夢'], a:0, why:'ごとし＝比況「像～一樣」。'}
+]});
+
+/* ---------- 第9課 ---------- */
+LESSONS.push({id:'L9', emoji:'🔗', color:'#cc5de8', title:'助詞與超酷的「係り結び」', sub:'こそ～已然形、ぞ～連体形', screens:[
+`<h2>🔗 助詞：不會變身的黏合劑</h2>
+${say('助詞<b>沒有活用</b>（不會換衣服），負責把詞黏在一起、加上語氣。古文助詞有六大類：')}
+<ul class="list">
+<li><span class="grp" style="background:#1c7ed6">格助詞</span> 名詞的角色：が・の・を・に・へ・と・より・にて・して</li>
+<li><span class="grp" style="background:#e8590c">接續助詞</span> 接兩句話：ば・ど・ども・て・つつ・ながら…</li>
+<li><span class="grp" style="background:#2b8a3e">副助詞</span> 加味道：だに・すら・さへ・のみ・ばかり…</li>
+<li><span class="grp" style="background:#862e9c">係助詞</span> 魔法開關：は・も・ぞ・なむ・や・か・こそ</li>
+<li><span class="grp" style="background:#c2255c">終助詞</span> 句尾心情：な・ばや・なむ・かな…</li>
+<li><span class="grp" style="background:#495057">間投助詞</span> 調語氣：や・を</li></ul>`,
+
+`<h2>🧭 格助詞：「の」可以當「が」！</h2>
+${ex('{白浪|しらなみ}の　{騒|さわ}ぐ{磯部|いそべ}の','白浪喧騰的海邊（〈われは海の子〉）','「白浪の騒ぐ」＝「白浪が騒ぐ」：「の」是主格')}
+${ex('わがなつかしき{住家|すみか}','我懷念的家','「わが」＝「私の」：「が」是連體修飾格（～的）')}
+${ex('{青|あお}は{藍|あい}より{出|い}でて{藍|あい}よりも{青|あお}し','青從藍中提煉出來，卻比藍更青','第一個「より」＝從（起點），第二個「より」＝比（比較）')}
+${tip('古文的「が」和「の」很像，都可以表示「主語」或「～的」。')}`,
+
+`<h2>🌉 接續助詞：如果、因為、雖然</h2>
+${T(['助詞','接在','意思','例子'],[
+ [{t:'ば',ja:1},{t:'未然形',c:'f1'},'如果～',{t:'{急|いそ}がば{回|まわ}れ',ja:1}],
+ [{t:'ば',ja:1},{t:'已然形',c:'f5'},'因為～／一～就',{t:'{仰|あお}げば{尊|とうと}し',ja:1}],
+ [{t:'ど・ども',ja:1},{t:'已然形',c:'f5'},'雖然～',{t:'{色|いろ}は{匂|にお}へど',ja:1}],
+ [{t:'て',ja:1},{t:'連用形',c:'f2'},'～然後',{t:'{出|い}でて',ja:1}],
+ [{t:'つつ',ja:1},{t:'連用形',c:'f2'},'一邊～／反覆～',{t:'{見|み}つつ',ja:1}]])}
+${ex('{色|いろ}は{匂|にお}へど　{散|ち}りぬるを','花色雖然豔麗，終究會凋落','匂へ（已然形）＋ど＝雖然')}`,
+
+`<h2>✨ 副助詞：只、連、甚至</h2>
+${T(['助詞','意思'],[[{t:'のみ',ja:1},'只～（限定）'],[{t:'ばかり',ja:1},'只～／大約～'],[{t:'だに',ja:1},'連～都（類推）／至少～也好'],[{t:'すら',ja:1},'連～都（類推）'],[{t:'さへ',ja:1},'甚至還～（添加）'],[{t:'まで',ja:1},'到～為止／甚至到～程度']])}
+${warn('古文的「さへ」是「<b>連～也加上去</b>」（添加）；現代的「さえ」意思比較像古文的「だに・すら」。')}`,
+
+`<h2>🪄 係り結び：魔法開關</h2>
+${say('句子中間出現某些<b>係助詞</b>時，句尾就<b>不能用終止形</b>，要換成別的衣服！這叫「<b>係り結び</b>」。')}
+${T(['係助詞（開關）','意思','句尾變成'],[
+ [{t:'ぞ・なむ',ja:1},'強調',{t:'連体形',c:'f4'}],
+ [{t:'や・か',ja:1},'疑問・反語',{t:'連体形',c:'f4'}],
+ [{t:'こそ',ja:1},'強調（最強！）',{t:'已然形',c:'f5'}]])}
+${big('ぞ・なむ・や・か → 連体形<br>こそ → 已然形')}
+<p>試試看：按下開關，看句尾怎麼變！</p>
+<div id="kakari-switch"></div>`,
+
+`<h2>🎯 在諺語和歌裡找係り結び</h2>
+${ex('{好|す}きこそ{物|もの}の{上手|じょうず}なれ','正因為喜歡，才能成為高手','こそ → なれ（斷定「なり」的已然形）')}
+${ex('{今|いま}こそ{別|わか}れめ','現在就讓我們分別吧','こそ → め（「む」的已然形）← 第7課的謎底！')}
+${ex('{苫屋|とまや}こそ　わがなつかしき{住家|すみか}なれ','茅草小屋正是我懷念的家','こそ → なれ（已然形）')}
+${ex('{忘|わす}るる{間|ま}ぞなき','沒有一刻忘記','ぞ → なき（「なし」的連体形）')}
+${ex('{我|わ}が{世|よ}{誰|たれ}ぞ{常|つね}ならむ','這世上誰能永恆不變','ぞ → む（「む」的連体形，形狀和終止形一樣）')}
+${ex('いつの{日|ひ}にか{帰|かえ}らん','要在哪一天才能回去呢','か → ん（「む」的連体形）')}`,
+
+`<h2>💬 終助詞：句尾的心情</h2>
+${T(['助詞','意思','接在'],[
+ [{t:'な',ja:1},'不要～！（禁止）',{t:'終止形',c:'f3'}],
+ [{t:'な～そ',ja:1},'請不要～',{t:'連用形',c:'f2'}],
+ [{t:'ばや',ja:1},'（我）好想～',{t:'未然形',c:'f1'}],
+ [{t:'なむ',ja:1},'希望（別人）～',{t:'未然形',c:'f1'}],
+ [{t:'かな',ja:1},'真是～啊！（詠嘆）','體言・連体形']])}
+${ex('やよ{忘|わす}るな','千萬不要忘記喔（〈仰げば尊し〉）','忘る（終止形）＋な＝禁止')}
+${ex('やよ{励|はげ}めよ','好好努力吧！','励め（四段命令形）＋よ（呼喚）')}`
+],
+quiz:[
+ {q:'句中有「こそ」時，句尾要用哪一種活用形？', o:['連体形','已然形','終止形'], a:1, why:'こそ → 已然形。'},
+ {q:'「{好|す}きこそ{物|もの}の{上手|じょうず}なれ」的「なれ」原本是？', o:['なり（終止形）','なる（動詞）','なれる（現代語）'], a:0, why:'斷定「なり」因為「こそ」變成已然形「なれ」。'},
+ {q:'「{忘|わす}るる{間|ま}ぞなき」的「なき」為什麼不是「なし」？', o:['因為「ぞ」，要用連体形','因為是過去式','因為是命令'], a:0, why:'ぞ → 連体形，「なし」的連体形是「なき」。'},
+ {q:'「{白浪|しらなみ}の{騒|さわ}ぐ」的「の」相當於？', o:['～の（的）','～が（主語）','～を（受詞）'], a:1, why:'這個「の」是主格，＝「白浪が騒ぐ」。'},
+ {q:'「{忘|わす}るな」的「な」表示？', o:['詠嘆','禁止（不要～）','疑問'], a:1, why:'終助詞「な」接終止形＝禁止。'},
+ {q:'「{色|いろ}は{匂|にお}へど」的「ど」意思是？', o:['如果','因為','雖然'], a:2, why:'已然形＋ど＝逆接確定「雖然～」。'}
+]});
+/* ---------- 第10課：總複習 ---------- */
+LESSONS.push({id:'L10', emoji:'🎤', color:'#f06595', title:'總複習：用文法重新唱歌', sub:'四首歌＋いろは歌，一句一句拆解', screens:[
+`<h2>🎤 用學到的文法，重新聽懂歌！</h2>
+${say('每一句都拆成彩色積木，顏色代表詞類。先聽歌，再一句一句看吧！')}
+${LEGEND}
+${tip('小提醒：歌詞照投影片的寫法，大多用現代假名（例如「追いし」原本寫「追ひし」）。')}`,
+
+`<h2>🌹 野ばら（野玫瑰）</h2>
+${yt(SONGS.nobara.url,'野ばら')}${LEGEND}
+<div class="song">
+${line('{童|わらべ}は{見|み}たり　{野中|のなか}のばら','少年看見了——原野中的玫瑰。',[['{童|わらべ}','n','少年'],['は','p','係助詞'],['{見|み}','v','見る・連用形'],['たり','a','完了・終止形'],['{野中|のなか}','n','原野中'],['の','p','格助詞'],['ばら','n','玫瑰']])}
+${line('{清|きよ}らに{咲|さ}ける　その{色|いろ}{愛|め}でつ','那清麗盛開的顏色，令他看得入迷。',[['{清|きよ}らに','k','清らなり・連用形'],['{咲|さ}け','v','咲く・已然形'],['る','a','存續「り」・連体形'],['その{色|いろ}','n','那顏色'],['{愛|め}で','v','愛づ（下二）・連用形'],['つ','a','完了・終止形']],'「咲ける」＝四段已然形＋り（サ未四已）')}
+${line('{飽|あ}かず{眺|なが}む','怎麼看都不膩，一直凝望著。',[['{飽|あ}か','v','飽く・未然形'],['ず','a','打消・連用形'],['{眺|なが}む','v','眺む（下二）・終止形']])}
+${line('{紅|くれない}におう　{野中|のなか}のばら','鮮紅耀眼的原野玫瑰。',[['{紅|くれない}','n','鮮紅（くれなゐ）'],['に','p','格助詞'],['におう','v','にほふ（四段）・連体形'],['{野中|のなか}のばら','n','原野的玫瑰']],'歷史假名「くれなゐにほふ」；古語「にほふ」多指顏色鮮豔耀眼')}
+${line('{手折|たお}りて{行|ゆ}かん　{野中|のなか}のばら','「我要把你折下帶走，原野的玫瑰！」',[['{手折|たお}り','v','手折る・連用形'],['て','p','接續助詞'],['{行|ゆ}か','v','行く・未然形'],['ん','a','意志「む」・終止形']],'歷史假名「たをりてゆかむ」')}
+${line('{手折|たお}らば{手折|たお}れ　{思|おも}い{出|で}ぐさに','「要折就折吧，就當作留念——」',[['{手折|たお}ら','v','未然形'],['ば','p','如果（假設）'],['{手折|たお}れ','v','命令形'],['{思|おも}い{出|で}ぐさ','n','紀念品'],['に','p','格助詞']],'未然形＋ば＝如果；最後是命令形')}
+${line('{君|きみ}を{刺|さ}さん','「我會刺你喔。」',[['{君|きみ}','n','你'],['を','p','格助詞'],['{刺|さ}さ','v','刺す・未然形'],['ん','a','意志「む」・終止形']])}
+</div>`,
+
+`<h2>🏞 ふるさと（故鄉）①</h2>
+${yt(SONGS.furusato.url,'ふるさと')}${LEGEND}
+<div class="song">
+${line('{兎|うさぎ}{追|お}いし　かの{山|やま}','曾經追過兔子的那座山，',[['{兎|うさぎ}','n','兔子'],['{追|お}い','v','追ふ・連用形'],['し','a','過去「き」・連体形'],['かの{山|やま}','n','那座山']])}
+${line('{小鮒|こぶな}{釣|つ}りし　かの{川|かわ}','曾經釣過小鯽魚的那條河，',[['{小鮒|こぶな}','n','小鯽魚'],['{釣|つ}り','v','釣る・連用形'],['し','a','過去「き」・連体形'],['かの{川|かわ}','n','那條河']])}
+${line('{夢|ゆめ}はいまも　めぐりて','至今仍在夢裡縈繞，',[['{夢|ゆめ}','n','夢'],['は','p','係助詞'],['いま','n','現在'],['も','p','係助詞'],['めぐり','v','めぐる・連用形'],['て','p','接續助詞']])}
+${line('{忘|わす}れがたき　ふるさと','難以忘懷的故鄉。',[['{忘|わす}れ','v','忘る（下二）・連用形'],['がたき','j','がたし（難以～・ク活用）・連体形'],['ふるさと','n','故鄉']])}
+${line('いかにいます　{父母|ちちはは}','父母親可安好？',[['いかに','n','如何（副詞）'],['います','v','「います」（在的尊敬語・四段）・連体形'],['{父母|ちちはは}','n','父母']])}
+${line('{恙|つつが}なしや　{友|とも}がき','朋友們都平安無恙嗎？',[['{恙|つつが}なし','j','恙なし（ク活用）・終止形'],['や','p','疑問「～嗎？」'],['{友|とも}がき','n','朋友們']])}
+</div>`,
+
+`<h2>🏞 ふるさと（故鄉）②</h2>
+${yt(SONGS.furusato.url,'ふるさと')}
+<div class="song">
+${line('{雨|あめ}に{風|かぜ}に　つけても','每逢下雨、每逢颳風，',[['{雨|あめ}に{風|かぜ}に','n','雨啊風啊'],['つけ','v','つく（下二）・連用形'],['て','p','接續助詞'],['も','p','係助詞']],'「～につけても」＝每當～的時候')}
+${line('{思|おも}い{出|い}ずる　ふるさと','總會想起的故鄉。',[['{思|おも}い{出|い}ずる','v','思ひ出づ（下二）・連体形'],['ふるさと','n','故鄉']],'歷史假名「思ひ出づる」：ぢ・づ→じ・ず')}
+${line('こころざしを　はたして','實現了志向之後，',[['こころざし','n','志向'],['を','p','格助詞'],['はたし','v','果たす・連用形'],['て','p','接續助詞']])}
+${line('いつの{日|ひ}にか　{帰|かえ}らん','總有一天要回去吧（要在哪一天回去呢）。',[['いつの{日|ひ}','n','哪一天'],['に','p','格助詞'],['か','p','係助詞（疑問）'],['{帰|かえ}ら','v','帰る・未然形'],['ん','a','意志「む」・連体形']],'か → 連体形（係り結び）')}
+${line('{山|やま}はあおき　ふるさと','山巒青翠的故鄉，',[['{山|やま}は','n','山'],['あおき','j','青し（ク）・連体形'],['ふるさと','n','故鄉']])}
+${line('{水|みず}は{清|きよ}き　ふるさと','流水清澈的故鄉。',[['{水|みず}は','n','水'],['{清|きよ}き','j','清し（ク）・連体形'],['ふるさと','n','故鄉']])}
+</div>`,
+
+`<h2>🌊 われは海の子</h2>
+${yt(SONGS.umi.url,'われは海の子')}${LEGEND}
+<div class="song">
+${line('われは{海|うみ}の{子|こ}　{白浪|しらなみ}の','我是大海的孩子。白浪——',[['われ','n','我'],['は','p','係助詞'],['{海|うみ}の{子|こ}','n','大海的孩子'],['{白浪|しらなみ}','n','白浪'],['の','p','格助詞・主格（＝が）']])}
+${line('{騒|さわ}ぐ{磯部|いそべ}の　{松原|まつばら}に','喧騰的海邊松林裡，',[['{騒|さわ}ぐ','v','騒ぐ・連体形'],['{磯部|いそべ}','n','海邊'],['の','p','格助詞'],['{松原|まつばら}','n','松林'],['に','p','格助詞']])}
+${line('{煙|けむり}たなびく　{苫屋|とまや}こそ','炊煙裊裊的茅草小屋，',[['{煙|けむり}','n','煙'],['たなびく','v','たなびく・連体形'],['{苫屋|とまや}','n','茅草小屋'],['こそ','p','係助詞（強調）']])}
+${line('わがなつかしき　{住家|すみか}なれ。','正是我懷念的家。',[['わ','n','我'],['が','p','格助詞（＝の）'],['なつかしき','j','なつかし（シク）・連体形'],['{住家|すみか}','n','家'],['なれ','a','斷定「なり」・已然形']],'こそ → なれ（已然形）：係り結び！')}
+${line('{生|う}まれて{潮|しお}に　{浴|ゆあみ}して','一出生就在海潮裡洗澡，',[['{生|う}まれ','v','生まる（下二）・連用形'],['て','p','接續助詞'],['{潮|しお}','n','海潮（しほ）'],['に','p','格助詞'],['{浴|ゆあみ}','n','洗澡'],['し','v','す（サ變）・連用形'],['て','p','接續助詞']])}
+${line('{浪|なみ}を{子守|こもり}の　{歌|うた}と{聞|き}き','把海浪聲當作搖籃曲來聽，',[['{浪|なみ}','n','浪'],['を','p','格助詞'],['{子守|こもり}の{歌|うた}','n','搖籃曲'],['と','p','格助詞'],['{聞|き}き','v','聞く・連用形']])}
+${line('{千里|せんり}{寄|よ}せくる　{海|うみ}の{気|き}を','把從千里外湧來的海洋氣息，',[['{千里|せんり}','n','千里'],['{寄|よ}せ','v','寄す（下二）・連用形'],['くる','v','来（カ變）・連体形'],['{海|うみ}の{気|き}','n','海的氣息'],['を','p','格助詞']])}
+${line('{吸|す}ひて{童|わらべ}と　なりにけり','吸進身體，就這樣長成了孩子啊。',[['{吸|す}ひ','v','吸ふ・連用形'],['て','p','接續助詞'],['{童|わらべ}','n','孩子'],['と','p','格助詞'],['なり','v','なる・連用形'],['に','a','完了「ぬ」・連用形'],['けり','a','詠嘆「けり」・終止形']],'「吸ひ」是歷史假名，念「すい」')}
+</div>`,
+
+`<h2>🎓 仰げば尊し ①</h2>
+${yt(SONGS.aogeba.url,'仰げば尊し')}${LEGEND}
+<div class="song">
+${line('{仰|あお}げば{尊|とうと}し　{我|わ}が{師|し}の{恩|おん}','每當仰望，就感到老師的恩情多麼崇高。',[['{仰|あお}げ','v','仰ぐ・已然形'],['ば','p','確定條件（每當）'],['{尊|とうと}し','j','尊し（ク）・終止形'],['{我|わ}が','n','我的'],['{師|し}の{恩|おん}','n','師恩']],'已然形＋ば＝「每當～／因為～」，不是「如果」')}
+${line('{教|おしえ}の{庭|にわ}にも　はや{幾年|いくとせ}','在這學習的園地，轉眼已經好幾年。',[['{教|おしえ}の{庭|にわ}','n','學校'],['に','p','格助詞'],['も','p','係助詞'],['はや','n','已經（副詞）'],['{幾年|いくとせ}','n','好幾年']])}
+${line('{思|おも}えばいと{疾|と}し　この{年月|としつき}','回想起來，這些歲月過得好快。',[['{思|おも}え','v','思ふ・已然形'],['ば','p','確定條件'],['いと','n','非常（副詞）'],['{疾|と}し','j','疾し（快・ク）・終止形'],['この{年月|としつき}','n','這歲月']],'歷史假名「思へば」')}
+${line('{今|いま}こそ{別|わか}れめ　いざさらば','現在就讓我們分別吧，再見了！',[['{今|いま}','n','現在'],['こそ','p','係助詞'],['{別|わか}れ','v','別る（下二）・未然形'],['め','a','意志「む」・已然形'],['いざ','n','來吧（感動詞）'],['さらば','n','再見']],'こそ → め（已然形）。不是「別れ目」！')}
+${line('{互|たがい}に{睦|むつ}みし　{日|ひ}ごろの{恩|おん}','平日裡彼此親近友愛的恩情，',[['{互|たがい}に','n','互相'],['{睦|むつ}み','v','睦む・連用形'],['し','a','過去「き」・連体形'],['{日|ひ}ごろの{恩|おん}','n','平日的恩情']])}
+${line('{別|わか}るる{後|のち}にも　やよ{忘|わす}るな','分別以後，千萬不要忘記喔。',[['{別|わか}るる','v','別る（下二）・連体形'],['{後|のち}','n','之後'],['に','p','格助詞'],['も','p','係助詞'],['やよ','n','喂、啊（感動詞）'],['{忘|わす}る','v','忘る（下二）・終止形'],['な','p','終助詞（禁止）']])}
+</div>`,
+
+`<h2>🎓 仰げば尊し ②</h2>
+${yt(SONGS.aogeba.url,'仰げば尊し')}
+<div class="song">
+${line('{身|み}を{立|た}て{名|な}をあげ　やよ{励|はげ}めよ','要出人頭地、揚名立萬，好好努力吧！',[['{身|み}を','n','自己'],['{立|た}て','v','立つ（下二）・連用形'],['{名|な}を','n','名聲'],['あげ','v','あぐ（下二）・連用形'],['やよ','n','感動詞'],['{励|はげ}め','v','励む・命令形'],['よ','p','呼喚']])}
+${line('{朝夕|あさゆう}{馴|なれ}にし　{学|まな}びの{窓|まど}','從早到晚早已熟悉的學習窗前，',[['{朝夕|あさゆう}','n','早晚'],['{馴|なれ}','v','馴る（下二）・連用形'],['に','a','完了「ぬ」・連用形'],['し','a','過去「き」・連体形'],['{学|まな}びの{窓|まど}','n','學窗']])}
+${line('{蛍|ほたる}の{灯火|ともしび}　{積|つ}む{白雪|しらゆき}','螢火蟲的微光、堆積的白雪（螢雪苦讀），',[['{蛍|ほたる}の{灯火|ともしび}','n','螢火'],['{積|つ}む','v','積む・連体形'],['{白雪|しらゆき}','n','白雪']])}
+${line('{忘|わす}るる{間|ま}ぞなき　ゆく{年月|としつき}','在流逝的歲月裡，沒有一刻忘記。',[['{忘|わす}るる','v','忘る（下二）・連体形'],['{間|ま}','n','時候'],['ぞ','p','係助詞'],['なき','j','なし・連体形'],['ゆく','v','行く・連体形'],['{年月|としつき}','n','歲月']],'ぞ → なき（連体形）：係り結び！')}
+${line('{今|いま}こそ{別|わか}れめ　いざさらば','現在就讓我們分別吧，再見了！',null,'こそ～め：係り結び')}
+</div>`,
+
+`<h2>🎶 いろは歌（最後的挑戰）</h2>
+${LEGEND}
+<div class="song">
+${line('{色|いろ}は{匂|にお}えど　{散|ち}りぬるを','花色雖然豔麗，終究會凋落，',[['{色|いろ}','n','花色'],['は','p','係助詞'],['{匂|にお}え','v','匂ふ・已然形'],['ど','p','雖然（逆接）'],['{散|ち}り','v','散る・連用形'],['ぬる','a','完了「ぬ」・連体形'],['を','p','接續助詞']])}
+${line('{我|わ}が{世|よ}{誰|たれ}ぞ　{常|つね}ならん','這世上誰能永恆不變呢？',[['{我|わ}が{世|よ}','n','我們的世間'],['{誰|たれ}','n','誰'],['ぞ','p','係助詞'],['{常|つね}なら','k','常なり・未然形'],['ん','a','推量「む」・連体形']],'ぞ → む（連体形）')}
+${line('{有為|うい}の{奥山|おくやま}　{今日|きょう}{越|こ}えて','今天越過無常人世的深山，',[['{有為|うい}の{奥山|おくやま}','n','無常的深山'],['{今日|きょう}','n','けふ→きょう'],['{越|こ}え','v','越ゆ（下二）・連用形'],['て','p','接續助詞']])}
+${line('{浅|あさ}き{夢|ゆめ}{見|み}じ　{酔|え}いもせず','不再做淺薄的夢，也不再沉醉。',[['{浅|あさ}き','j','浅し・連体形'],['{夢|ゆめ}','n','夢'],['{見|み}','v','見る・未然形'],['じ','a','打消意志'],['{酔|え}い','v','酔ふ（ゑふ）・連用形'],['も','p','係助詞'],['せ','v','す・未然形'],['ず','a','打消']])}
+</div>
+${big('🏆 你已經能自己拆解古文了！')}`
+],
+quiz:[
+ {q:'〈野ばら〉「{清|きよ}らに{咲|さ}ける」的「る」是？', o:['存續「り」的連体形','受身「る」','動詞「ける」'], a:0, why:'咲け（四段已然形）＋り → 連体形「る」，意思是「盛開著的」。'},
+ {q:'〈ふるさと〉「いつの{日|ひ}にか{帰|かえ}らん」的「ん」為什麼是連体形？', o:['因為前面有係助詞「か」','因為後面接名詞','因為是命令'], a:0, why:'か → 連体形（係り結び）。「む」的連体形和終止形同樣是「む（ん）」。'},
+ {q:'〈われは海の子〉「なりにけり」的意思是？', o:['不會成為','就這樣成為了～啊','想要成為'], a:1, why:'に（完了「ぬ」）＋けり（詠嘆）＝「就這樣變成了～啊」。'},
+ {q:'〈仰げば尊し〉「やよ{忘|わす}るな」是？', o:['不要忘記喔','已經忘記了','忘記吧'], a:0, why:'忘る（終止形）＋な（禁止）。'},
+ {q:'〈仰げば尊し〉「{朝夕|あさゆう}{馴|なれ}にし」的「にし」是？', o:['格助詞「に」＋副助詞「し」','完了「ぬ」連用形＋過去「き」連体形','否定'], a:1, why:'馴れ＋に（ぬ・連用形）＋し（き・連体形）＝早已熟悉了的。'},
+ {q:'いろは歌「{浅|あさ}き{夢|ゆめ}{見|み}じ」的「じ」是？', o:['過去','打消意志（不打算）','斷定'], a:1, why:'見（未然形）＋じ＝不打算做（夢）。'}
+]});
+/* ===== 進度（localStorage） ===== */
+const KEY='kobun-course-progress-v1';
+let P; try{P=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){P={};}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(P));}catch(e){}};
+const lp=id=>P[id]||(P[id]={seen:0,best:null,total:null,done:false});
+const app=document.getElementById('app');
+document.getElementById('logo').innerHTML=FOX()+'<span>古文狐小文的文語文法教室</span>';
+function go(h){ if(location.hash===h) route(); else location.hash=h; }
+window.addEventListener('hashchange',route);
+const CHEER_OK=['太棒了！🎉','答對了！你好聰明 ✨','完美！小文狐為你拍手 👏','厲害！繼續保持 💪','好強！古文達人就是你 🌟'];
+const CHEER_NG=['沒關係，看看說明就懂了 🌱','差一點點！錯誤是學習的好朋友 💡','別灰心，小文狐陪你一起 🦊','再想一下，你一定可以的 🍀'];
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+function stars(score,total){ if(total==null) return ''; const r=score/total; const n=r>=0.99?3:r>=0.6?2:r>0?1:0; return '⭐'.repeat(n)+'☆'.repeat(3-n); }
+
+/* ===== 首頁 ===== */
+function home(){
+  const done=LESSONS.filter(l=>lp(l.id).done).length;
+  const pct=Math.round(done/LESSONS.length*100);
+  const next=LESSONS.find(l=>!lp(l.id).done);
+  app.innerHTML=`
+  <div class="card hero">${FOX()}<div class="txt"><h1>${R('{古文|こぶん}文法，小朋友也能學會！')}</h1>
+  <p>${R('跟著古文狐「小文」，從你聽過的諺語和歌開始，一步一步解開<b>日文古文（{文語|ぶんご}）</b>的祕密。')}</p>
+  ${next?`<button class="btn" onclick="go('#/lesson/${LESSONS.indexOf(next)}')">${done?'▶ 繼續學習：':'🚀 開始第一課：'}${next.title}</button>`:`<button class="btn green" onclick="go('#/ref')">🏆 全部完成！去看速查表</button>`}</div></div>
+  <div class="card"><b>🗺 我的進度：${done} / ${LESSONS.length} 課（${pct}%）</b><div class="progress" style="margin-top:.4rem"><div style="width:${pct}%"></div></div>
+  <div class="small" style="margin-top:.4rem">進度會自動存在這台裝置的瀏覽器裡。 <a href="javascript:void(0)" onclick="if(confirm('確定要清除所有進度嗎？')){P={};save();home();}">重新開始</a></div></div>
+  <div class="grid">${LESSONS.map((l,i)=>{const s=lp(l.id);
+    const b=s.done?`<span class="badge done">${stars(s.best,s.total)}</span>`:s.seen>0?`<span class="badge part">學習中</span>`:`<span class="badge">未開始</span>`;
+    return `<div class="lcard" style="--c:${l.color}" onclick="go('#/lesson/${i}')" id="card-${l.id}">${b}<div class="em">${l.emoji}</div><div class="no">第 ${i} 課</div><div class="t">${R(l.title)}</div><div class="s">${R(l.sub)}</div></div>`;}).join('')}
+    <div class="lcard" style="--c:#74c0fc" onclick="go('#/ref')"><div class="em">📚</div><div class="no">隨時查</div><div class="t">彩色速查表</div><div class="s">動詞・形容詞・助動詞・助詞・假名規則</div></div>
+  </div>
+  <div class="foot">內容依據：〈今も使われている古語〉投影片、文語助動詞活用表、文語動詞・形容詞・形容動詞活用表、文語助詞の主な意味・用法・接続。</div>`;
+  scrollTo(0,0);
+}
+
+/* ===== 課程頁 ===== */
+function lesson(i, s){
+  const L=LESSONS[i]; if(!L) return home();
+  const n=L.screens.length; s=Math.max(0,Math.min(n-1,s|0));
+  const st=lp(L.id); st.seen=Math.max(st.seen,s+1); save();
+  app.innerHTML=`<div class="lessonbar"><button class="navbtn" onclick="go('#/')">← 回首頁</button><div class="lt">${L.emoji} 第 ${i} 課｜${R(L.title)}</div></div>
+  <div class="dots">${L.screens.map((_,k)=>`<i class="${k===s?'on':k<st.seen?'seen':''}" title="第${k+1}頁" onclick="go('#/lesson/${i}/${k}')"></i>`).join('')}<i class="q" title="小測驗" onclick="go('#/quiz/${i}')"></i></div>
+  <div class="card screen">${R(L.screens[s])}</div>
+  <div class="pager"><button class="btn gray" ${s===0?'disabled':''} onclick="go('#/lesson/${i}/${s-1}')">← 上一頁</button>
+  <span class="small" style="align-self:center">${s+1} / ${n}</span>
+  ${s<n-1?`<button class="btn" onclick="go('#/lesson/${i}/${s+1}')">下一頁 →</button>`:`<button class="btn purple" id="toQuiz" onclick="go('#/quiz/${i}')">🎯 小測驗</button>`}</div>`;
+  mountWidgets(); scrollTo(0,0);
+}
+
+/* ===== 小測驗 ===== */
+let Q=null;
+function quiz(i){
+  const L=LESSONS[i]; if(!L) return home();
+  Q={i, k:0, score:0, answered:false};
+  drawQ();
+}
+function drawQ(){
+  const L=LESSONS[Q.i], it=L.quiz[Q.k];
+  app.innerHTML=`<div class="lessonbar"><button class="navbtn" onclick="go('#/lesson/${Q.i}/0')">← 回到課程</button><div class="lt">🎯 第 ${Q.i} 課 小測驗</div></div>
+  <div class="card screen"><div class="qhead"><span>第 ${Q.k+1} 題 / 共 ${L.quiz.length} 題</span><span id="qscore">得分 ${Q.score}</span></div>
+  <div class="progress" style="height:12px"><div style="width:${Q.k/L.quiz.length*100}%"></div></div>
+  ${say(Q.k===0?'準備好了嗎？點選你覺得對的答案！':'下一題來囉！')}
+  <div class="qtext" lang="zh-Hant-TW">${R(it.q)}</div>
+  <div class="opts">${it.o.map((o,j)=>`<button class="opt" data-j="${j}" onclick="answer(${j})">${String.fromCharCode(65+j)}. ${R(o)}</button>`).join('')}</div>
+  <div id="fb"></div></div>`;
+  scrollTo(0,0);
+}
+function answer(j){
+  if(Q.answered) return; Q.answered=true;
+  const it=LESSONS[Q.i].quiz[Q.k], ok=j===it.a; if(ok) Q.score++;
+  document.querySelectorAll('.opt').forEach((b,x)=>{b.disabled=true; if(x===it.a) b.classList.add('correct'); else if(x===j) b.classList.add('wrong');});
+  const last=Q.k===LESSONS[Q.i].quiz.length-1;
+  document.getElementById('fb').innerHTML=`<div class="fb ${ok?'ok':'ng'}"><div class="m">${ok?pick(CHEER_OK):pick(CHEER_NG)}</div>${ok?'':`正確答案是 <b>${String.fromCharCode(65+it.a)}</b>。`}${R(it.why)}</div>
+  <div class="pager"><span></span><button class="btn ${last?'green':''}" id="nextQ" onclick="nextQ()">${last?'看結果 🏁':'下一題 →'}</button></div>`;
+  if(ok) confetti(6);
+  document.getElementById('qscore').textContent='得分 '+Q.score;
+}
+function nextQ(){
+  const L=LESSONS[Q.i];
+  if(Q.k<L.quiz.length-1){Q.k++;Q.answered=false;drawQ();return;}
+  const st=lp(L.id); st.done=true; st.total=L.quiz.length; st.best=Math.max(st.best||0,Q.score); save();
+  const r=Q.score/L.quiz.length;
+  const msg=r===1?'全對！你是古文小天才 🏆':r>=0.6?'很棒！再複習一下就完美了 🌟':'加油！回去再看一次課程，下次一定更好 💪';
+  const nx=LESSONS[Q.i+1];
+  app.innerHTML=`<div class="card screen result">${say(msg)}<div class="stars">${stars(Q.score,L.quiz.length)}</div>
+  <h2>答對 ${Q.score} / ${L.quiz.length} 題</h2><p class="small">最佳紀錄：${st.best} / ${st.total}</p>
+  <div class="pager" style="justify-content:center;flex-wrap:wrap"><button class="btn gray" onclick="go('#/quiz/${Q.i}')">🔁 再挑戰</button>
+  <button class="btn gray" onclick="go('#/lesson/${Q.i}/0')">📖 複習課程</button>
+  ${nx?`<button class="btn" id="nextLesson" onclick="go('#/lesson/${Q.i+1}')">下一課 →</button>`:`<button class="btn green" onclick="go('#/ref')">📚 速查表</button>`}</div></div>`;
+  confetti(r===1?40:15); scrollTo(0,0);
+}
+function confetti(n){ const em=['🎉','⭐','🌸','✨','🦊','🍁']; for(let k=0;k<n;k++){const d=document.createElement('div');d.className='confetti';d.textContent=pick(em);d.style.left=Math.random()*100+'vw';d.style.animationDelay=(Math.random()*.6)+'s';document.body.appendChild(d);setTimeout(()=>d.remove(),3200);} }
+
+/* ===== 互動小工具 ===== */
+function mountWidgets(){
+  const vm=document.getElementById('verb-machine');
+  if(vm){
+    vm.innerHTML=`<div class="machine"><label>選動詞：<select id="vmSel">${VERBS.map((v,k)=>`<option value="${k}">${v.ex.replace(/\{([^|]+)\|[^}]+\}/g,'$1')}（${v.type}）</option>`).join('')}</select></label>
+    <div class="fbtns">${FORMS.map((f,k)=>`<button class="f${k+1}" data-k="${k}">${f}</button>`).join('')}</div><div class="out" id="vmOut">👆 按一個活用形</div></div>`;
+    let cur=0;
+    const draw=()=>{const v=VERBS[+vm.querySelector('#vmSel').value]; const f=FOLLOW[cur];
+      vm.querySelectorAll('.fbtns button').forEach((b,k)=>b.classList.toggle('on',k===cur));
+      vm.querySelector('#vmOut').innerHTML=`<div class="w" lang="ja">${R(v.full[cur])}<em>${f.w==='。'||f.w==='！'?f.w:'＋'+f.w}</em></div><div>${R(v.ex)}（${v.zh}）的<b>${FORMS[cur]}</b>：${f.zh}</div><div class="small">字尾母音：${v.snd[cur]}｜現代語：${v.modern}</div>`;};
+    vm.querySelector('#vmSel').onchange=draw;
+    vm.querySelectorAll('.fbtns button').forEach(b=>b.onclick=()=>{cur=+b.dataset.k;draw();});
+    draw();
+  }
+  const ks=document.getElementById('kakari-switch');
+  if(ks){
+    const opts=[
+      {p:'は',end:'なり',form:'終止形',zh:'這是寶物。',note:'沒有魔法開關 → 照常用終止形'},
+      {p:'ぞ',end:'なる',form:'連体形',zh:'這（就）是寶物！（強調）',note:'ぞ → 連体形'},
+      {p:'なむ',end:'なる',form:'連体形',zh:'這（就）是寶物！（強調）',note:'なむ → 連体形'},
+      {p:'か',end:'なる',form:'連体形',zh:'是這個（才）是寶物嗎？（疑問）',note:'か → 連体形'},
+      {p:'こそ',end:'なれ',form:'已然形',zh:'這個才是寶物！（最強調）',note:'こそ → 已然形'}];
+    ks.innerHTML=`<div class="switch">${opts.map((o,k)=>`<button data-k="${k}">${o.p}</button>`).join('')}</div><div class="kout" id="kOut"></div>`;
+    const draw=k=>{const o=opts[k]; ks.querySelectorAll('button').forEach((b,x)=>b.classList.toggle('on',x===k));
+      ks.querySelector('#kOut').innerHTML=`<span lang="ja">これ<span class="hl">${o.p}</span>{宝|たから}<span class="hl">${o.end}</span></span><div style="font-size:1rem;font-weight:700">🇹🇼 ${o.zh}</div><div style="font-size:.9rem;color:#5f3dc4">${o.note}（斷定「なり」的${o.form}）</div>`.replace(/\{([^{}|]+)\|([^{}]+)\}/g,'<ruby>$1<rt>$2</rt></ruby>');};
+    ks.querySelectorAll('button').forEach(b=>b.onclick=()=>draw(+b.dataset.k)); draw(0);
+  }
+}
+
+/* ===== 速查表 ===== */
+const REFTABS=[
+ ['verb','🏃 動詞'],['adj','🌸 形容詞・形容動詞'],['aux','⏰ 助動詞'],['part','🔗 助詞'],['kana','📖 假名規則'],['forms','👕 活用形']
+];
+function ref(tab){
+  tab=tab||'verb';
+  let h='';
+  if(tab==='verb'){
+    h=`<h2>🏃 文語動詞活用表</h2>${T(['種類','例','語幹','行',...FH(),'現代語'],VERBS.map(v=>[{t:'<b>'+v.type+'</b>'},{t:v.ex,ja:1},{t:v.stem,ja:1},{t:v.gyo},...FC(v.f),{t:v.modern,ja:1}]))}
+    <h3>🔍 分辨方法</h3><ul class="list"><li><b>カ變</b>：来｜<b>サ變</b>：す・おはす（＋名詞す 等）｜<b>ナ變</b>：死ぬ・往ぬ（去ぬ）｜<b>ラ變</b>：あり・をり・はべり・いまそかり</li>
+    <li><b>上一段</b>：干る・射る・鋳る・着る・似る・煮る・見る・居る・率る（ひいきにみゐる）｜<b>下一段</b>：蹴る</li>
+    <li>其他：加「ず」→ <span class="fz f1">a段</span>四段　<span class="fz f2">i段</span>上二段　<span class="fz f4">e段</span>下二段</li></ul>`;
+  } else if(tab==='adj'){
+    h=`<h2>🌸 文語形容詞活用表</h2>${AT()}<p class="small">後面接助動詞時多用補助活用（カリ活用）。分法：加「なる」→「～くなる」是ク活用、「～しくなる」是シク活用。</p>
+    <h2>🌊 文語形容動詞活用表</h2>${AVT()}`;
+  } else if(tab==='aux'){
+    h=`<h2>⏰ 文語助動詞活用表</h2><p class="small">依「前面要接哪一種活用形（接續）」分顏色。「○」＝沒有這個形。</p>`+
+    AUXG.map(g=>`<h3><span class="grp" style="background:${g.c}">${g.g}</span></h3>`+T(['助動詞','意思（原表）','白話',...FH(),'活用の型','接續'],g.items.map(it=>[{t:'<b>'+it.w+'</b>',ja:1},{t:it.m,ja:1,c:'l'},{t:it.kid,c:'kid'},...FC(it.f),{t:it.t,ja:1},{t:it.s,ja:1,c:'l'}]),'wide')).join('')+
+    `<h3><span class="grp" style="background:#868e96">上代（奈良時代）の助動詞</span></h3>`+T(['助動詞','意思',...FH(),'活用の型','接續'],JODAI_AUX.map(it=>[{t:'<b>'+it.w+'</b>',ja:1},{t:it.m,ja:1},...FC(it.f),{t:it.t,ja:1},{t:it.s,ja:1,c:'l'}]));
+  } else if(tab==='part'){
+    h=`<h2>🔗 文語助詞的主要意思・用法・接續</h2>`+PARTS.map(g=>`<h3><span class="grp" style="background:${g.c}">${g.g}</span> <span class="small">${g.d}</span></h3>`+T(['助詞','意味・用法','接續'],g.items.map(r=>[{t:'<b>'+r[0]+'</b>',ja:1},{t:r[1],ja:1,c:'l'},{t:r[2],ja:1}]))).join('')+
+    `<div class="bigidea">係り結び：ぞ・なむ・や・か → <span class="fz f4">連体形</span>　こそ → <span class="fz f5">已然形</span></div>`;
+  } else if(tab==='kana'){
+    h=`<h2>📖 歷史的仮名遣い → 現代讀音</h2>`+T(['規則','舊寫法','念成','例'],[
+     ['① 字中・字尾的は行','は・ひ・ふ・へ・ほ','わ・い・う・え・お',{t:'にほふ→におう、おもふ→おもう、いはく→いわく',ja:1}],
+     ['② ゐ・ゑ・を','ゐ・ゑ・を','い・え・お',{t:'くれなゐ→くれない、こゑ→こえ、をとこ→おとこ',ja:1}],
+     ['③ ぢ・づ','ぢ・づ','じ・ず',{t:'いづ→いず、はぢ→はじ',ja:1}],
+     ['④ 長音','ア段＋う（ふ）','オー',{t:'やうやう→ようよう、あふぎ→おうぎ',ja:1}],
+     ['','イ段＋う（ふ）','ユー',{t:'うつくしう→うつくしゅう、きうり→きゅうり',ja:1}],
+     ['','エ段＋う（ふ）','ヨー',{t:'けふ→きょう、てふてふ→ちょうちょう',ja:1}],
+     ['⑤ む','む（助動詞等）','ん',{t:'ゆかむ→ゆかん、つねならむ→つねならん',ja:1}],
+     ['⑥ くわ・ぐわ','くわ・ぐわ','か・が',{t:'くわし→かし、くわじ→かじ',ja:1}]])+
+     `<h3>いろは歌</h3>`+T(['舊假名','現代寫法'],[['いろはにほへと ちりぬるを','色は匂えど 散りぬるを'],['わかよたれそ つねならむ','我が世誰ぞ 常ならん'],['うゐのおくやま けふこえて','有為の奥山 今日越えて'],['あさきゆめみし ゑひもせす','浅き夢見じ 酔いもせず']].map(r=>[{t:r[0],ja:1},{t:r[1],ja:1}]));
+  } else if(tab==='forms'){
+    h=`<h2>👕 六種活用形與常見的「後面的朋友」</h2>`+T(['活用形','意思','後面常接'],[
+     [{t:'未然形',c:'f1'},'還沒發生',{t:'ず・む・じ・る・らる・す・さす・しむ・まし・まほし・ば（如果）・で・ばや・なむ',ja:1,c:'l'}],
+     [{t:'連用形',c:'f2'},'連接用言',{t:'き・けり・つ・ぬ・たり・けむ・たし・て・つつ・ながら・用言',ja:1,c:'l'}],
+     [{t:'終止形',c:'f3'},'句子結束',{t:'。・べし・らむ・らし・めり・まじ・なり（傳聞）・とも・な（禁止）',ja:1,c:'l'}],
+     [{t:'連体形',c:'f4'},'連接名詞',{t:'体言・なり（斷定）・ごとし・が・に・を・ものの　＋　ぞ・なむ・や・か 的結び',ja:1,c:'l'}],
+     [{t:'已然形',c:'f5'},'已經發生',{t:'ば（因為／一～就）・ど・ども・り（四段）　＋　こそ 的結び',ja:1,c:'l'}],
+     [{t:'命令形',c:'f6'},'命令',{t:'。・よ',ja:1,c:'l'}]]);
+  }
+  app.innerHTML=`<div class="lessonbar"><button class="navbtn" onclick="go('#/')">← 回首頁</button><div class="lt">📚 彩色速查表</div></div>
+  <div class="tabs">${REFTABS.map(t=>`<button class="${t[0]===tab?'on':''}" onclick="go('#/ref/${t[0]}')">${t[1]}</button>`).join('')}</div>
+  <div class="card screen">${R(h)}<p class="small">色彩：${FORMS.map((f,k)=>fz(k+1,f)).join(' ')}</p></div>`;
+  scrollTo(0,0);
+}
+
+/* ===== 路由 ===== */
+function route(){
+  const h=location.hash.replace(/^#\/?/,'').split('/');
+  if(h[0]==='lesson') lesson(+h[1]||0, +h[2]||0);
+  else if(h[0]==='quiz') quiz(+h[1]||0);
+  else if(h[0]==='ref') ref(h[1]);
+  else home();
+}
+route();
+</script>
+</body>
+</html>
